@@ -1,0 +1,60 @@
+# Respect\Assertion
+
+[![Build Status](https://img.shields.io/travis/Respect/Assertion/master.svg?style=flat-square)](http://travis-ci.org/Respect/Assertion)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/Respect/Assertion/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/Respect/Assertion/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/Respect/Assertion/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/Respect/Assertion/?branch=master)
+[![Latest Version](https://img.shields.io/packagist/v/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
+[![Total Downloads](https://img.shields.io/packagist/dt/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
+[![License](https://img.shields.io/packagist/l/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
+
+The power of [Validation][] into an assertion library.
+
+This library allows to use any rule from [Validation][] as an assertion. For a
+complete list of rules, check the [list of rules][].
+
+## Installation
+
+Package is available on [Packagist][], it can be installed using [Composer][].
+
+```shell
+composer require respect/validation
+```
+
+Works on PHP 7.1 or above.
+
+## Another assertion library
+
+There are two great PHP assertion libraries that are very much known in the PHP
+community:
+
+- [beberlei/assert][]
+- [webmozart/assert][]
+
+They are both extremely easy to use and have a lot of assertions. This library
+has no intention to compete or do something better than them, the advantages and
+the reason why this library was created is that [Validation][] has **a lot** of
+rules.
+
+The idea of [Validation][] is to make easy to create chain of validations, it
+has a very clean API. This library offers a more straightforward API for when
+only a simple assertion is needed.
+
+## To-do
+
+- Allow to make assertions with [Validation][] rules
+- Allow to make assertions with `not` prefix
+- Allow to make assertions with `all` prefix
+- Allow to make assertions with `length` prefix
+- Allow to make assertions with `max` prefix
+- Allow to make assertions with `min` prefix
+- Allow to make assertions with `nullOr` prefix
+- Allow to make assertions with `any` prefix
+- Allow to make assertions with `key` prefix
+- Allow to make assertions with `attribute` prefix
+
+[beberlei/assert]: https://github.com/beberlei/assert
+[Composer]: http://getcomposer.org
+[list of rules]: http://respect.github.io/Validation/docs/validators
+[Packagist]: http://packagist.org/packages/respect/assertion
+[Validation]: http://respect.github.io/Validation
+[webmozart/assert]: https://github.com/webmozart/assert
