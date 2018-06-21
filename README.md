@@ -33,15 +33,51 @@ community:
 They are both extremely easy to use and have a lot of assertions. This library
 has no intention to compete or do something better than them, the advantages and
 the reason why this library was created is that [Validation][] has **a lot** of
-rules.
+rules and that this library also allows to use custom exceptions at runtime.
 
 The idea of [Validation][] is to make easy to create chain of validations, it
 has a very clean API. This library offers a more straightforward API for when
 only a simple assertion is needed.
 
+## Usage
+
+The examples in the document will assume that this library is available in the
+autoload and that the class `Respect\Assertion\Assert` is imported.
+
+Any rule from [Validation][] can be used by the `Assert` class if the input is
+passed as the first argument:
+
+```php
+// will throw an exception => 1 must be equals 5
+Assert::equals(1, 5);
+
+// will throw an exception => "string" must be of the type integer
+Assert::intType('string');
+
+// will not throw an exception
+Assert::odd(5);
+```
+
+The exceptions that are throw are the same that [Validation][] throws, that also
+allows message customization:
+
+```php
+// will throw an exception => 5 is the value that 1 should be
+Assert::equals(1, 5, '{{compareTo}} is the value that {{input}} should be');
+```
+
+This library also allows the use of custom exceptions:
+
+```php
+// will throw the defined DomainException
+Assert::between(42, 1, 10, true, new DomainException('Something is not right'));
+```
+
+That can be very useful if you want to throw custom exceptions. That was a great
+idea from [Malukenho][]!
+
 ## To-do
 
-- Allow to make assertions with [Validation][] rules
 - Allow to make assertions with `not` prefix
 - Allow to make assertions with `all` prefix
 - Allow to make assertions with `length` prefix
@@ -55,6 +91,7 @@ only a simple assertion is needed.
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
 [list of rules]: http://respect.github.io/Validation/docs/validators
+[Malukenho]: https://github.com/malukenho
 [Packagist]: http://packagist.org/packages/respect/assertion
 [Validation]: http://respect.github.io/Validation
 [webmozart/assert]: https://github.com/webmozart/assert

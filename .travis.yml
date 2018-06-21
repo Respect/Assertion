@@ -1,0 +1,43 @@
+sudo: false
+
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.php-cs-fixer
+
+matrix:
+  include:
+    - php: 7.1
+      env: COMPOSER_ARGUMENTS="--prefer-lowest --prefer-stable"
+    - php: 7.1
+    - php: 7.2
+    - php: nightly
+      env: COMPOSER_ARGUMENTS="--ignore-platform-reqs"
+  fast_finish: true
+
+before_script:
+  - composer update --prefer-dist ${COMPOSER_ARGUMENTS}
+
+script:
+  - vendor/bin/phpunit --configuration phpunit.xml.dist --colors --coverage-clover=coverage.clover
+  - |
+    if [[ "${TRAVIS_PHP_VERSION}" == "7.2" ]]; then
+      vendor/bin/docheader check src/ tests/
+    fi
+  - |
+    if [[ "${TRAVIS_PHP_VERSION}" == "7.2" ]]; then
+      vendor/bin/php-cs-fixer --diff --dry-run --verbose fix
+    fi
+  - |
+    if [[ "${TRAVIS_PHP_VERSION}" == "7.2" ]]; then
+      vendor/bin/phpstan analyse --level=4 src/
+    fi
+
+after_script:
+  - |
+    if [[ "${TRAVIS_PHP_VERSION}" == "7.2" ]]; then
+      wget https://scrutinizer-ci.com/ocular.phar
+      php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    fi
