@@ -76,9 +76,28 @@ Assert::between(42, 1, 10, true, new DomainException('Something is not right'));
 That can be very useful if you want to throw custom exceptions. That was a great
 idea from [Malukenho][]!
 
+### Not
+
+Assertions can be executed with the `not` prefix which will assert the opposite
+of the prefixed assertion:
+
+```php
+// will throw an exception => 2 must not be an even number
+Assert::notEven(3);
+
+// will throw an exception => 3 must not be in { 1, 2, 3, 4 }
+Assert::notIn(3, [1, 2, 3, 4]);
+```
+
+If `not` is used without a suffix, this library will use [Equals][] to assert:
+
+```php
+// will throw an exception => 42 must not be equals 42
+Assert::not(42, 42);
+```
+
 ## To-do
 
-- Allow to make assertions with `not` prefix
 - Allow to make assertions with `all` prefix
 - Allow to make assertions with `length` prefix
 - Allow to make assertions with `max` prefix
@@ -90,6 +109,7 @@ idea from [Malukenho][]!
 
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
+[Equals]: http://respect.github.io/Validation/docs/equals
 [list of rules]: http://respect.github.io/Validation/docs/validators
 [Malukenho]: https://github.com/malukenho
 [Packagist]: http://packagist.org/packages/respect/assertion
