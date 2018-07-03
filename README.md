@@ -96,9 +96,28 @@ If `not` is used without a suffix, this library will use [Equals][] to assert:
 Assert::not(42, 42);
 ```
 
+### All
+
+Assertions can be executed with the `all` prefix which will assert all elements
+in the input with the prefixed assertion:
+
+```php
+// will throw an exception => "3" in { 1, 2, "3" } must be of the type integer
+Assert::allIntType([1, 2, '3']);
+```
+
+Differently from other assertion libraries the message shows not only the item
+in the input that failed the assertion but also the input itself.
+
+If `all` is used without a suffix, this library will use [Equals][] to assert:
+
+```php
+// will throw an exception => "A" in { "A", "B", "C" } must be equals "D"
+Assert::all(['A', 'B', 'C'], 'D');
+```
+
 ## To-do
 
-- Allow to make assertions with `all` prefix
 - Allow to make assertions with `length` prefix
 - Allow to make assertions with `max` prefix
 - Allow to make assertions with `min` prefix
