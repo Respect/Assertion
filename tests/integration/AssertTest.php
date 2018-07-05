@@ -39,6 +39,9 @@ final class AssertTest extends TestCase
             ['length', ['something', 9]],
             ['lengthBetween', ['something', 1, 9]],
             ['lengthNot', ['something', 2]],
+            ['min', [[1, 2, 3], 1]],
+            ['minPositive', [[1, 2, 3]]],
+            ['minNot', [[1, 2, 3], 3]],
         ];
     }
 
@@ -72,6 +75,9 @@ final class AssertTest extends TestCase
             ['allEven', [[2, 4, 5]]],
             ['length', ['something', 2]],
             ['lengthNotPositive', ['something']],
+            ['min', [[1, 2, 3], 3]],
+            ['minPositive', [[-1, -2, -3]]],
+            ['minNot', [[1, 2, 3], 1]],
         ];
     }
 

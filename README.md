@@ -154,10 +154,47 @@ If `length` is used without a suffix, this library will use [Equals][] to assert
 Assert::length('something', 3);
 ```
 
+### Min
+
+Assertions can be executed with the `min` prefix which will assert the minimum
+value of the input with the prefixed assertion:
+
+```php
+// will throw an exception => 1, the minimum of { 1, 2, 3 }, must be between 5 and 10
+Assert::minBetween([1, 2, 3], 5, 10);
+```
+
+As it can already be seen, the message shows not only the minimum of the input
+that failed the assertion but also the input itself.
+
+The `min` prefix can be used with any [iterable][] value:
+
+```php
+// will throw an exception => 1, the minimum of { 1, 2, 3 }, must be an even number
+Assert::minEven([1, 2, 3]);
+
+
+// will throw an exception => 20, the minimum of `[traversable] (ArrayObject: { 45, 60, 20 })`, must be a valid perfect square
+Assert::minPerfectSquare(new ArrayObject([45, 60, 20]));
+```
+
+This library also allows you to use the `not` prefix after the `min` prefix:
+
+```php
+// will throw an exception => 7, the minimum of { 23, 7, 20 }, must not be positive
+Assert::minNotPositive([23, 7, 20]);
+```
+
+If `min` is used without a suffix, this library will use [Equals][] to assert:
+
+```php
+// will throw an exception => "A", the minimum of { "A", "B", "C" }, must be equals "D"
+Assert::min(['A', 'B', 'C'], 'D');
+```
+
 ## To-do
 
 - Allow to make assertions with `max` prefix
-- Allow to make assertions with `min` prefix
 - Allow to make assertions with `nullOr` prefix
 - Allow to make assertions with `any` prefix
 - Allow to make assertions with `key` prefix
@@ -167,6 +204,7 @@ Assert::length('something', 3);
 [Composer]: http://getcomposer.org
 [Countable]: http://php.net/countable
 [Equals]: http://respect.github.io/Validation/docs/equals
+[iterable]: http://php.net/types.iterable
 [list of rules]: http://respect.github.io/Validation/docs/validators
 [Malukenho]: https://github.com/malukenho
 [Packagist]: http://packagist.org/packages/respect/assertion

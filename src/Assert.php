@@ -17,6 +17,7 @@ use Exception;
 use finfo;
 use Respect\Assertion\Assertor\AllAssertor;
 use Respect\Assertion\Assertor\LengthAssertor;
+use Respect\Assertion\Assertor\MinAssertor;
 use Respect\Assertion\Creator\ComposedCreator;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Assertion\Creator\StandardCreator;
@@ -354,8 +355,33 @@ use Respect\Assertion\Exception\CannotCreateAssertionException;
  * @method static void macAddress($input, $description = null)
  * @method static void max($input, $maxValue, bool $inclusive = true, $description = null)
  * @method static void mimetype($input, string $mimetype, $description = null)
- * @method static void min($input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void min(iterable $input, $compareTo, $description = null)
+ * @method static void minBetween(iterable $input, $min = null, $max = null, bool $inclusive = true, $description = null)
+ * @method static void minEven(iterable $input, $description = null)
+ * @method static void minFactor(iterable $input, int $dividend, $description = null)
+ * @method static void minFibonacci(iterable $input, $description = null)
+ * @method static void minIdentical(iterable $input, $value, $description = null)
  * @method static void minimumAge($input, int $age, $description = null)
+ * @method static void minMax(iterable $input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void minMin(iterable $input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void minMultiple(iterable $input, int $multipleOf, $description = null)
+ * @method static void minNotBetween(iterable $input, $min = null, $max = null, bool $inclusive = true, $description = null)
+ * @method static void minNotEquals(iterable $input, $compareTo, $description = null)
+ * @method static void minNotEven(iterable $input, $description = null)
+ * @method static void minNotFactor(iterable $input, int $dividend, $description = null)
+ * @method static void minNotFibonacci(iterable $input, $description = null)
+ * @method static void minNotIdentical(iterable $input, $value, $description = null)
+ * @method static void minNotMax(iterable $input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void minNotMin(iterable $input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void minNotMultiple(iterable $input, int $multipleOf, $description = null)
+ * @method static void minNotOdd(iterable $input, $description = null)
+ * @method static void minNotPerfectSquare(iterable $input, $description = null)
+ * @method static void minNotPositive(iterable $input, $description = null)
+ * @method static void minNotPrimeNumber(iterable $input, $description = null)
+ * @method static void minOdd(iterable $input, $description = null)
+ * @method static void minPerfectSquare(iterable $input, $description = null)
+ * @method static void minPositive(iterable $input, $description = null)
+ * @method static void minPrimeNumber(iterable $input, $description = null)
  * @method static void multiple($input, int $multipleOf, $description = null)
  * @method static void negative($input, $description = null)
  * @method static void no($input, $useLocale = false, $description = null)
@@ -535,11 +561,14 @@ final class Assert
     {
         if (!self::$assertionCreator instanceof AssertionCreator) {
             self::$assertionCreator = new ComposedCreator(
-                new LengthAssertor(),
+                new MinAssertor(),
                 new ComposedCreator(
-                    new AllAssertor(),
-                    new NotCreator(
-                        new StandardCreator()
+                    new LengthAssertor(),
+                    new ComposedCreator(
+                        new AllAssertor(),
+                        new NotCreator(
+                            new StandardCreator()
+                        )
                     )
                 )
             );
