@@ -154,6 +154,44 @@ If `length` is used without a suffix, this library will use [Equals][] to assert
 Assert::length('something', 3);
 ```
 
+### Max
+
+Assertions can be executed with the `max` prefix which will assert the maximum
+value of the input with the prefixed assertion:
+
+```php
+// will throw an exception => 3, the maximum of { 1, 2, 3 }, must be between 5 and 10
+Assert::maxBetween([1, 2, 3], 5, 10);
+```
+
+As it can already be seen, the message shows not only the maximum of the input
+that failed the assertion but also the input itself.
+
+The `max` prefix can be used with any [iterable][] value:
+
+```php
+// will throw an exception => 3, the maximum of { 1, 2, 3 }, must be an even number
+Assert::maxEven([1, 2, 3]);
+
+
+// will throw an exception => 60, the maximum of `[traversable] (ArrayObject: { 45, 60, 20 })`, must be a valid perfect square
+Assert::maxPerfectSquare(new ArrayObject([45, 60, 20]));
+```
+
+This library also allows you to use the `not` prefix after the `max` prefix:
+
+```php
+// will throw an exception => 23, the maximum of { 23, 7, 20 }, must not be positive
+Assert::maxNotPositive([23, 7, 20]);
+```
+
+If `max` is used without a suffix, this library will use [Equals][] to assert:
+
+```php
+// will throw an exception => "C", the maximum of { "A", "B", "C" }, must be equals "D"
+Assert::max(['A', 'B', 'C'], 'D');
+```
+
 ### Min
 
 Assertions can be executed with the `min` prefix which will assert the minimum
@@ -194,7 +232,6 @@ Assert::min(['A', 'B', 'C'], 'D');
 
 ## To-do
 
-- Allow to make assertions with `max` prefix
 - Allow to make assertions with `nullOr` prefix
 - Allow to make assertions with `any` prefix
 - Allow to make assertions with `key` prefix

@@ -17,6 +17,7 @@ use Exception;
 use finfo;
 use Respect\Assertion\Assertor\AllAssertor;
 use Respect\Assertion\Assertor\LengthAssertor;
+use Respect\Assertion\Assertor\MaxAssertor;
 use Respect\Assertion\Assertor\MinAssertor;
 use Respect\Assertion\Creator\ComposedCreator;
 use Respect\Assertion\Creator\NotCreator;
@@ -353,7 +354,32 @@ use Respect\Assertion\Exception\CannotCreateAssertionException;
  * @method static void lengthPrimeNumber($input, $description = null)
  * @method static void lowercase($input, $description = null)
  * @method static void macAddress($input, $description = null)
- * @method static void max($input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void max(iterable $input, $compareTo, $description = null)
+ * @method static void maxBetween(iterable $input, $min = null, $max = null, bool $inclusive = true, $description = null)
+ * @method static void maxEven(iterable $input, $description = null)
+ * @method static void maxFactor(iterable $input, int $dividend, $description = null)
+ * @method static void maxFibonacci(iterable $input, $description = null)
+ * @method static void maxIdentical(iterable $input, $value, $description = null)
+ * @method static void maxMax(iterable $input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void maxMin(iterable $input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void maxMultiple(iterable $input, int $multipleOf, $description = null)
+ * @method static void maxNotBetween(iterable $input, $min = null, $max = null, bool $inclusive = true, $description = null)
+ * @method static void maxNotEquals(iterable $input, $compareTo, $description = null)
+ * @method static void maxNotEven(iterable $input, $description = null)
+ * @method static void maxNotFactor(iterable $input, int $dividend, $description = null)
+ * @method static void maxNotFibonacci(iterable $input, $description = null)
+ * @method static void maxNotIdentical(iterable $input, $value, $description = null)
+ * @method static void maxNotMax(iterable $input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void maxNotMin(iterable $input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void maxNotMultiple(iterable $input, int $multipleOf, $description = null)
+ * @method static void maxNotOdd(iterable $input, $description = null)
+ * @method static void maxNotPerfectSquare(iterable $input, $description = null)
+ * @method static void maxNotPositive(iterable $input, $description = null)
+ * @method static void maxNotPrimeNumber(iterable $input, $description = null)
+ * @method static void maxOdd(iterable $input, $description = null)
+ * @method static void maxPerfectSquare(iterable $input, $description = null)
+ * @method static void maxPositive(iterable $input, $description = null)
+ * @method static void maxPrimeNumber(iterable $input, $description = null)
  * @method static void mimetype($input, string $mimetype, $description = null)
  * @method static void min(iterable $input, $compareTo, $description = null)
  * @method static void minBetween(iterable $input, $min = null, $max = null, bool $inclusive = true, $description = null)
@@ -561,13 +587,16 @@ final class Assert
     {
         if (!self::$assertionCreator instanceof AssertionCreator) {
             self::$assertionCreator = new ComposedCreator(
-                new MinAssertor(),
+                new MaxAssertor(),
                 new ComposedCreator(
-                    new LengthAssertor(),
+                    new MinAssertor(),
                     new ComposedCreator(
-                        new AllAssertor(),
-                        new NotCreator(
-                            new StandardCreator()
+                        new LengthAssertor(),
+                        new ComposedCreator(
+                            new AllAssertor(),
+                            new NotCreator(
+                                new StandardCreator()
+                            )
                         )
                     )
                 )
