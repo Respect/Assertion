@@ -116,9 +116,46 @@ If `all` is used without a suffix, this library will use [Equals][] to assert:
 Assert::all(['A', 'B', 'C'], 'D');
 ```
 
+### Length
+
+Assertions can be executed with the `length` prefix which will assert the length
+of the input with the prefixed assertion:
+
+```php
+// will throw an exception => 6, the length of "string", must be between 10 and 15
+Assert::lengthBetween('string', 10, 15);
+```
+
+As can be seen the message shows not only the length of the input that failed
+the assertion but also the input itself.
+
+The `length` prefix can also be used with arrays and instances of [Countable][]:
+
+```php
+// will throw an exception => 4, the length of { 1, 2, 3, 4 }, must be an odd number
+Assert::lengthOdd([1, 2, 3, 4]);
+
+
+// will throw an exception => 3, the length of `[traversable] (ArrayObject: { 1, 2, 3 })`, must be an even number
+Assert::lengthEven(new ArrayObject([1, 2, 3]));
+```
+
+This library also allows you to use the `not` prefix after the `length` prefix:
+
+```php
+// will throw an exception => 2, the length of { 1, 2 }, must not be multiple of 2
+Assert::lengthNotMultiple([1, 2], 2);
+```
+
+If `length` is used without a suffix, this library will use [Equals][] to assert:
+
+```php
+// will throw an exception => 9, the length of "something", must be equals 3
+Assert::length('something', 3);
+```
+
 ## To-do
 
-- Allow to make assertions with `length` prefix
 - Allow to make assertions with `max` prefix
 - Allow to make assertions with `min` prefix
 - Allow to make assertions with `nullOr` prefix
@@ -128,6 +165,7 @@ Assert::all(['A', 'B', 'C'], 'D');
 
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
+[Countable]: http://php.net/countable
 [Equals]: http://respect.github.io/Validation/docs/equals
 [list of rules]: http://respect.github.io/Validation/docs/validators
 [Malukenho]: https://github.com/malukenho

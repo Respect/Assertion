@@ -11,13 +11,17 @@
     },
     "require": {
         "php": "^7.1",
-        "respect/validation": "^1.1"
+        "respect/validation": "^1.1",
+        "symfony/polyfill-mbstring": "^1.8"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.12",
         "malukenho/docheader": "^0.1.7",
         "phpstan/phpstan": "^0.10.1",
         "phpunit/phpunit": "^7.2"
+    },
+    "suggest": {
+        "ext-mbstring": "Multibyte String Functions"
     },
     "license": "MIT",
     "authors": [

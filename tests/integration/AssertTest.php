@@ -36,6 +36,9 @@ final class AssertTest extends TestCase
             ['notFloatType', [42]],
             ['all', [[1, 1, 1], 1]],
             ['allOdd', [[3, 5, 7]]],
+            ['length', ['something', 9]],
+            ['lengthBetween', ['something', 1, 9]],
+            ['lengthNot', ['something', 2]],
         ];
     }
 
@@ -67,6 +70,8 @@ final class AssertTest extends TestCase
             ['notIntVal', [42]],
             ['all', [[1, 2, 3], 1]],
             ['allEven', [[2, 4, 5]]],
+            ['length', ['something', 2]],
+            ['lengthNotPositive', ['something']],
         ];
     }
 

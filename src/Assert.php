@@ -16,6 +16,7 @@ namespace Respect\Assertion;
 use Exception;
 use finfo;
 use Respect\Assertion\Assertor\AllAssertor;
+use Respect\Assertion\Assertor\LengthAssertor;
 use Respect\Assertion\Creator\ComposedCreator;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Assertion\Creator\StandardCreator;
@@ -323,7 +324,32 @@ use Respect\Assertion\Exception\CannotCreateAssertionException;
  * @method static void languageCode($input, string $set, $description = null)
  * @method static void leapDate($input, string $format, $description = null)
  * @method static void leapYear($input, $description = null)
- * @method static void length($input, int $min = null, int $max = null, bool $inclusive = true, $description = null)
+ * @method static void length($input, $compareTo, $description = null)
+ * @method static void lengthBetween($input, $min = null, $max = null, bool $inclusive = true, $description = null)
+ * @method static void lengthEven($input, $description = null)
+ * @method static void lengthFactor($input, int $dividend, $description = null)
+ * @method static void lengthFibonacci($input, $description = null)
+ * @method static void lengthIdentical($input, $value, $description = null)
+ * @method static void lengthMax($input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void lengthMin($input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void lengthMultiple($input, int $multipleOf, $description = null)
+ * @method static void lengthNotBetween($input, $min = null, $max = null, bool $inclusive = true, $description = null)
+ * @method static void lengthNot($input, $compareTo, $description = null)
+ * @method static void lengthNotEven($input, $description = null)
+ * @method static void lengthNotFactor($input, int $dividend, $description = null)
+ * @method static void lengthNotFibonacci($input, $description = null)
+ * @method static void lengthNotIdentical($input, $value, $description = null)
+ * @method static void lengthNotMax($input, $maxValue, bool $inclusive = true, $description = null)
+ * @method static void lengthNotMin($input, $minValue, bool $inclusive = true, $description = null)
+ * @method static void lengthNotMultiple($input, int $multipleOf, $description = null)
+ * @method static void lengthNotOdd($input, $description = null)
+ * @method static void lengthNotPerfectSquare($input, $description = null)
+ * @method static void lengthNotPositive($input, $description = null)
+ * @method static void lengthNotPrimeNumber($input, $description = null)
+ * @method static void lengthOdd($input, $description = null)
+ * @method static void lengthPerfectSquare($input, $description = null)
+ * @method static void lengthPositive($input, $description = null)
+ * @method static void lengthPrimeNumber($input, $description = null)
  * @method static void lowercase($input, $description = null)
  * @method static void macAddress($input, $description = null)
  * @method static void max($input, $maxValue, bool $inclusive = true, $description = null)
@@ -509,9 +535,12 @@ final class Assert
     {
         if (!self::$assertionCreator instanceof AssertionCreator) {
             self::$assertionCreator = new ComposedCreator(
-                new AllAssertor(),
-                new NotCreator(
-                    new StandardCreator()
+                new LengthAssertor(),
+                new ComposedCreator(
+                    new AllAssertor(),
+                    new NotCreator(
+                        new StandardCreator()
+                    )
                 )
             );
         }
