@@ -1,5 +1,5 @@
 {
-    "name": "respect/assert",
+    "name": "respect/assertion",
     "description": "The power of Respect\\Validation into an assertion library",
     "keywords": ["respect", "assertion", "assert"],
     "type": "library",

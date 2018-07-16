@@ -17,7 +17,7 @@ complete list of rules, check the [list of rules][].
 Package is available on [Packagist][], it can be installed using [Composer][].
 
 ```shell
-composer require respect/validation
+composer require respect/assertion
 ```
 
 Works on PHP 7.1 or above.
