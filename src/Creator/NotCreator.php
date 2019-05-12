@@ -20,6 +20,7 @@ use Respect\Validation\Rules\Not;
 use function in_array;
 use function strpos;
 use function strtolower;
+use function substr;
 
 final class NotCreator implements AssertionCreator
 {
@@ -34,11 +35,6 @@ final class NotCreator implements AssertionCreator
      */
     private $assertionCreator;
 
-    /**
-     * Initializes the assertion creator.
-     *
-     * @param AssertionCreator $assertionCreator
-     */
     public function __construct(AssertionCreator $assertionCreator)
     {
         $this->assertionCreator = $assertionCreator;
@@ -49,7 +45,7 @@ final class NotCreator implements AssertionCreator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        if (0 !== strpos(strtolower($name), 'not')) {
+        if (strpos(strtolower($name), 'not') !== 0) {
             return $this->assertionCreator->create($name, $parameters);
         }
 

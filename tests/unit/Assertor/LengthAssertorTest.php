@@ -101,6 +101,9 @@ final class LengthAssertorTest extends TestCase
         $this->sut->execute($assertion, $input);
     }
 
+    /**
+     * @return mixed[][]
+     */
     public function noLengthProvider(): array
     {
         return [

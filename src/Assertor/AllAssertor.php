@@ -17,6 +17,8 @@ use BadMethodCallException;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor;
 use Respect\Validation\Exceptions\ValidationException;
+use function is_iterable;
+use function str_replace;
 
 /**
  * Assert every value in the input.
@@ -51,6 +53,9 @@ final class AllAssertor implements Assertor
         }
     }
 
+    /**
+     * @param mixed $asserted
+     */
     private function getCustomizedException($asserted, ValidationException $exception): ValidationException
     {
         $exception->setParam('asserted', $asserted);

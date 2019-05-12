@@ -114,7 +114,7 @@ final class StandardTest extends TestCase
      *
      * @throws Exception
      */
-    public function isShouldExecuteIfFailsWhenDescriptionIsAString(): void
+    public function isShouldExecuteIfFailsWhenDescriptionIsString(): void
     {
         $input = 'something';
 

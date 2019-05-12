@@ -23,6 +23,9 @@ use Respect\Assertion\Creator\ComposedCreator;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
+use function array_shift;
+
+// phpcs:disable Generic.Files.LineLength
 
 /**
  * @method static void age($input, int $minAge = null, int $maxAge = null, $description = null)
@@ -581,8 +584,19 @@ final class Assert
     private static $assertionCreator;
 
     /**
-     * @return AssertionCreator
+     * @param mixed[] $parameters
+     *
+     * @throws CannotCreateAssertionException
+     * @throws Exception
      */
+    public static function __callStatic(string $name, array $parameters): void
+    {
+        $input = array_shift($parameters);
+
+        $assertion = self::getAssertionCreator()->create($name, $parameters);
+        $assertion->assert($input);
+    }
+
     private static function getAssertionCreator(): AssertionCreator
     {
         if (!self::$assertionCreator instanceof AssertionCreator) {
@@ -604,20 +618,5 @@ final class Assert
         }
 
         return self::$assertionCreator;
-    }
-
-    /**
-     * @param string $name
-     * @param array $parameters
-     *
-     * @throws CannotCreateAssertionException
-     * @throws Exception
-     */
-    public static function __callStatic(string $name, array $parameters): void
-    {
-        $input = array_shift($parameters);
-
-        $assertion = self::getAssertionCreator()->create($name, $parameters);
-        $assertion->assert($input);
     }
 }

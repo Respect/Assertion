@@ -19,6 +19,7 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\AssertionCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Assertion\Standard;
+use Throwable;
 use function array_pop;
 use function array_slice;
 use function count;
@@ -43,7 +44,7 @@ final class StandardCreator implements AssertionCreator
         $constructorParameters = array_slice(
             $parameters,
             0,
-            null === $constructor ? 0 : count($constructor->getParameters())
+            $constructor === null ? 0 : count($constructor->getParameters())
         );
 
         return new Standard(
@@ -52,7 +53,7 @@ final class StandardCreator implements AssertionCreator
         );
     }
 
-    private function ruleReflection($name): ReflectionClass
+    private function ruleReflection(string $name): ReflectionClass
     {
         $class = sprintf('Respect\\Validation\\Rules\\%s', ucfirst($name) ?: 'Equals');
         try {
@@ -67,6 +68,12 @@ final class StandardCreator implements AssertionCreator
         return $reflection;
     }
 
+    /**
+     * @param mixed[] $parameters
+     * @param mixed[] $constructorParameters
+     *
+     * @return string|Throwable|null
+     */
     private function description(array $parameters, array $constructorParameters)
     {
         if ($constructorParameters === $parameters) {

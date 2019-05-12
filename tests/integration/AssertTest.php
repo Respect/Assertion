@@ -25,6 +25,9 @@ use function array_merge;
  */
 final class AssertTest extends TestCase
 {
+    /**
+     * @return mixed[][]
+     */
     public function validProvider(): array
     {
         return [
@@ -55,8 +58,7 @@ final class AssertTest extends TestCase
      *
      * @doesNotPerformAssertions
      *
-     * @param string $name
-     * @param array $parameters
+     * @param mixed[] $parameters
      *
      * @throws Exception
      */
@@ -65,6 +67,9 @@ final class AssertTest extends TestCase
         Assert::__callStatic($name, $parameters);
     }
 
+    /**
+     * @return mixed[][]
+     */
     public function invalidProvider(): array
     {
         return [
@@ -92,8 +97,7 @@ final class AssertTest extends TestCase
      *
      * @dataProvider invalidProvider
      *
-     * @param string $name
-     * @param array $parameters
+     * @param mixed[] $parameters
      *
      * @throws Exception
      */
@@ -109,8 +113,7 @@ final class AssertTest extends TestCase
      *
      * @dataProvider invalidProvider
      *
-     * @param string $name
-     * @param array $parameters
+     * @param mixed[] $parameters
      *
      * @throws Exception
      */
@@ -128,8 +131,7 @@ final class AssertTest extends TestCase
      *
      * @dataProvider invalidProvider
      *
-     * @param string $name
-     * @param array $parameters
+     * @param mixed[] $parameters
      *
      * @throws Exception
      */

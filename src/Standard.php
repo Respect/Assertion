@@ -37,7 +37,6 @@ final class Standard implements Assertion
     /**
      * Initializes the assertion.
      *
-     * @param Validatable $rule
      * @param Exception|string|null $description
      */
     public function __construct(Validatable $rule, $description = null)
@@ -74,7 +73,7 @@ final class Standard implements Assertion
                 throw $this->description;
             }
 
-            if (null !== $this->description) {
+            if ($this->description !== null) {
                 $exception->setTemplate($this->description);
             }
 

@@ -22,13 +22,9 @@ use Exception;
  */
 interface Assertor
 {
-    /**
-     * @return string
-     */
     public function getName(): string;
 
     /**
-     * @param Assertion $assertion
      * @param mixed $input
      *
      * @throws Exception

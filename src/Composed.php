@@ -27,12 +27,6 @@ final class Composed implements Assertion
      */
     private $assertor;
 
-    /**
-     * Initializes assertion.
-     *
-     * @param Assertion $assertion
-     * @param Assertor $assertor
-     */
     public function __construct(Assertion $assertion, Assertor $assertor)
     {
         $this->assertion = $assertion;

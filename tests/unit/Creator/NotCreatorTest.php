@@ -50,6 +50,9 @@ final class NotCreatorTest extends TestCase
         self::assertSame($assertion, $sut->create($name, $parameters));
     }
 
+    /**
+     * @return string[][]
+     */
     public function cannotInvertProvider(): array
     {
         return [

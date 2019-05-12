@@ -38,12 +38,6 @@ final class ComposedCreator implements AssertionCreator
      */
     private $nextCreator;
 
-    /**
-     * Initializes creator.
-     *
-     * @param Assertor $assertor
-     * @param AssertionCreator $nextCreator
-     */
     public function __construct(Assertor $assertor, AssertionCreator $nextCreator)
     {
         $this->assertor = $assertor;
@@ -56,7 +50,7 @@ final class ComposedCreator implements AssertionCreator
     public function create(string $name, array $parameters): Assertion
     {
         $prefix = $this->assertor->getName();
-        if (0 !== strpos($name, $prefix)) {
+        if (strpos($name, $prefix) !== 0) {
             return $this->nextCreator->create($name, $parameters);
         }
 

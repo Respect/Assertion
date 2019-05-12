@@ -49,6 +49,11 @@ final class MinAssertor implements Assertor
         }
     }
 
+    /**
+     * @param mixed[] $input
+     *
+     * @return mixed
+     */
     private function getMin(iterable $input)
     {
         if (is_array($input)) {
@@ -58,6 +63,9 @@ final class MinAssertor implements Assertor
         return $this->getMin(iterator_to_array($input));
     }
 
+    /**
+     * @param mixed[] $asserted
+     */
     private function getCustomizedException(iterable $asserted, ValidationException $exception): ValidationException
     {
         $exception->setParam('asserted', $asserted);
@@ -67,7 +75,8 @@ final class MinAssertor implements Assertor
 
         $exception->setTemplate(
             str_replace(
-                '{{name}}', '{{name}}, the minimum of {{asserted}},',
+                '{{name}}',
+                '{{name}}, the minimum of {{asserted}},',
                 $exception->getTemplate()
             )
         );

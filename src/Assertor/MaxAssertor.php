@@ -49,6 +49,11 @@ final class MaxAssertor implements Assertor
         }
     }
 
+    /**
+     * @param mixed[] $input
+     *
+     * @return mixed
+     */
     private function getMax(iterable $input)
     {
         if (is_array($input)) {
@@ -58,6 +63,9 @@ final class MaxAssertor implements Assertor
         return $this->getMax(iterator_to_array($input));
     }
 
+    /**
+     * @param mixed $asserted
+     */
     private function getCustomizedException($asserted, ValidationException $exception): ValidationException
     {
         $exception->setParam('asserted', $asserted);
@@ -67,7 +75,8 @@ final class MaxAssertor implements Assertor
 
         $exception->setTemplate(
             str_replace(
-                '{{name}}', '{{name}}, the maximum of {{asserted}},',
+                '{{name}}',
+                '{{name}}, the maximum of {{asserted}},',
                 $exception->getTemplate()
             )
         );

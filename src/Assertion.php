@@ -18,9 +18,6 @@ use Respect\Validation\Validatable;
 
 interface Assertion
 {
-    /**
-     * @return Validatable
-     */
     public function getRule(): Validatable;
 
     /**

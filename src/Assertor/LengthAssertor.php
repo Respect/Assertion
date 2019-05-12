@@ -18,6 +18,11 @@ use Countable;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor;
 use Respect\Validation\Exceptions\ValidationException;
+use function count;
+use function is_array;
+use function is_string;
+use function mb_strlen;
+use function str_replace;
 
 final class LengthAssertor implements Assertor
 {
@@ -41,6 +46,9 @@ final class LengthAssertor implements Assertor
         }
     }
 
+    /**
+     * @param mixed $input
+     */
     private function getLength($input): int
     {
         if (is_string($input)) {
@@ -58,6 +66,9 @@ final class LengthAssertor implements Assertor
         throw new BadMethodCallException('Assertion with "length" prefix must be countable or string');
     }
 
+    /**
+     * @param mixed $asserted
+     */
     private function getCustomizedException($asserted, ValidationException $exception): ValidationException
     {
         $exception->setParam('asserted', $asserted);
@@ -67,7 +78,8 @@ final class LengthAssertor implements Assertor
 
         $exception->setTemplate(
             str_replace(
-                '{{name}}', '{{name}}, the length of {{asserted}},',
+                '{{name}}',
+                '{{name}}, the length of {{asserted}},',
                 $exception->getTemplate()
             )
         );
