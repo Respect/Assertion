@@ -23,7 +23,7 @@ use function count;
 use function is_array;
 use function is_string;
 use function mb_strlen;
-use function str_replace;
+use function Respect\Stringifier\stringify;
 
 final class LengthAssertor implements Assertor
 {
@@ -72,18 +72,13 @@ final class LengthAssertor implements Assertor
      */
     private function getCustomizedException($asserted, ValidationException $exception): ValidationException
     {
-        $exception->setParam('asserted', $asserted);
         if ($exception->hasCustomTemplate()) {
             return $exception;
         }
 
-        $exception->setTemplate(
-            str_replace(
-                '{{name}}',
-                '{{name}}, the length of {{asserted}},',
-                $exception->getTemplate()
-            )
-        );
+        $params = $exception->getParams();
+        $params['name'] = $params['input'] . ', the length of ' . stringify($asserted) . ',';
+        $exception->updateParams($params);
 
         return $exception;
     }

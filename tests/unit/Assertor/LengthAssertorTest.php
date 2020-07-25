@@ -20,6 +20,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor\LengthAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
+use Respect\Validation\Factory;
+use Respect\Validation\Rules\AlwaysInvalid;
 use stdClass;
 
 use function count;
@@ -162,8 +164,7 @@ final class LengthAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 2);
 
         $assertion = $this->createMock(Assertion::class);
         $assertion
@@ -172,10 +173,10 @@ final class LengthAssertorTest extends TestCase
             ->with(count($input))
             ->willThrowException($exception);
 
-        self::assertEquals('something is always invalid', $exception->getMessage());
+        self::assertEquals('2 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('something, the length of { 1, 2, 3 }, is always invalid');
+        $this->expectExceptionMessage('2, the length of `{ 1, 2, 3 }`, is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -187,9 +188,8 @@ final class LengthAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
-        $exception->setTemplate('{{input}} is something not cool');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 2);
+        $exception->updateTemplate('{{input}} is something not cool');
 
         $assertion = $this->createMock(Assertion::class);
         $assertion

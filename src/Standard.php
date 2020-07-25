@@ -74,7 +74,7 @@ final class Standard implements Assertion
             }
 
             if ($this->description !== null) {
-                $exception->setTemplate($this->description);
+                $exception->updateTemplate($this->description);
             }
 
             throw $exception;

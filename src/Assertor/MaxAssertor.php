@@ -22,7 +22,7 @@ use function is_array;
 use function is_iterable;
 use function iterator_to_array;
 use function max;
-use function str_replace;
+use function Respect\Stringifier\stringify;
 
 final class MaxAssertor implements Assertor
 {
@@ -69,18 +69,13 @@ final class MaxAssertor implements Assertor
      */
     private function getCustomizedException($asserted, ValidationException $exception): ValidationException
     {
-        $exception->setParam('asserted', $asserted);
         if ($exception->hasCustomTemplate()) {
             return $exception;
         }
 
-        $exception->setTemplate(
-            str_replace(
-                '{{name}}',
-                '{{name}}, the maximum of {{asserted}},',
-                $exception->getTemplate()
-            )
-        );
+        $params = $exception->getParams();
+        $params['name'] = $params['input'] . ', the maximum of ' . stringify($asserted) . ',';
+        $exception->updateParams($params);
 
         return $exception;
     }

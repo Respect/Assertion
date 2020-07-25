@@ -120,8 +120,9 @@ final class NotCreatorTest extends TestCase
 
         /** @var Not $validatable */
         $validatable = $actual->getRule();
+
         self::assertInstanceOf(Not::class, $validatable);
-        self::assertSame($rule, $validatable->rule);
+        self::assertSame($rule, $validatable->getNegatedRule());
         self::assertSame($description, $actual->getDescription());
     }
 }

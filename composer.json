@@ -11,7 +11,8 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
-        "respect/validation": "^1.1",
+        "respect/stringifier": "^0.2.0",
+        "respect/validation": "^2.0",
         "symfony/polyfill-mbstring": "^1.8"
     },
     "require-dev": {

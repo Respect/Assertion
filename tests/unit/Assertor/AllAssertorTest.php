@@ -19,6 +19,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor\AllAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
+use Respect\Validation\Factory;
+use Respect\Validation\Rules\AlwaysInvalid;
 
 use function array_chunk;
 use function count;
@@ -107,8 +109,7 @@ final class AllAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 2);
 
         $assertion = $this->createMock(Assertion::class);
         $assertion
@@ -117,10 +118,10 @@ final class AllAssertorTest extends TestCase
             ->with(current($input))
             ->willThrowException($exception);
 
-        self::assertEquals('something is always invalid', $exception->getMessage());
+        self::assertEquals('2 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('something in { 1, 2, 3 } is always invalid');
+        $this->expectExceptionMessage('2 in `{ 1, 2, 3 }` is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -132,9 +133,8 @@ final class AllAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
-        $exception->setTemplate('{{input}} is something not cool');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 2);
+        $exception->updateTemplate('{{input}} is something not cool');
 
         $assertion = $this->createMock(Assertion::class);
         $assertion

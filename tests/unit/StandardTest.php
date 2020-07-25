@@ -18,6 +18,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Standard;
 use Respect\Validation\Exceptions\DomainException;
 use Respect\Validation\Exceptions\ValidationException;
+use Respect\Validation\Message\Formatter;
+use Respect\Validation\Message\Stringifier\KeepOriginalStringName;
 use Respect\Validation\Validatable;
 
 /**
@@ -54,8 +56,7 @@ final class StandardTest extends TestCase
         $rule
             ->expects($this->once())
             ->method('assert')
-            ->with($input)
-            ->willReturn(null);
+            ->with($input);
 
         $sut = new Standard($rule);
         $sut->assert($input);
@@ -70,7 +71,7 @@ final class StandardTest extends TestCase
     {
         $input = 'something';
 
-        $exception = new ValidationException();
+        $exception = new ValidationException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()));
 
         $rule = $this->createMock(Validatable::class);
         $rule
@@ -99,9 +100,11 @@ final class StandardTest extends TestCase
             ->expects($this->once())
             ->method('assert')
             ->with($input)
-            ->willThrowException(new ValidationException());
+            ->willThrowException(
+                new ValidationException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()))
+            );
 
-        $description = new DomainException();
+        $description = new DomainException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()));
 
         $this->expectExceptionObject($description);
 
@@ -123,9 +126,7 @@ final class StandardTest extends TestCase
         $exception = $this->createMock(ValidationException::class);
         $exception
             ->expects($this->once())
-            ->method('setTemplate')
-            ->willReturn($description)
-            ->willReturn($exception);
+            ->method('updateTemplate');
 
         $rule = $this->createMock(Validatable::class);
         $rule

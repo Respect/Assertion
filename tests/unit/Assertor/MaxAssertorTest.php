@@ -20,6 +20,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor\MaxAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
+use Respect\Validation\Factory;
+use Respect\Validation\Rules\AlwaysInvalid;
 
 use function range;
 
@@ -121,8 +123,7 @@ final class MaxAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 3);
 
         $assertion = $this->createMock(Assertion::class);
         $assertion
@@ -131,10 +132,10 @@ final class MaxAssertorTest extends TestCase
             ->with(3)
             ->willThrowException($exception);
 
-        self::assertEquals('something is always invalid', $exception->getMessage());
+        self::assertEquals('3 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('something, the maximum of { 1, 2, 3 }, is always invalid');
+        $this->expectExceptionMessage('3, the maximum of `{ 1, 2, 3 }`, is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -146,9 +147,8 @@ final class MaxAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
-        $exception->setTemplate('{{input}} is something not cool');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 3);
+        $exception->updateTemplate('{{input}} is something not cool');
 
         $assertion = $this->createMock(Assertion::class);
         $assertion

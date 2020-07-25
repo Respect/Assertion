@@ -20,6 +20,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor\MinAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
+use Respect\Validation\Factory;
+use Respect\Validation\Rules\AlwaysInvalid;
 
 use function range;
 
@@ -121,8 +123,7 @@ final class MinAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 1);
 
         $assertion = $this->createMock(Assertion::class);
         $assertion
@@ -131,10 +132,10 @@ final class MinAssertorTest extends TestCase
             ->with(1)
             ->willThrowException($exception);
 
-        self::assertEquals('something is always invalid', $exception->getMessage());
+        self::assertEquals('1 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('something, the minimum of { 1, 2, 3 }, is always invalid');
+        $this->expectExceptionMessage('1, the minimum of `{ 1, 2, 3 }`, is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -146,9 +147,8 @@ final class MinAssertorTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $exception = new AlwaysInvalidException();
-        $exception->configure('something');
-        $exception->setTemplate('{{input}} is something not cool');
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), 1);
+        $exception->updateTemplate('{{input}} is something not cool');
 
         $assertion = $this->createMock(Assertion::class);
         $assertion
