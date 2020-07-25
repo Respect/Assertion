@@ -20,6 +20,7 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor\MinAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
+
 use function range;
 
 /**

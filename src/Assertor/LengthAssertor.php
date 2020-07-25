@@ -18,6 +18,7 @@ use Countable;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor;
 use Respect\Validation\Exceptions\ValidationException;
+
 use function count;
 use function is_array;
 use function is_string;

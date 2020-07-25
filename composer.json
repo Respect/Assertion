@@ -18,7 +18,7 @@
         "malukenho/docheader": "^0.1.7",
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": "^9.2",
-        "respect/coding-standard": "^1.0",
+        "respect/coding-standard": "^2.1",
         "squizlabs/php_codesniffer": "^3.4"
     },
     "suggest": {

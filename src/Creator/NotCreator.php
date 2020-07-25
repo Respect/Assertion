@@ -17,6 +17,7 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\AssertionCreator;
 use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Not;
+
 use function in_array;
 use function strpos;
 use function strtolower;

@@ -19,6 +19,7 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Assertor\AllAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
+
 use function array_chunk;
 use function count;
 use function current;

@@ -17,6 +17,7 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\AssertionCreator;
 use Respect\Assertion\Assertor;
 use Respect\Assertion\Composed;
+
 use function strlen;
 use function strpos;
 use function substr;

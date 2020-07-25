@@ -23,6 +23,7 @@ use Respect\Assertion\Creator\ComposedCreator;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
+
 use function array_shift;
 
 // phpcs:disable Generic.Files.LineLength
