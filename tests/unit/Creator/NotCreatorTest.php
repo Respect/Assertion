@@ -118,8 +118,10 @@ final class NotCreatorTest extends TestCase
 
         $actual = $sut->create($name, $parameters);
 
-        self::assertInstanceOf(Not::class, $actual->getRule());
-        self::assertSame($rule, $actual->getRule()->rule);
+        /** @var Not $validatable */
+        $validatable = $actual->getRule();
+        self::assertInstanceOf(Not::class, $validatable);
+        self::assertSame($rule, $validatable->rule);
         self::assertSame($description, $actual->getDescription());
     }
 }

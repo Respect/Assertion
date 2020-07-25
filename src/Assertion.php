@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace Respect\Assertion;
 
-use Exception;
 use Respect\Validation\Validatable;
+use Throwable;
 
 interface Assertion
 {
     public function getRule(): Validatable;
 
     /**
-     * @return Exception|string|null
+     * @return Throwable|string|null
      */
     public function getDescription();
 
@@ -30,7 +30,7 @@ interface Assertion
      *
      * @param mixed $input
      *
-     * @throws Exception
+     * @throws Throwable
      */
     public function assert($input): void;
 }

@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Respect\Assertion;
 
-use Exception;
 use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validatable;
+use Throwable;
 
 /**
  * Assertor using a Respect\Validation rule.
@@ -30,14 +30,14 @@ final class Standard implements Assertion
     private $rule;
 
     /**
-     * @var Exception|string|null
+     * @var Throwable|string|null
      */
     private $description;
 
     /**
      * Initializes the assertion.
      *
-     * @param Exception|string|null $description
+     * @param Throwable|string|null $description
      */
     public function __construct(Validatable $rule, $description = null)
     {
@@ -69,7 +69,7 @@ final class Standard implements Assertion
         try {
             $this->rule->assert($input);
         } catch (ValidationException $exception) {
-            if ($this->description instanceof Exception) {
+            if ($this->description instanceof Throwable) {
                 throw $this->description;
             }
 
