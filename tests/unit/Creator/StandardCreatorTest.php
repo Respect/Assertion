@@ -63,7 +63,6 @@ final class StandardCreatorTest extends TestCase
         $assertion = $this->sut->create('Equals', [$compareTo]);
 
         self::assertInstanceOf(Equals::class, $assertion->getRule());
-        self::assertAttributeEquals($compareTo, 'compareTo', $assertion->getRule());
     }
 
     /**
