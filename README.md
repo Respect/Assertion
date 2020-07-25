@@ -20,7 +20,7 @@ Package is available on [Packagist][], it can be installed using [Composer][].
 composer require respect/assertion
 ```
 
-Works on PHP 7.1 or above.
+Works on PHP 7.3 or above.
 
 ## Another assertion library
 
