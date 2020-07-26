@@ -32,5 +32,19 @@
     ],
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "docheader": "vendor/bin/docheader check library/ tests/",
+        "phpcs": "vendor/bin/phpcs",
+        "phpstan": "vendor/bin/phpstan analyze",
+        "phpunit": "vendor/bin/phpunit",
+        "phpunit-integration": "vendor/bin/phpunit --testsuite=integration",
+        "phpunit-unit": "vendor/bin/phpunit --testsuite=unit",
+        "qa": [
+            "@docheader",
+            "@phpcs",
+            "@phpstan",
+            "@phpunit"
+        ]
     }
 }
