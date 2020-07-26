@@ -76,6 +76,23 @@ Assert::between(42, 1, 10, true, new DomainException('Something is not right'));
 That can be very useful if you want to throw custom exceptions. That was a great
 idea from [Malukenho][]!
 
+### That
+
+You can chain assertions using `Assert::that($input)`, that allows you to perform
+multiple assertions to the same input with less duplication.
+
+```php
+Assert::that($input)
+    ->intVal('The number {{input}} must be an integer')
+    ->positive('The number must be positive')
+    ->lessThan(4)
+    ->notEquals(2, new Exception('The number should never equals two'));
+```
+
+In the example above, as soon as any assertion fails, it will throw an exception.
+You wish to chain validations and only check them all at the same time we suggest
+you use the API from [Validation][].
+
 ### Not
 
 Assertions can be executed with the `not` prefix which will assert the opposite

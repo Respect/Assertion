@@ -792,6 +792,14 @@ final class Assert
         $assertion->assert($input);
     }
 
+    /**
+     * @param mixed $input
+     */
+    public static function that($input): ChainAssert
+    {
+        return new ChainAssert($input);
+    }
+
     private static function getAssertionCreator(): AssertionCreator
     {
         if (!self::$assertionCreator instanceof AssertionCreator) {

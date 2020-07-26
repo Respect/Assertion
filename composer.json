@@ -35,7 +35,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "docheader": "vendor/bin/docheader check library/ tests/",
+        "docheader": "vendor/bin/docheader check src/ tests/",
         "phpcs": "vendor/bin/phpcs",
         "phpstan": "vendor/bin/phpstan analyze",
         "phpunit": "vendor/bin/phpunit",
