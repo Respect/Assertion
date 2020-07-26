@@ -121,7 +121,7 @@ final class AllAssertorTest extends TestCase
         self::assertEquals('2 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('2 in `{ 1, 2, 3 }` is always invalid');
+        $this->expectExceptionMessage('2, and all values of `{ 1, 2, 3 }`, is always invalid');
 
         $this->sut->execute($assertion, $input);
     }

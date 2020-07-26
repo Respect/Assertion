@@ -64,7 +64,7 @@ final class AllAssertor implements Assertor
         }
 
         $params = $exception->getParams();
-        $params['name'] = $params['input'] . ' in ' . stringify($asserted);
+        $params['name'] = $params['input'] . ', and all values of ' . stringify($asserted) . ',';
         $exception->updateParams($params);
 
         return $exception;
