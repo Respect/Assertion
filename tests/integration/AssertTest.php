@@ -49,6 +49,9 @@ final class AssertTest extends TestCase
             ['min', [[1, 2, 3], 1]],
             ['minPositive', [[1, 2, 3]]],
             ['minNot', [[1, 2, 3], 3]],
+            ['key', [['foo' => 1], 'foo', 1]],
+            ['keyPresent', [['foo' => 1], 'foo']],
+            ['keyNotPresent', [['foo' => 1], 'baz']],
         ];
     }
 
@@ -90,6 +93,9 @@ final class AssertTest extends TestCase
             ['min', [[1, 2, 3], 3]],
             ['minPositive', [[-1, -2, -3]]],
             ['minNot', [[1, 2, 3], 1]],
+            ['key', [['foo' => 1], 'foo', 2]],
+            ['keyPresent', [['foo' => 1], 'baz']],
+            ['keyNotPresent', [['foo' => 1], 'foo']],
         ];
     }
 

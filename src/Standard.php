@@ -67,7 +67,7 @@ final class Standard implements Assertion
     public function assert($input): void
     {
         try {
-            $this->rule->assert($input);
+            $this->rule->check($input);
         } catch (ValidationException $exception) {
             if ($this->description instanceof Throwable) {
                 throw $this->description;

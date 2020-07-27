@@ -22,6 +22,9 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
     declare assertion_iterable=$(
       sed 's/(mixed $input/(iterable $input/' <<< "${assertion}"
     )
+    declare assertion_key=$(
+      sed 's/(mixed $input/(array $input, mixed $key/' <<< "${assertion}"
+    )
 
     echo -e -n "Processing '${name}' assertion\r" 1>&2
 
@@ -47,10 +50,12 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
 
     echo "${assertion}"
     echo "all${assertion_iterable^}"
+    echo "key${assertion_key^}"
 
     grep --quiet "^not" <<< "${name}" || {
       echo "not${assertion^}"
       echo "allNot${assertion_iterable^}"
+      echo "keyNot${assertion_key^}"
     }
 
     grep --quiet "^${name}$" "${DIRECTORY}/allow_list" || {
@@ -78,6 +83,10 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
   echo "all(iterable \$input, ${EQUALS_ARGUMENTS})"
   echo "allNot(iterable \$input, ${EQUALS_ARGUMENTS})"
 
+  echo "key(array \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
+  echo "keyPresent(array \$input, mixed \$key, Throwable|string \$description = null)"
+  echo "keyNotPresent(array \$input, mixed \$key, Throwable|string \$description = null)"
+
   echo "length(iterable \$input, ${EQUALS_ARGUMENTS})"
   echo "lengthNot(iterable \$input, ${EQUALS_ARGUMENTS})"
 
@@ -104,7 +113,7 @@ echo "- Updating ChainAssert.php"
 {
   sed --silent "/<?/,/\/\*\*/p" "${DIRECTORY}/../src/ChainAssert.php"
   echo " * phpcs:disable Generic.Files.LineLength"
-  sed --regexp-extended 's/\((mixed|iterable) \$input, /(/g' < "${TEMPORARY_METHODS}" |
+  sed --regexp-extended 's/\((mixed|iterable|array) \$input, /(/g' < "${TEMPORARY_METHODS}" |
       sed "s,^,${CHAIN_ASSERT_METHOD_DECLARATION} ,g"
   echo " * phpcs:enable Generic.Files.LineLength"
   echo " */"

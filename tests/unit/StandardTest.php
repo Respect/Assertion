@@ -55,7 +55,7 @@ final class StandardTest extends TestCase
         $rule = $this->createMock(Validatable::class);
         $rule
             ->expects($this->once())
-            ->method('assert')
+            ->method('check')
             ->with($input);
 
         $sut = new Standard($rule);
@@ -76,7 +76,7 @@ final class StandardTest extends TestCase
         $rule = $this->createMock(Validatable::class);
         $rule
             ->expects($this->once())
-            ->method('assert')
+            ->method('check')
             ->with($input)
             ->willThrowException($exception);
 
@@ -98,7 +98,7 @@ final class StandardTest extends TestCase
         $rule = $this->createMock(Validatable::class);
         $rule
             ->expects($this->once())
-            ->method('assert')
+            ->method('check')
             ->with($input)
             ->willThrowException(
                 new ValidationException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()))
@@ -131,7 +131,7 @@ final class StandardTest extends TestCase
         $rule = $this->createMock(Validatable::class);
         $rule
             ->expects($this->once())
-            ->method('assert')
+            ->method('check')
             ->with($input)
             ->willThrowException($exception);
 

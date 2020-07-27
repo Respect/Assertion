@@ -133,6 +133,46 @@ If `all` is used without a suffix, this library will use [Equals][] to assert:
 Assert::all(['A', 'B', 'C'], 'D');
 ```
 
+### Key
+
+You can use `keyPresent` to check whether a key is present in an array.
+
+```php
+// will throw an exception => Key bar must be present
+Assert::keyPresent(['foo' => true], 'bar');
+```
+
+You can use `keyNotPresent` to check whether a key is present in an array.
+
+```php
+// will throw an exception => Key bar must not be present
+Assert::keyNotPresent(['bar' => 2], 'bar');
+```
+
+Also, with the `key` prefix it will assert the value of the array that contains
+the specified key.
+
+```php
+// will throw an exception => foo must equal 3
+Assert::key(['foo' => 2], 'foo', 3);
+Assert::keyEquals(['foo' => 2], 'foo', 3);
+
+// will throw an exception => bar must be negative
+Assert::keyNegative(['bar' => 2], 'bar');
+
+// will throw an exception => bar must not be of type integer
+Assert::keyNotIntType(['bar' => 2], 'bar');
+
+// will throw an exception => Key baz must be present
+Assert::keyNegative(['foo' => 2], 'baz');
+
+// will throw an exception => foo must exists
+Assert::keyExists(['foo' => '/path/to/file.txt'], 'foo');
+```
+
+Not that `keyExists` assertion, will assert whether the value of key `foo` exists
+in the Filesystem.
+
 ### Length
 
 Assertions can be executed with the `length` prefix which will assert the length
@@ -251,7 +291,6 @@ Assert::min(['A', 'B', 'C'], 'D');
 
 - Allow to make assertions with `nullOr` prefix
 - Allow to make assertions with `any` prefix
-- Allow to make assertions with `key` prefix
 - Allow to make assertions with `attribute` prefix
 
 [beberlei/assert]: https://github.com/beberlei/assert
