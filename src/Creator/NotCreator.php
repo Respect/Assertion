@@ -25,7 +25,7 @@ use function substr;
 
 final class NotCreator implements AssertionCreator
 {
-    private const BLACKLIST = [
+    private const IGNORED_RULES = [
         'notempty',
         'notblank',
         'notoptional',
@@ -50,7 +50,7 @@ final class NotCreator implements AssertionCreator
             return $this->assertionCreator->create($name, $parameters);
         }
 
-        if (in_array(strtolower($name), self::BLACKLIST)) {
+        if (in_array(strtolower($name), self::IGNORED_RULES)) {
             return $this->assertionCreator->create($name, $parameters);
         }
 
