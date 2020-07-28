@@ -287,11 +287,31 @@ If `min` is used without a suffix, this library will use [Equals][] to assert:
 Assert::min(['A', 'B', 'C'], 'D');
 ```
 
-## To-do
+### NullOr
 
-- Allow to make assertions with `nullOr` prefix
-- Allow to make assertions with `any` prefix
-- Allow to make assertions with `attribute` prefix
+Assertions can be executed with the `nullOr` prefix which will assert only if the
+value of the input it not null.
+
+```php
+// will throw an exception => 42 must be negative
+Assert::nullOrNegative(42);
+
+// will not throw an exception
+Assert::nullOrNegative(null);
+
+// will throw an exception => 5 must be between 1 and 4
+Assert::nullOrBetween(5, 1, 4);
+
+// will not throw an exception
+Assert::nullOrBetween(null, 1, 4);
+```
+
+If `nullOr` is used without a suffix, this library will use [Equals][] to assert:
+
+```php
+// will throw an exception => 1 must equal 2
+Assert::nullOr(1, 2);
+```
 
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org

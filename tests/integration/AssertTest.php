@@ -52,6 +52,14 @@ final class AssertTest extends TestCase
             ['key', [['foo' => 1], 'foo', 1]],
             ['keyPresent', [['foo' => 1], 'foo']],
             ['keyNotPresent', [['foo' => 1], 'baz']],
+            ['nullOr', [1, 1]],
+            ['nullOr', [null, 1]],
+            ['nullOrNot', [1, 2]],
+            ['nullOrNot', [null, 2]],
+            ['nullOrPositive', [1]],
+            ['nullOrPositive', [null]],
+            ['nullOrNotPositive', [-1]],
+            ['nullOrNotPositive', [null]],
         ];
     }
 
@@ -96,6 +104,10 @@ final class AssertTest extends TestCase
             ['key', [['foo' => 1], 'foo', 2]],
             ['keyPresent', [['foo' => 1], 'baz']],
             ['keyNotPresent', [['foo' => 1], 'foo']],
+            ['nullOr', [1, 2]],
+            ['nullOrNot', [2, 2]],
+            ['nullOrPositive', [-1]],
+            ['nullOrNotPositive', [1]],
         ];
     }
 

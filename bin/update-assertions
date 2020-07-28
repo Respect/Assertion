@@ -49,11 +49,13 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
     fi
 
     echo "${assertion}"
+    echo "nullOr${assertion^}"
     echo "all${assertion_iterable^}"
     echo "key${assertion_key^}"
 
     grep --quiet "^not" <<< "${name}" || {
       echo "not${assertion^}"
+      echo "nullOrNot${assertion^}"
       echo "allNot${assertion_iterable^}"
       echo "keyNot${assertion_key^}"
     }
@@ -82,6 +84,9 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
 
   echo "all(iterable \$input, ${EQUALS_ARGUMENTS})"
   echo "allNot(iterable \$input, ${EQUALS_ARGUMENTS})"
+
+  echo "nullOr(mixed \$input, ${EQUALS_ARGUMENTS})"
+  echo "nullOrNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
   echo "key(array \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
   echo "keyPresent(array \$input, mixed \$key, Throwable|string \$description = null)"
