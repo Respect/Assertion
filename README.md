@@ -316,10 +316,10 @@ Assert::nullOr(1, 2);
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
 [Countable]: http://php.net/countable
-[Equals]: http://respect.github.io/Validation/docs/equals
+[Equals]: https://respect-validation.readthedocs.io/en/latest/rules/Equals/
 [iterable]: http://php.net/types.iterable
-[list of rules]: http://respect.github.io/Validation/docs/validators
+[list of rules]: https://respect-validation.readthedocs.io/en/latest/list-of-rules/
 [Malukenho]: https://github.com/malukenho
 [Packagist]: http://packagist.org/packages/respect/assertion
-[Validation]: http://respect.github.io/Validation
+[Validation]: https://respect-validation.readthedocs.io
 [webmozart/assert]: https://github.com/webmozart/assert
