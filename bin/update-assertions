@@ -3,9 +3,9 @@
 set -euo pipefail
 
 declare -r IFS=$'\n'
-declare -r ASSERT_METHOD_DECLARATION=" * @method static void"
-declare -r CHAIN_ASSERT_METHOD_DECLARATION=" * @method ChainAssert"
-declare -r EQUALS_ARGUMENTS="\$compareTo, Throwable|string \$description = null"
+declare -r ASSERT_METHOD_DECLARATION="    public static function"
+declare -r CHAIN_ASSERT_METHOD_DECLARATION="    public function"
+declare -r EQUALS_ARGUMENTS="mixed \$compareTo, Throwable|string|null \$description = null"
 declare -r DIRECTORY=$(dirname "${BASH_SOURCE}")
 declare -r TEMPORARY_METHODS=$(mktemp)
 declare -r TEMPORARY_ASSERT=$(mktemp)
@@ -16,7 +16,8 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
     declare name=$(cut --delimiter '(' --field 1 <<< "${rule}")
     declare assertion=$(
       sed 's/(/(mixed $input, /' <<< "${rule}" |
-        sed 's/)/, Throwable|string $description = null)/' |
+        sed 's/\.\.\.//' |
+        sed 's/)/, Throwable|string|null $description = null)/' |
         sed "s/, ,/,/"
     )
     declare assertion_iterable=$(
@@ -89,8 +90,10 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
   echo "nullOrNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
   echo "key(array \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
-  echo "keyPresent(array \$input, mixed \$key, Throwable|string \$description = null)"
-  echo "keyNotPresent(array \$input, mixed \$key, Throwable|string \$description = null)"
+  echo "keyNot(array \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
+
+  echo "keyPresent(array \$input, mixed \$key, Throwable|string|null \$description = null)"
+  echo "keyNotPresent(array \$input, mixed \$key, Throwable|string|null \$description = null)"
 
   echo "length(iterable \$input, ${EQUALS_ARGUMENTS})"
   echo "lengthNot(iterable \$input, ${EQUALS_ARGUMENTS})"
@@ -103,28 +106,54 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
 
 } | sort > "${TEMPORARY_METHODS}"
 
-echo "- Updating Assert.php"
+create-method()
 {
-  sed --silent "/<?/,/\/\*\*/p" "${DIRECTORY}/../src/Assert.php"
-  echo " * phpcs:disable Generic.Files.LineLength"
-  sed "s,^,${ASSERT_METHOD_DECLARATION} ,g" < "${TEMPORARY_METHODS}"
-  echo " * phpcs:enable Generic.Files.LineLength"
-  echo " */"
-  sed --silent '/final/,/^}/p' "${DIRECTORY}/../src/Assert.php"
+  local -r signature="${1}"
+  local -r return="${2}"
+  local -r static="${3:-}"
+  local -r method_signature=$(
+    sed 's,mixed ,,g; s,Throwable|string|null ,,g' <<< "${signature}"
+  )
+
+  echo "    /**"
+  sed --regexp-extended 's,^[a-z0-9A-Z]+\((.+)\)$, \1,g' <<< "${signature}" |
+     tr ',' '\n' |
+     sed 's,^,     * @param,' |
+     sed --regexp-extended 's, = .+,,' |
+     sed 's,param \$,param mixed \$,g' |
+     sed 's,iterable,iterable<mixed>,g' |
+     sed 's,array,array<mixed>,g'
+  echo "     */"
+  if [[ ${static} -eq 1 ]]; then
+    echo "    public static function ${method_signature}: ${return};"
+    echo
+    return
+  fi
+
+  echo "    public function ${method_signature}: ${return};"
+  echo
+}
+
+echo "- Updating AssertMixin.php"
+{
+  sed --silent "/<?/,/^{/p" "${DIRECTORY}/../src/AssertMixin.php"
+  while read signature; do
+    create-method "${signature}" "void" 1
+  done < "${TEMPORARY_METHODS}"
+  echo "}"
 } > "${TEMPORARY_ASSERT}"
-mv "${TEMPORARY_ASSERT}" "${DIRECTORY}/../src/Assert.php"
 
-echo "- Updating ChainAssert.php"
+mv "${TEMPORARY_ASSERT}" "${DIRECTORY}/../src/AssertMixin.php"
+
+echo "- Updating ChainAssertMixin.php"
 {
-  sed --silent "/<?/,/\/\*\*/p" "${DIRECTORY}/../src/ChainAssert.php"
-  echo " * phpcs:disable Generic.Files.LineLength"
-  sed --regexp-extended 's/\((mixed|iterable|array) \$input, /(/g' < "${TEMPORARY_METHODS}" |
-      sed "s,^,${CHAIN_ASSERT_METHOD_DECLARATION} ,g"
-  echo " * phpcs:enable Generic.Files.LineLength"
-  echo " */"
-  sed --silent '/final/,/^}/p' "${DIRECTORY}/../src/ChainAssert.php"
-
+  sed --silent "/<?/,/^{/p" "${DIRECTORY}/../src/ChainAssertMixin.php"
+  while read signature; do
+    create-method "${signature}" "self"
+  done < <(sed --regexp-extended 's/\((mixed|iterable|array) \$input, /(/g' < "${TEMPORARY_METHODS}")
+  echo "}"
 } > "${TEMPORARY_CHAIN_ASSERT}"
-mv "${TEMPORARY_CHAIN_ASSERT}" "${DIRECTORY}/../src/ChainAssert.php"
+
+mv "${TEMPORARY_CHAIN_ASSERT}" "${DIRECTORY}/../src/ChainAssertMixin.php"
 
 echo "Finished!"
