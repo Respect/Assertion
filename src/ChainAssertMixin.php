@@ -25,16 +25,16 @@ interface ChainAssertMixin
     public function all($compareTo, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allAlnum(string $additionalChars, $description = null): self;
+    public function allAlnum(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allAlpha(string $additionalChars, $description = null): self;
+    public function allAlpha(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -98,10 +98,10 @@ interface ChainAssertMixin
     public function allCallback(callable $callback, $description = null): self;
 
     /**
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function allCharset(string $charset, $description = null): self;
+    public function allCharset(?string $charset = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -114,10 +114,10 @@ interface ChainAssertMixin
     public function allCnpj($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allConsonant(string $additionalChars, $description = null): self;
+    public function allConsonant(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $containsValue
@@ -134,10 +134,10 @@ interface ChainAssertMixin
     public function allContainsAny(array $needles, bool $strictCompareArray = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allControl(string $additionalChars, $description = null): self;
+    public function allControl(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -179,10 +179,10 @@ interface ChainAssertMixin
     public function allDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allDigit(string $additionalChars, $description = null): self;
+    public function allDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -284,10 +284,10 @@ interface ChainAssertMixin
     public function allFloatVal($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allGraph(string $additionalChars, $description = null): self;
+    public function allGraph(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -474,16 +474,16 @@ interface ChainAssertMixin
     public function allNot($compareTo, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotAlnum(string $additionalChars, $description = null): self;
+    public function allNotAlnum(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotAlpha(string $additionalChars, $description = null): self;
+    public function allNotAlpha(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -552,10 +552,10 @@ interface ChainAssertMixin
     public function allNotCallback(callable $callback, $description = null): self;
 
     /**
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function allNotCharset(string $charset, $description = null): self;
+    public function allNotCharset(?string $charset = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -568,10 +568,10 @@ interface ChainAssertMixin
     public function allNotCnpj($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotConsonant(string $additionalChars, $description = null): self;
+    public function allNotConsonant(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $containsValue
@@ -588,10 +588,10 @@ interface ChainAssertMixin
     public function allNotContainsAny(array $needles, bool $strictCompareArray = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotControl(string $additionalChars, $description = null): self;
+    public function allNotControl(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -633,10 +633,10 @@ interface ChainAssertMixin
     public function allNotDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotDigit(string $additionalChars, $description = null): self;
+    public function allNotDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -748,10 +748,10 @@ interface ChainAssertMixin
     public function allNotFloatVal($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotGraph(string $additionalChars, $description = null): self;
+    public function allNotGraph(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -1008,16 +1008,16 @@ interface ChainAssertMixin
     public function allNotPrimeNumber($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotPrintable(string $additionalChars, $description = null): self;
+    public function allNotPrintable(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotPunct(string $additionalChars, $description = null): self;
+    public function allNotPunct(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1064,10 +1064,10 @@ interface ChainAssertMixin
     public function allNotSorted(string $direction, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotSpace(string $additionalChars, $description = null): self;
+    public function allNotSpace(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $startValue
@@ -1163,10 +1163,10 @@ interface ChainAssertMixin
     public function allNotVideoUrl(string $service = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotVowel(string $additionalChars, $description = null): self;
+    public function allNotVowel(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1174,10 +1174,10 @@ interface ChainAssertMixin
     public function allNotWritable($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allNotXdigit(string $additionalChars, $description = null): self;
+    public function allNotXdigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $useLocale
@@ -1257,16 +1257,16 @@ interface ChainAssertMixin
     public function allPrimeNumber($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allPrintable(string $additionalChars, $description = null): self;
+    public function allPrintable(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allPunct(string $additionalChars, $description = null): self;
+    public function allPunct(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1313,10 +1313,10 @@ interface ChainAssertMixin
     public function allSorted(string $direction, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allSpace(string $additionalChars, $description = null): self;
+    public function allSpace(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $startValue
@@ -1412,10 +1412,10 @@ interface ChainAssertMixin
     public function allVideoUrl(string $service = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allVowel(string $additionalChars, $description = null): self;
+    public function allVowel(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1423,10 +1423,10 @@ interface ChainAssertMixin
     public function allWritable($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function allXdigit(string $additionalChars, $description = null): self;
+    public function allXdigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $useLocale
@@ -1435,16 +1435,16 @@ interface ChainAssertMixin
     public function allYes($useLocale = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function alnum(string $additionalChars, $description = null): self;
+    public function alnum(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function alpha(string $additionalChars, $description = null): self;
+    public function alpha(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1508,10 +1508,10 @@ interface ChainAssertMixin
     public function callback(callable $callback, $description = null): self;
 
     /**
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function charset(string $charset, $description = null): self;
+    public function charset(?string $charset = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1524,10 +1524,10 @@ interface ChainAssertMixin
     public function cnpj($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function consonant(string $additionalChars, $description = null): self;
+    public function consonant(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $containsValue
@@ -1544,10 +1544,10 @@ interface ChainAssertMixin
     public function containsAny(array $needles, bool $strictCompareArray = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function control(string $additionalChars, $description = null): self;
+    public function control(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1589,10 +1589,10 @@ interface ChainAssertMixin
     public function dateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function digit(string $additionalChars, $description = null): self;
+    public function digit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -1694,10 +1694,10 @@ interface ChainAssertMixin
     public function floatVal($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function graph(string $additionalChars, $description = null): self;
+    public function graph(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -1791,17 +1791,17 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyAlnum($key, string $additionalChars, $description = null): self;
+    public function keyAlnum($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyAlpha($key, string $additionalChars, $description = null): self;
+    public function keyAlpha($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -1877,10 +1877,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function keyCharset($key, string $charset, $description = null): self;
+    public function keyCharset($key, ?string $charset = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -1896,10 +1896,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyConsonant($key, string $additionalChars, $description = null): self;
+    public function keyConsonant($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -1919,10 +1919,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyControl($key, string $additionalChars, $description = null): self;
+    public function keyControl($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -1972,10 +1972,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyDigit($key, string $additionalChars, $description = null): self;
+    public function keyDigit($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2096,10 +2096,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyGraph($key, string $additionalChars, $description = null): self;
+    public function keyGraph($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2320,17 +2320,17 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotAlnum($key, string $additionalChars, $description = null): self;
+    public function keyNotAlnum($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotAlpha($key, string $additionalChars, $description = null): self;
+    public function keyNotAlpha($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2412,10 +2412,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function keyNotCharset($key, string $charset, $description = null): self;
+    public function keyNotCharset($key, ?string $charset = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2431,10 +2431,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotConsonant($key, string $additionalChars, $description = null): self;
+    public function keyNotConsonant($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2454,10 +2454,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotControl($key, string $additionalChars, $description = null): self;
+    public function keyNotControl($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2507,10 +2507,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotDigit($key, string $additionalChars, $description = null): self;
+    public function keyNotDigit($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2643,10 +2643,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotGraph($key, string $additionalChars, $description = null): self;
+    public function keyNotGraph($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -2957,17 +2957,17 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotPrintable($key, string $additionalChars, $description = null): self;
+    public function keyNotPrintable($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotPunct($key, string $additionalChars, $description = null): self;
+    public function keyNotPunct($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3023,10 +3023,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotSpace($key, string $additionalChars, $description = null): self;
+    public function keyNotSpace($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3140,10 +3140,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotVowel($key, string $additionalChars, $description = null): self;
+    public function keyNotVowel($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3153,10 +3153,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyNotXdigit($key, string $additionalChars, $description = null): self;
+    public function keyNotXdigit($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3258,17 +3258,17 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyPrintable($key, string $additionalChars, $description = null): self;
+    public function keyPrintable($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyPunct($key, string $additionalChars, $description = null): self;
+    public function keyPunct($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3324,10 +3324,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keySpace($key, string $additionalChars, $description = null): self;
+    public function keySpace($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3441,10 +3441,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyVowel($key, string $additionalChars, $description = null): self;
+    public function keyVowel($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3454,10 +3454,10 @@ interface ChainAssertMixin
 
     /**
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function keyXdigit($key, string $additionalChars, $description = null): self;
+    public function keyXdigit($key, ?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $key
@@ -3516,10 +3516,10 @@ interface ChainAssertMixin
     public function lengthDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function lengthDigit(string $additionalChars, $description = null): self;
+    public function lengthDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -3673,10 +3673,10 @@ interface ChainAssertMixin
     public function lengthNotDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function lengthNotDigit(string $additionalChars, $description = null): self;
+    public function lengthNotDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -3960,10 +3960,10 @@ interface ChainAssertMixin
     public function maxDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function maxDigit(string $additionalChars, $description = null): self;
+    public function maxDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -4117,10 +4117,10 @@ interface ChainAssertMixin
     public function maxNotDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function maxNotDigit(string $additionalChars, $description = null): self;
+    public function maxNotDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -4389,10 +4389,10 @@ interface ChainAssertMixin
     public function minDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function minDigit(string $additionalChars, $description = null): self;
+    public function minDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -4546,10 +4546,10 @@ interface ChainAssertMixin
     public function minNotDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function minNotDigit(string $additionalChars, $description = null): self;
+    public function minNotDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -4810,16 +4810,16 @@ interface ChainAssertMixin
     public function noWhitespace($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notAlnum(string $additionalChars, $description = null): self;
+    public function notAlnum(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notAlpha(string $additionalChars, $description = null): self;
+    public function notAlpha(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -4888,10 +4888,10 @@ interface ChainAssertMixin
     public function notCallback(callable $callback, $description = null): self;
 
     /**
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function notCharset(string $charset, $description = null): self;
+    public function notCharset(?string $charset = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -4904,10 +4904,10 @@ interface ChainAssertMixin
     public function notCnpj($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notConsonant(string $additionalChars, $description = null): self;
+    public function notConsonant(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $containsValue
@@ -4924,10 +4924,10 @@ interface ChainAssertMixin
     public function notContainsAny(array $needles, bool $strictCompareArray = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notControl(string $additionalChars, $description = null): self;
+    public function notControl(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -4969,10 +4969,10 @@ interface ChainAssertMixin
     public function notDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notDigit(string $additionalChars, $description = null): self;
+    public function notDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5084,10 +5084,10 @@ interface ChainAssertMixin
     public function notFloatVal($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notGraph(string $additionalChars, $description = null): self;
+    public function notGraph(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -5344,16 +5344,16 @@ interface ChainAssertMixin
     public function notPrimeNumber($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notPrintable(string $additionalChars, $description = null): self;
+    public function notPrintable(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notPunct(string $additionalChars, $description = null): self;
+    public function notPunct(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5400,10 +5400,10 @@ interface ChainAssertMixin
     public function notSorted(string $direction, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notSpace(string $additionalChars, $description = null): self;
+    public function notSpace(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $startValue
@@ -5499,10 +5499,10 @@ interface ChainAssertMixin
     public function notVideoUrl(string $service = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notVowel(string $additionalChars, $description = null): self;
+    public function notVowel(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5510,10 +5510,10 @@ interface ChainAssertMixin
     public function notWritable($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function notXdigit(string $additionalChars, $description = null): self;
+    public function notXdigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $useLocale
@@ -5528,16 +5528,16 @@ interface ChainAssertMixin
     public function nullOr($compareTo, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrAlnum(string $additionalChars, $description = null): self;
+    public function nullOrAlnum(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrAlpha(string $additionalChars, $description = null): self;
+    public function nullOrAlpha(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5601,10 +5601,10 @@ interface ChainAssertMixin
     public function nullOrCallback(callable $callback, $description = null): self;
 
     /**
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function nullOrCharset(string $charset, $description = null): self;
+    public function nullOrCharset(?string $charset = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5617,10 +5617,10 @@ interface ChainAssertMixin
     public function nullOrCnpj($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrConsonant(string $additionalChars, $description = null): self;
+    public function nullOrConsonant(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $containsValue
@@ -5637,10 +5637,10 @@ interface ChainAssertMixin
     public function nullOrContainsAny(array $needles, bool $strictCompareArray = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrControl(string $additionalChars, $description = null): self;
+    public function nullOrControl(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5682,10 +5682,10 @@ interface ChainAssertMixin
     public function nullOrDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrDigit(string $additionalChars, $description = null): self;
+    public function nullOrDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -5787,10 +5787,10 @@ interface ChainAssertMixin
     public function nullOrFloatVal($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrGraph(string $additionalChars, $description = null): self;
+    public function nullOrGraph(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -5977,16 +5977,16 @@ interface ChainAssertMixin
     public function nullOrNot($compareTo, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotAlnum(string $additionalChars, $description = null): self;
+    public function nullOrNotAlnum(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotAlpha(string $additionalChars, $description = null): self;
+    public function nullOrNotAlpha(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6055,10 +6055,10 @@ interface ChainAssertMixin
     public function nullOrNotCallback(callable $callback, $description = null): self;
 
     /**
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public function nullOrNotCharset(string $charset, $description = null): self;
+    public function nullOrNotCharset(?string $charset = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6071,10 +6071,10 @@ interface ChainAssertMixin
     public function nullOrNotCnpj($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotConsonant(string $additionalChars, $description = null): self;
+    public function nullOrNotConsonant(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $containsValue
@@ -6091,10 +6091,10 @@ interface ChainAssertMixin
     public function nullOrNotContainsAny(array $needles, bool $strictCompareArray = false, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotControl(string $additionalChars, $description = null): self;
+    public function nullOrNotControl(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6136,10 +6136,10 @@ interface ChainAssertMixin
     public function nullOrNotDateTime(string $format = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotDigit(string $additionalChars, $description = null): self;
+    public function nullOrNotDigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6251,10 +6251,10 @@ interface ChainAssertMixin
     public function nullOrNotFloatVal($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotGraph(string $additionalChars, $description = null): self;
+    public function nullOrNotGraph(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $compareTo
@@ -6511,16 +6511,16 @@ interface ChainAssertMixin
     public function nullOrNotPrimeNumber($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotPrintable(string $additionalChars, $description = null): self;
+    public function nullOrNotPrintable(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotPunct(string $additionalChars, $description = null): self;
+    public function nullOrNotPunct(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6567,10 +6567,10 @@ interface ChainAssertMixin
     public function nullOrNotSorted(string $direction, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotSpace(string $additionalChars, $description = null): self;
+    public function nullOrNotSpace(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $startValue
@@ -6666,10 +6666,10 @@ interface ChainAssertMixin
     public function nullOrNotVideoUrl(string $service = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotVowel(string $additionalChars, $description = null): self;
+    public function nullOrNotVowel(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6677,10 +6677,10 @@ interface ChainAssertMixin
     public function nullOrNotWritable($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrNotXdigit(string $additionalChars, $description = null): self;
+    public function nullOrNotXdigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $useLocale
@@ -6760,16 +6760,16 @@ interface ChainAssertMixin
     public function nullOrPrimeNumber($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrPrintable(string $additionalChars, $description = null): self;
+    public function nullOrPrintable(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrPunct(string $additionalChars, $description = null): self;
+    public function nullOrPunct(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6816,10 +6816,10 @@ interface ChainAssertMixin
     public function nullOrSorted(string $direction, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrSpace(string $additionalChars, $description = null): self;
+    public function nullOrSpace(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $startValue
@@ -6915,10 +6915,10 @@ interface ChainAssertMixin
     public function nullOrVideoUrl(string $service = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrVowel(string $additionalChars, $description = null): self;
+    public function nullOrVowel(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -6926,10 +6926,10 @@ interface ChainAssertMixin
     public function nullOrWritable($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function nullOrXdigit(string $additionalChars, $description = null): self;
+    public function nullOrXdigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $useLocale
@@ -7009,16 +7009,16 @@ interface ChainAssertMixin
     public function primeNumber($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function printable(string $additionalChars, $description = null): self;
+    public function printable(?string $additionalChars = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function punct(string $additionalChars, $description = null): self;
+    public function punct(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -7065,10 +7065,10 @@ interface ChainAssertMixin
     public function sorted(string $direction, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function space(string $additionalChars, $description = null): self;
+    public function space(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $startValue
@@ -7164,10 +7164,10 @@ interface ChainAssertMixin
     public function videoUrl(string $service = null, $description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function vowel(string $additionalChars, $description = null): self;
+    public function vowel(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param Throwable|string|null $description
@@ -7175,10 +7175,10 @@ interface ChainAssertMixin
     public function writable($description = null): self;
 
     /**
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public function xdigit(string $additionalChars, $description = null): self;
+    public function xdigit(?string $additionalChars = null, $description = null): self;
 
     /**
      * @param mixed $useLocale

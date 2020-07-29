@@ -16,7 +16,7 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
     declare name=$(cut --delimiter '(' --field 1 <<< "${rule}")
     declare assertion=$(
       sed 's/(/(mixed $input, /' <<< "${rule}" |
-        sed 's/\.\.\.//' |
+        sed --regexp-extended 's,([a-zA-Z0-9]+ )?\.\.\.(\$[a-z0-9A-Z]+),\?\1\2 = null,' |
         sed 's/)/, Throwable|string|null $description = null)/' |
         sed "s/, ,/,/"
     )
@@ -120,6 +120,7 @@ create-method()
      tr ',' '\n' |
      sed 's,^,     * @param,' |
      sed --regexp-extended 's, = .+,,' |
+     sed --regexp-extended 's,\?([a-zA-Z0-9|]+),\1|null,' |
      sed 's,param \$,param mixed \$,g' |
      sed 's,iterable,iterable<mixed>,g' |
      sed 's,array,array<mixed>,g'

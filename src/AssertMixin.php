@@ -27,17 +27,17 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allAlnum(iterable $input, string $additionalChars, $description = null): void;
+    public static function allAlnum(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allAlpha(iterable $input, string $additionalChars, $description = null): void;
+    public static function allAlpha(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -113,10 +113,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function allCharset(iterable $input, string $charset, $description = null): void;
+    public static function allCharset(iterable $input, ?string $charset = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -132,10 +132,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allConsonant(iterable $input, string $additionalChars, $description = null): void;
+    public static function allConsonant(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -155,10 +155,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allControl(iterable $input, string $additionalChars, $description = null): void;
+    public static function allControl(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -208,10 +208,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allDigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function allDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -332,10 +332,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allGraph(iterable $input, string $additionalChars, $description = null): void;
+    public static function allGraph(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -556,17 +556,17 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotAlnum(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotAlnum(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotAlpha(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotAlpha(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -648,10 +648,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function allNotCharset(iterable $input, string $charset, $description = null): void;
+    public static function allNotCharset(iterable $input, ?string $charset = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -667,10 +667,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotConsonant(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotConsonant(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -690,10 +690,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotControl(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotControl(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -743,10 +743,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotDigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -879,10 +879,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotGraph(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotGraph(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1187,17 +1187,17 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotPrintable(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotPrintable(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotPunct(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotPunct(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1253,10 +1253,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotSpace(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotSpace(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1370,10 +1370,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotVowel(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotVowel(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1383,10 +1383,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotXdigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function allNotXdigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1482,17 +1482,17 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allPrintable(iterable $input, string $additionalChars, $description = null): void;
+    public static function allPrintable(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allPunct(iterable $input, string $additionalChars, $description = null): void;
+    public static function allPunct(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1548,10 +1548,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allSpace(iterable $input, string $additionalChars, $description = null): void;
+    public static function allSpace(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1665,10 +1665,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allVowel(iterable $input, string $additionalChars, $description = null): void;
+    public static function allVowel(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1678,10 +1678,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allXdigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function allXdigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -1692,17 +1692,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function alnum($input, string $additionalChars, $description = null): void;
+    public static function alnum($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function alpha($input, string $additionalChars, $description = null): void;
+    public static function alpha($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -1778,10 +1778,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function charset($input, string $charset, $description = null): void;
+    public static function charset($input, ?string $charset = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -1797,10 +1797,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function consonant($input, string $additionalChars, $description = null): void;
+    public static function consonant($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -1820,10 +1820,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function control($input, string $additionalChars, $description = null): void;
+    public static function control($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -1873,10 +1873,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function digit($input, string $additionalChars, $description = null): void;
+    public static function digit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -1997,10 +1997,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function graph($input, string $additionalChars, $description = null): void;
+    public static function graph($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -2111,18 +2111,18 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyAlnum(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyAlnum(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyAlpha(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyAlpha(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2210,10 +2210,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function keyCharset(array $input, $key, string $charset, $description = null): void;
+    public static function keyCharset(array $input, $key, ?string $charset = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2232,10 +2232,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyConsonant(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyConsonant(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2258,10 +2258,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyControl(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyControl(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2319,10 +2319,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyDigit(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyDigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2462,10 +2462,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyGraph(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyGraph(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2720,18 +2720,18 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotAlnum(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotAlnum(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotAlpha(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotAlpha(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2826,10 +2826,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function keyNotCharset(array $input, $key, string $charset, $description = null): void;
+    public static function keyNotCharset(array $input, $key, ?string $charset = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2848,10 +2848,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotConsonant(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotConsonant(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2874,10 +2874,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotControl(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotControl(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -2935,10 +2935,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotDigit(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotDigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3092,10 +3092,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotGraph(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotGraph(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3455,18 +3455,18 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotPrintable(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotPrintable(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotPunct(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotPunct(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3531,10 +3531,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotSpace(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotSpace(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3666,10 +3666,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotVowel(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotVowel(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3681,10 +3681,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotXdigit(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyNotXdigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3803,18 +3803,18 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyPrintable(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyPrintable(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyPunct(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyPunct(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -3879,10 +3879,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keySpace(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keySpace(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -4014,10 +4014,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyVowel(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyVowel(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -4029,10 +4029,10 @@ interface AssertMixin
     /**
      * @param array<mixed> $input
      * @param mixed $key
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyXdigit(array $input, $key, string $additionalChars, $description = null): void;
+    public static function keyXdigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param array<mixed> $input
@@ -4101,10 +4101,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function lengthDigit($input, string $additionalChars, $description = null): void;
+    public static function lengthDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -4285,10 +4285,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function lengthNotDigit($input, string $additionalChars, $description = null): void;
+    public static function lengthNotDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -4624,10 +4624,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function maxDigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function maxDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -4808,10 +4808,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function maxNotDigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function maxNotDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -5129,10 +5129,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function minDigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function minDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -5313,10 +5313,10 @@ interface AssertMixin
 
     /**
      * @param iterable<mixed> $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function minNotDigit(iterable $input, string $additionalChars, $description = null): void;
+    public static function minNotDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param iterable<mixed> $input
@@ -5626,17 +5626,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notAlnum($input, string $additionalChars, $description = null): void;
+    public static function notAlnum($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notAlpha($input, string $additionalChars, $description = null): void;
+    public static function notAlpha($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -5718,10 +5718,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function notCharset($input, string $charset, $description = null): void;
+    public static function notCharset($input, ?string $charset = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -5737,10 +5737,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notConsonant($input, string $additionalChars, $description = null): void;
+    public static function notConsonant($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -5760,10 +5760,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notControl($input, string $additionalChars, $description = null): void;
+    public static function notControl($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -5813,10 +5813,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notDigit($input, string $additionalChars, $description = null): void;
+    public static function notDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -5949,10 +5949,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notGraph($input, string $additionalChars, $description = null): void;
+    public static function notGraph($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6257,17 +6257,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notPrintable($input, string $additionalChars, $description = null): void;
+    public static function notPrintable($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notPunct($input, string $additionalChars, $description = null): void;
+    public static function notPunct($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6323,10 +6323,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notSpace($input, string $additionalChars, $description = null): void;
+    public static function notSpace($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6440,10 +6440,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notVowel($input, string $additionalChars, $description = null): void;
+    public static function notVowel($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6453,10 +6453,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function notXdigit($input, string $additionalChars, $description = null): void;
+    public static function notXdigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6474,17 +6474,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrAlnum($input, string $additionalChars, $description = null): void;
+    public static function nullOrAlnum($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrAlpha($input, string $additionalChars, $description = null): void;
+    public static function nullOrAlpha($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6560,10 +6560,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function nullOrCharset($input, string $charset, $description = null): void;
+    public static function nullOrCharset($input, ?string $charset = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6579,10 +6579,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrConsonant($input, string $additionalChars, $description = null): void;
+    public static function nullOrConsonant($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6602,10 +6602,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrControl($input, string $additionalChars, $description = null): void;
+    public static function nullOrControl($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6655,10 +6655,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrDigit($input, string $additionalChars, $description = null): void;
+    public static function nullOrDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -6779,10 +6779,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrGraph($input, string $additionalChars, $description = null): void;
+    public static function nullOrGraph($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7003,17 +7003,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotAlnum($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotAlnum($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotAlpha($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotAlpha($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7095,10 +7095,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $charset
+     * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotCharset($input, string $charset, $description = null): void;
+    public static function nullOrNotCharset($input, ?string $charset = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7114,10 +7114,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotConsonant($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotConsonant($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7137,10 +7137,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotControl($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotControl($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7190,10 +7190,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotDigit($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7326,10 +7326,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotGraph($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotGraph($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7634,17 +7634,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotPrintable($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotPrintable($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotPunct($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotPunct($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7700,10 +7700,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotSpace($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotSpace($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7817,10 +7817,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotVowel($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotVowel($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7830,10 +7830,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrNotXdigit($input, string $additionalChars, $description = null): void;
+    public static function nullOrNotXdigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7929,17 +7929,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrPrintable($input, string $additionalChars, $description = null): void;
+    public static function nullOrPrintable($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrPunct($input, string $additionalChars, $description = null): void;
+    public static function nullOrPunct($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -7995,10 +7995,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrSpace($input, string $additionalChars, $description = null): void;
+    public static function nullOrSpace($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -8112,10 +8112,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrVowel($input, string $additionalChars, $description = null): void;
+    public static function nullOrVowel($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -8125,10 +8125,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function nullOrXdigit($input, string $additionalChars, $description = null): void;
+    public static function nullOrXdigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -8224,17 +8224,17 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function printable($input, string $additionalChars, $description = null): void;
+    public static function printable($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function punct($input, string $additionalChars, $description = null): void;
+    public static function punct($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -8290,10 +8290,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function space($input, string $additionalChars, $description = null): void;
+    public static function space($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -8407,10 +8407,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function vowel($input, string $additionalChars, $description = null): void;
+    public static function vowel($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
@@ -8420,10 +8420,10 @@ interface AssertMixin
 
     /**
      * @param mixed $input
-     * @param string $additionalChars
+     * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function xdigit($input, string $additionalChars, $description = null): void;
+    public static function xdigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
      * @param mixed $input
