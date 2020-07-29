@@ -20,11 +20,8 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
         sed 's/)/, Throwable|string|null $description = null)/' |
         sed "s/, ,/,/"
     )
-    declare assertion_iterable=$(
-      sed 's/(mixed $input/(iterable $input/' <<< "${assertion}"
-    )
     declare assertion_key=$(
-      sed 's/(mixed $input/(array $input, mixed $key/' <<< "${assertion}"
+      sed 's/(mixed $input/(mixed $input, mixed $key/' <<< "${assertion}"
     )
 
     echo -e -n "Processing '${name}' assertion\r" 1>&2
@@ -51,13 +48,13 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
 
     echo "${assertion}"
     echo "nullOr${assertion^}"
-    echo "all${assertion_iterable^}"
+    echo "all${assertion^}"
     echo "key${assertion_key^}"
 
     grep --quiet "^not" <<< "${name}" || {
       echo "not${assertion^}"
       echo "nullOrNot${assertion^}"
-      echo "allNot${assertion_iterable^}"
+      echo "allNot${assertion^}"
       echo "keyNot${assertion_key^}"
     }
 
@@ -67,13 +64,13 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
     }
 
     echo "length${assertion^}"
-    echo "max${assertion_iterable^}"
-    echo "min${assertion_iterable^}"
+    echo "max${assertion^}"
+    echo "min${assertion^}"
 
     grep --quiet "^not" <<< "${name}" || {
       echo "lengthNot${assertion^}"
-      echo "maxNot${assertion_iterable^}"
-      echo "minNot${assertion_iterable^}"
+      echo "maxNot${assertion^}"
+      echo "minNot${assertion^}"
     }
 
     echo "Assertion '${name}' created with success" 1>&2
@@ -83,26 +80,26 @@ declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
       cut --delimiter ' ' --field 6-
   )
 
-  echo "all(iterable \$input, ${EQUALS_ARGUMENTS})"
-  echo "allNot(iterable \$input, ${EQUALS_ARGUMENTS})"
+  echo "all(mixed \$input, ${EQUALS_ARGUMENTS})"
+  echo "allNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
   echo "nullOr(mixed \$input, ${EQUALS_ARGUMENTS})"
   echo "nullOrNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
-  echo "key(array \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
-  echo "keyNot(array \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
+  echo "key(mixed \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
+  echo "keyNot(mixed \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
 
-  echo "keyPresent(array \$input, mixed \$key, Throwable|string|null \$description = null)"
-  echo "keyNotPresent(array \$input, mixed \$key, Throwable|string|null \$description = null)"
+  echo "keyPresent(mixed \$input, mixed \$key, Throwable|string|null \$description = null)"
+  echo "keyNotPresent(mixed \$input, mixed \$key, Throwable|string|null \$description = null)"
 
-  echo "length(iterable \$input, ${EQUALS_ARGUMENTS})"
-  echo "lengthNot(iterable \$input, ${EQUALS_ARGUMENTS})"
+  echo "length(mixed \$input, ${EQUALS_ARGUMENTS})"
+  echo "lengthNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
-  echo "min(iterable \$input, ${EQUALS_ARGUMENTS})"
-  echo "minNot(iterable \$input, ${EQUALS_ARGUMENTS})"
+  echo "min(mixed \$input, ${EQUALS_ARGUMENTS})"
+  echo "minNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
-  echo "max(iterable \$input, ${EQUALS_ARGUMENTS})"
-  echo "maxNot(iterable \$input, ${EQUALS_ARGUMENTS})"
+  echo "max(mixed \$input, ${EQUALS_ARGUMENTS})"
+  echo "maxNot(mixed \$input, ${EQUALS_ARGUMENTS})"
 
 } | sort > "${TEMPORARY_METHODS}"
 

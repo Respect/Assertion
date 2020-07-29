@@ -19,1676 +19,1676 @@ use Throwable;
 interface AssertMixin
 {
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function all(iterable $input, $compareTo, $description = null): void;
+    public static function all($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allAlnum(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allAlnum($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allAlpha(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allAlpha($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allArrayType(iterable $input, $description = null): void;
+    public static function allArrayType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allArrayVal(iterable $input, $description = null): void;
+    public static function allArrayVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function allBase(iterable $input, int $base, string $chars = null, $description = null): void;
+    public static function allBase($input, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allBase64(iterable $input, $description = null): void;
+    public static function allBase64($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function allBetween(iterable $input, $minimum, $maximum, $description = null): void;
+    public static function allBetween($input, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function allBic(iterable $input, string $countryCode, $description = null): void;
+    public static function allBic($input, string $countryCode, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allBoolType(iterable $input, $description = null): void;
+    public static function allBoolType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allBoolVal(iterable $input, $description = null): void;
+    public static function allBoolVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allBsn(iterable $input, $description = null): void;
+    public static function allBsn($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allCallableType(iterable $input, $description = null): void;
+    public static function allCallableType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param callable $callback
      * @param Throwable|string|null $description
      */
-    public static function allCallback(iterable $input, callable $callback, $description = null): void;
+    public static function allCallback($input, callable $callback, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function allCharset(iterable $input, ?string $charset = null, $description = null): void;
+    public static function allCharset($input, ?string $charset = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allCnh(iterable $input, $description = null): void;
+    public static function allCnh($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allCnpj(iterable $input, $description = null): void;
+    public static function allCnpj($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allConsonant(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allConsonant($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $containsValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function allContains(iterable $input, $containsValue, bool $identical = false, $description = null): void;
+    public static function allContains($input, $containsValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param array<mixed> $needles
      * @param bool $strictCompareArray
      * @param Throwable|string|null $description
      */
-    public static function allContainsAny(iterable $input, array $needles, bool $strictCompareArray = false, $description = null): void;
+    public static function allContainsAny($input, array $needles, bool $strictCompareArray = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allControl(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allControl($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allCountable(iterable $input, $description = null): void;
+    public static function allCountable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function allCountryCode(iterable $input, string $set = null, $description = null): void;
+    public static function allCountryCode($input, string $set = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allCpf(iterable $input, $description = null): void;
+    public static function allCpf($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $brand
      * @param Throwable|string|null $description
      */
-    public static function allCreditCard(iterable $input, string $brand = null, $description = null): void;
+    public static function allCreditCard($input, string $brand = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allCurrencyCode(iterable $input, $description = null): void;
+    public static function allCurrencyCode($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allDate(iterable $input, string $format = 'Y-m-d', $description = null): void;
+    public static function allDate($input, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allDateTime(iterable $input, string $format = null, $description = null): void;
+    public static function allDateTime($input, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allDirectory(iterable $input, $description = null): void;
+    public static function allDirectory($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param bool $tldCheck
      * @param Throwable|string|null $description
      */
-    public static function allDomain(iterable $input, bool $tldCheck = true, $description = null): void;
+    public static function allDomain($input, bool $tldCheck = true, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allEmail(iterable $input, $description = null): void;
+    public static function allEmail($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $endValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function allEndsWith(iterable $input, $endValue, bool $identical = false, $description = null): void;
+    public static function allEndsWith($input, $endValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allEquals(iterable $input, $compareTo, $description = null): void;
+    public static function allEquals($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allEquivalent(iterable $input, $compareTo, $description = null): void;
+    public static function allEquivalent($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allEven(iterable $input, $description = null): void;
+    public static function allEven($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allExecutable(iterable $input, $description = null): void;
+    public static function allExecutable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allExists(iterable $input, $description = null): void;
+    public static function allExists($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $extension
      * @param Throwable|string|null $description
      */
-    public static function allExtension(iterable $input, string $extension, $description = null): void;
+    public static function allExtension($input, string $extension, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function allFactor(iterable $input, int $dividend, $description = null): void;
+    public static function allFactor($input, int $dividend, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allFalseVal(iterable $input, $description = null): void;
+    public static function allFalseVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allFibonacci(iterable $input, $description = null): void;
+    public static function allFibonacci($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allFile(iterable $input, $description = null): void;
+    public static function allFile($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $filter
      * @param mixed $options
      * @param Throwable|string|null $description
      */
-    public static function allFilterVar(iterable $input, int $filter, $options = null, $description = null): void;
+    public static function allFilterVar($input, int $filter, $options = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allFinite(iterable $input, $description = null): void;
+    public static function allFinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allFloatType(iterable $input, $description = null): void;
+    public static function allFloatType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allFloatVal(iterable $input, $description = null): void;
+    public static function allFloatVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allGraph(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allGraph($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allGreaterThan(iterable $input, $compareTo, $description = null): void;
+    public static function allGreaterThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allHexRgbColor(iterable $input, $description = null): void;
+    public static function allHexRgbColor($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allIban(iterable $input, $description = null): void;
+    public static function allIban($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function allIdentical(iterable $input, $value, $description = null): void;
+    public static function allIdentical($input, $value, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param finfo $fileInfo
      * @param Throwable|string|null $description
      */
-    public static function allImage(iterable $input, finfo $fileInfo = null, $description = null): void;
+    public static function allImage($input, finfo $fileInfo = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allImei(iterable $input, $description = null): void;
+    public static function allImei($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function allIn(iterable $input, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function allIn($input, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allInfinite(iterable $input, $description = null): void;
+    public static function allInfinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $instanceName
      * @param Throwable|string|null $description
      */
-    public static function allInstance(iterable $input, string $instanceName, $description = null): void;
+    public static function allInstance($input, string $instanceName, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allIntType(iterable $input, $description = null): void;
+    public static function allIntType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allIntVal(iterable $input, $description = null): void;
+    public static function allIntVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $range
      * @param int $options
      * @param Throwable|string|null $description
      */
-    public static function allIp(iterable $input, string $range = '*', int $options = null, $description = null): void;
+    public static function allIp($input, string $range = '*', int $options = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allIsbn(iterable $input, $description = null): void;
+    public static function allIsbn($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allIterableType(iterable $input, $description = null): void;
+    public static function allIterableType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allJson(iterable $input, $description = null): void;
+    public static function allJson($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function allLanguageCode(iterable $input, string $set = null, $description = null): void;
+    public static function allLanguageCode($input, string $set = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allLeapDate(iterable $input, string $format, $description = null): void;
+    public static function allLeapDate($input, string $format, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allLeapYear(iterable $input, $description = null): void;
+    public static function allLeapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allLessThan(iterable $input, $compareTo, $description = null): void;
+    public static function allLessThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allLowercase(iterable $input, $description = null): void;
+    public static function allLowercase($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allLuhn(iterable $input, $description = null): void;
+    public static function allLuhn($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allMacAddress(iterable $input, $description = null): void;
+    public static function allMacAddress($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allMaxAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function allMaxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $mimetype
      * @param Throwable|string|null $description
      */
-    public static function allMimetype(iterable $input, string $mimetype, $description = null): void;
+    public static function allMimetype($input, string $mimetype, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allMinAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function allMinAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function allMultiple(iterable $input, int $multipleOf, $description = null): void;
+    public static function allMultiple($input, int $multipleOf, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNegative(iterable $input, $description = null): void;
+    public static function allNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNfeAccessKey(iterable $input, $description = null): void;
+    public static function allNfeAccessKey($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNif(iterable $input, $description = null): void;
+    public static function allNif($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNip(iterable $input, $description = null): void;
+    public static function allNip($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function allNo(iterable $input, $useLocale = false, $description = null): void;
+    public static function allNo($input, $useLocale = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNoWhitespace(iterable $input, $description = null): void;
+    public static function allNoWhitespace($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allNot(iterable $input, $compareTo, $description = null): void;
+    public static function allNot($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotAlnum(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotAlnum($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotAlpha(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotAlpha($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotArrayType(iterable $input, $description = null): void;
+    public static function allNotArrayType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotArrayVal(iterable $input, $description = null): void;
+    public static function allNotArrayVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function allNotBase(iterable $input, int $base, string $chars = null, $description = null): void;
+    public static function allNotBase($input, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotBase64(iterable $input, $description = null): void;
+    public static function allNotBase64($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function allNotBetween(iterable $input, $minimum, $maximum, $description = null): void;
+    public static function allNotBetween($input, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function allNotBic(iterable $input, string $countryCode, $description = null): void;
+    public static function allNotBic($input, string $countryCode, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotBlank(iterable $input, $description = null): void;
+    public static function allNotBlank($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotBoolType(iterable $input, $description = null): void;
+    public static function allNotBoolType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotBoolVal(iterable $input, $description = null): void;
+    public static function allNotBoolVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotBsn(iterable $input, $description = null): void;
+    public static function allNotBsn($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotCallableType(iterable $input, $description = null): void;
+    public static function allNotCallableType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param callable $callback
      * @param Throwable|string|null $description
      */
-    public static function allNotCallback(iterable $input, callable $callback, $description = null): void;
+    public static function allNotCallback($input, callable $callback, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function allNotCharset(iterable $input, ?string $charset = null, $description = null): void;
+    public static function allNotCharset($input, ?string $charset = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotCnh(iterable $input, $description = null): void;
+    public static function allNotCnh($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotCnpj(iterable $input, $description = null): void;
+    public static function allNotCnpj($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotConsonant(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotConsonant($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $containsValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function allNotContains(iterable $input, $containsValue, bool $identical = false, $description = null): void;
+    public static function allNotContains($input, $containsValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param array<mixed> $needles
      * @param bool $strictCompareArray
      * @param Throwable|string|null $description
      */
-    public static function allNotContainsAny(iterable $input, array $needles, bool $strictCompareArray = false, $description = null): void;
+    public static function allNotContainsAny($input, array $needles, bool $strictCompareArray = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotControl(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotControl($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotCountable(iterable $input, $description = null): void;
+    public static function allNotCountable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function allNotCountryCode(iterable $input, string $set = null, $description = null): void;
+    public static function allNotCountryCode($input, string $set = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotCpf(iterable $input, $description = null): void;
+    public static function allNotCpf($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $brand
      * @param Throwable|string|null $description
      */
-    public static function allNotCreditCard(iterable $input, string $brand = null, $description = null): void;
+    public static function allNotCreditCard($input, string $brand = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotCurrencyCode(iterable $input, $description = null): void;
+    public static function allNotCurrencyCode($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allNotDate(iterable $input, string $format = 'Y-m-d', $description = null): void;
+    public static function allNotDate($input, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allNotDateTime(iterable $input, string $format = null, $description = null): void;
+    public static function allNotDateTime($input, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotDirectory(iterable $input, $description = null): void;
+    public static function allNotDirectory($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param bool $tldCheck
      * @param Throwable|string|null $description
      */
-    public static function allNotDomain(iterable $input, bool $tldCheck = true, $description = null): void;
+    public static function allNotDomain($input, bool $tldCheck = true, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotEmail(iterable $input, $description = null): void;
+    public static function allNotEmail($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotEmoji(iterable $input, $description = null): void;
+    public static function allNotEmoji($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotEmpty(iterable $input, $description = null): void;
+    public static function allNotEmpty($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $endValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function allNotEndsWith(iterable $input, $endValue, bool $identical = false, $description = null): void;
+    public static function allNotEndsWith($input, $endValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allNotEquals(iterable $input, $compareTo, $description = null): void;
+    public static function allNotEquals($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allNotEquivalent(iterable $input, $compareTo, $description = null): void;
+    public static function allNotEquivalent($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotEven(iterable $input, $description = null): void;
+    public static function allNotEven($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotExecutable(iterable $input, $description = null): void;
+    public static function allNotExecutable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotExists(iterable $input, $description = null): void;
+    public static function allNotExists($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $extension
      * @param Throwable|string|null $description
      */
-    public static function allNotExtension(iterable $input, string $extension, $description = null): void;
+    public static function allNotExtension($input, string $extension, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function allNotFactor(iterable $input, int $dividend, $description = null): void;
+    public static function allNotFactor($input, int $dividend, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotFalseVal(iterable $input, $description = null): void;
+    public static function allNotFalseVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotFibonacci(iterable $input, $description = null): void;
+    public static function allNotFibonacci($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotFile(iterable $input, $description = null): void;
+    public static function allNotFile($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $filter
      * @param mixed $options
      * @param Throwable|string|null $description
      */
-    public static function allNotFilterVar(iterable $input, int $filter, $options = null, $description = null): void;
+    public static function allNotFilterVar($input, int $filter, $options = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotFinite(iterable $input, $description = null): void;
+    public static function allNotFinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotFloatType(iterable $input, $description = null): void;
+    public static function allNotFloatType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotFloatVal(iterable $input, $description = null): void;
+    public static function allNotFloatVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotGraph(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotGraph($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allNotGreaterThan(iterable $input, $compareTo, $description = null): void;
+    public static function allNotGreaterThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotHexRgbColor(iterable $input, $description = null): void;
+    public static function allNotHexRgbColor($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotIban(iterable $input, $description = null): void;
+    public static function allNotIban($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function allNotIdentical(iterable $input, $value, $description = null): void;
+    public static function allNotIdentical($input, $value, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param finfo $fileInfo
      * @param Throwable|string|null $description
      */
-    public static function allNotImage(iterable $input, finfo $fileInfo = null, $description = null): void;
+    public static function allNotImage($input, finfo $fileInfo = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotImei(iterable $input, $description = null): void;
+    public static function allNotImei($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function allNotIn(iterable $input, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function allNotIn($input, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotInfinite(iterable $input, $description = null): void;
+    public static function allNotInfinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $instanceName
      * @param Throwable|string|null $description
      */
-    public static function allNotInstance(iterable $input, string $instanceName, $description = null): void;
+    public static function allNotInstance($input, string $instanceName, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotIntType(iterable $input, $description = null): void;
+    public static function allNotIntType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotIntVal(iterable $input, $description = null): void;
+    public static function allNotIntVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $range
      * @param int $options
      * @param Throwable|string|null $description
      */
-    public static function allNotIp(iterable $input, string $range = '*', int $options = null, $description = null): void;
+    public static function allNotIp($input, string $range = '*', int $options = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotIsbn(iterable $input, $description = null): void;
+    public static function allNotIsbn($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotIterableType(iterable $input, $description = null): void;
+    public static function allNotIterableType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotJson(iterable $input, $description = null): void;
+    public static function allNotJson($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function allNotLanguageCode(iterable $input, string $set = null, $description = null): void;
+    public static function allNotLanguageCode($input, string $set = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allNotLeapDate(iterable $input, string $format, $description = null): void;
+    public static function allNotLeapDate($input, string $format, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotLeapYear(iterable $input, $description = null): void;
+    public static function allNotLeapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function allNotLessThan(iterable $input, $compareTo, $description = null): void;
+    public static function allNotLessThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotLowercase(iterable $input, $description = null): void;
+    public static function allNotLowercase($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotLuhn(iterable $input, $description = null): void;
+    public static function allNotLuhn($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotMacAddress(iterable $input, $description = null): void;
+    public static function allNotMacAddress($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allNotMaxAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function allNotMaxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $mimetype
      * @param Throwable|string|null $description
      */
-    public static function allNotMimetype(iterable $input, string $mimetype, $description = null): void;
+    public static function allNotMimetype($input, string $mimetype, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allNotMinAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function allNotMinAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function allNotMultiple(iterable $input, int $multipleOf, $description = null): void;
+    public static function allNotMultiple($input, int $multipleOf, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNegative(iterable $input, $description = null): void;
+    public static function allNotNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNfeAccessKey(iterable $input, $description = null): void;
+    public static function allNotNfeAccessKey($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNif(iterable $input, $description = null): void;
+    public static function allNotNif($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNip(iterable $input, $description = null): void;
+    public static function allNotNip($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function allNotNo(iterable $input, $useLocale = false, $description = null): void;
+    public static function allNotNo($input, $useLocale = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNoWhitespace(iterable $input, $description = null): void;
+    public static function allNotNoWhitespace($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNullType(iterable $input, $description = null): void;
+    public static function allNotNullType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNumber(iterable $input, $description = null): void;
+    public static function allNotNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotNumericVal(iterable $input, $description = null): void;
+    public static function allNotNumericVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotObjectType(iterable $input, $description = null): void;
+    public static function allNotObjectType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotOdd(iterable $input, $description = null): void;
+    public static function allNotOdd($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotOptional(iterable $input, $description = null): void;
+    public static function allNotOptional($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPerfectSquare(iterable $input, $description = null): void;
+    public static function allNotPerfectSquare($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPesel(iterable $input, $description = null): void;
+    public static function allNotPesel($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPhone(iterable $input, $description = null): void;
+    public static function allNotPhone($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPhpLabel(iterable $input, $description = null): void;
+    public static function allNotPhpLabel($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPis(iterable $input, $description = null): void;
+    public static function allNotPis($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPolishIdCard(iterable $input, $description = null): void;
+    public static function allNotPolishIdCard($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPositive(iterable $input, $description = null): void;
+    public static function allNotPositive($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function allNotPostalCode(iterable $input, string $countryCode, $description = null): void;
+    public static function allNotPostalCode($input, string $countryCode, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotPrimeNumber(iterable $input, $description = null): void;
+    public static function allNotPrimeNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotPrintable(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotPrintable($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotPunct(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotPunct($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotReadable(iterable $input, $description = null): void;
+    public static function allNotReadable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $regex
      * @param Throwable|string|null $description
      */
-    public static function allNotRegex(iterable $input, string $regex, $description = null): void;
+    public static function allNotRegex($input, string $regex, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotResourceType(iterable $input, $description = null): void;
+    public static function allNotResourceType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotRoman(iterable $input, $description = null): void;
+    public static function allNotRoman($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotScalarVal(iterable $input, $description = null): void;
+    public static function allNotScalarVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $minSize
      * @param string $maxSize
      * @param Throwable|string|null $description
      */
-    public static function allNotSize(iterable $input, string $minSize = null, string $maxSize = null, $description = null): void;
+    public static function allNotSize($input, string $minSize = null, string $maxSize = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotSlug(iterable $input, $description = null): void;
+    public static function allNotSlug($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $direction
      * @param Throwable|string|null $description
      */
-    public static function allNotSorted(iterable $input, string $direction, $description = null): void;
+    public static function allNotSorted($input, string $direction, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotSpace(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotSpace($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $startValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function allNotStartsWith(iterable $input, $startValue, bool $identical = false, $description = null): void;
+    public static function allNotStartsWith($input, $startValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotStringType(iterable $input, $description = null): void;
+    public static function allNotStringType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotStringVal(iterable $input, $description = null): void;
+    public static function allNotStringVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function allNotSubdivisionCode(iterable $input, string $countryCode, $description = null): void;
+    public static function allNotSubdivisionCode($input, string $countryCode, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param array<mixed> $superset
      * @param Throwable|string|null $description
      */
-    public static function allNotSubset(iterable $input, array $superset, $description = null): void;
+    public static function allNotSubset($input, array $superset, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotSymbolicLink(iterable $input, $description = null): void;
+    public static function allNotSymbolicLink($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allNotTime(iterable $input, string $format = 'H:i:s', $description = null): void;
+    public static function allNotTime($input, string $format = 'H:i:s', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotTld(iterable $input, $description = null): void;
+    public static function allNotTld($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotTrueVal(iterable $input, $description = null): void;
+    public static function allNotTrueVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $type
      * @param Throwable|string|null $description
      */
-    public static function allNotType(iterable $input, string $type, $description = null): void;
+    public static function allNotType($input, string $type, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotUnique(iterable $input, $description = null): void;
+    public static function allNotUnique($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotUploaded(iterable $input, $description = null): void;
+    public static function allNotUploaded($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotUppercase(iterable $input, $description = null): void;
+    public static function allNotUppercase($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotUrl(iterable $input, $description = null): void;
+    public static function allNotUrl($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $version
      * @param Throwable|string|null $description
      */
-    public static function allNotUuid(iterable $input, int $version = null, $description = null): void;
+    public static function allNotUuid($input, int $version = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotVersion(iterable $input, $description = null): void;
+    public static function allNotVersion($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $service
      * @param Throwable|string|null $description
      */
-    public static function allNotVideoUrl(iterable $input, string $service = null, $description = null): void;
+    public static function allNotVideoUrl($input, string $service = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotVowel(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotVowel($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNotWritable(iterable $input, $description = null): void;
+    public static function allNotWritable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allNotXdigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allNotXdigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function allNotYes(iterable $input, $useLocale = false, $description = null): void;
+    public static function allNotYes($input, $useLocale = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNullType(iterable $input, $description = null): void;
+    public static function allNullType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNumber(iterable $input, $description = null): void;
+    public static function allNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allNumericVal(iterable $input, $description = null): void;
+    public static function allNumericVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allObjectType(iterable $input, $description = null): void;
+    public static function allObjectType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allOdd(iterable $input, $description = null): void;
+    public static function allOdd($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPerfectSquare(iterable $input, $description = null): void;
+    public static function allPerfectSquare($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPesel(iterable $input, $description = null): void;
+    public static function allPesel($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPhone(iterable $input, $description = null): void;
+    public static function allPhone($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPhpLabel(iterable $input, $description = null): void;
+    public static function allPhpLabel($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPis(iterable $input, $description = null): void;
+    public static function allPis($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPolishIdCard(iterable $input, $description = null): void;
+    public static function allPolishIdCard($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPositive(iterable $input, $description = null): void;
+    public static function allPositive($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function allPostalCode(iterable $input, string $countryCode, $description = null): void;
+    public static function allPostalCode($input, string $countryCode, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allPrimeNumber(iterable $input, $description = null): void;
+    public static function allPrimeNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allPrintable(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allPrintable($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allPunct(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allPunct($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allReadable(iterable $input, $description = null): void;
+    public static function allReadable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $regex
      * @param Throwable|string|null $description
      */
-    public static function allRegex(iterable $input, string $regex, $description = null): void;
+    public static function allRegex($input, string $regex, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allResourceType(iterable $input, $description = null): void;
+    public static function allResourceType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allRoman(iterable $input, $description = null): void;
+    public static function allRoman($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allScalarVal(iterable $input, $description = null): void;
+    public static function allScalarVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $minSize
      * @param string $maxSize
      * @param Throwable|string|null $description
      */
-    public static function allSize(iterable $input, string $minSize = null, string $maxSize = null, $description = null): void;
+    public static function allSize($input, string $minSize = null, string $maxSize = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allSlug(iterable $input, $description = null): void;
+    public static function allSlug($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $direction
      * @param Throwable|string|null $description
      */
-    public static function allSorted(iterable $input, string $direction, $description = null): void;
+    public static function allSorted($input, string $direction, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allSpace(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allSpace($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $startValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function allStartsWith(iterable $input, $startValue, bool $identical = false, $description = null): void;
+    public static function allStartsWith($input, $startValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allStringType(iterable $input, $description = null): void;
+    public static function allStringType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allStringVal(iterable $input, $description = null): void;
+    public static function allStringVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function allSubdivisionCode(iterable $input, string $countryCode, $description = null): void;
+    public static function allSubdivisionCode($input, string $countryCode, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param array<mixed> $superset
      * @param Throwable|string|null $description
      */
-    public static function allSubset(iterable $input, array $superset, $description = null): void;
+    public static function allSubset($input, array $superset, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allSymbolicLink(iterable $input, $description = null): void;
+    public static function allSymbolicLink($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function allTime(iterable $input, string $format = 'H:i:s', $description = null): void;
+    public static function allTime($input, string $format = 'H:i:s', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allTld(iterable $input, $description = null): void;
+    public static function allTld($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allTrueVal(iterable $input, $description = null): void;
+    public static function allTrueVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $type
      * @param Throwable|string|null $description
      */
-    public static function allType(iterable $input, string $type, $description = null): void;
+    public static function allType($input, string $type, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allUnique(iterable $input, $description = null): void;
+    public static function allUnique($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allUploaded(iterable $input, $description = null): void;
+    public static function allUploaded($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allUppercase(iterable $input, $description = null): void;
+    public static function allUppercase($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allUrl(iterable $input, $description = null): void;
+    public static function allUrl($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $version
      * @param Throwable|string|null $description
      */
-    public static function allUuid(iterable $input, int $version = null, $description = null): void;
+    public static function allUuid($input, int $version = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allVersion(iterable $input, $description = null): void;
+    public static function allVersion($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $service
      * @param Throwable|string|null $description
      */
-    public static function allVideoUrl(iterable $input, string $service = null, $description = null): void;
+    public static function allVideoUrl($input, string $service = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allVowel(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allVowel($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function allWritable(iterable $input, $description = null): void;
+    public static function allWritable($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function allXdigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function allXdigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function allYes(iterable $input, $useLocale = false, $description = null): void;
+    public static function allYes($input, $useLocale = false, $description = null): void;
 
     /**
      * @param mixed $input
@@ -2101,1946 +2101,1946 @@ interface AssertMixin
     public static function json($input, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function key(array $input, $key, $compareTo, $description = null): void;
+    public static function key($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyAlnum(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyAlnum($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyAlpha(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyAlpha($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyArrayType(array $input, $key, $description = null): void;
+    public static function keyArrayType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyArrayVal(array $input, $key, $description = null): void;
+    public static function keyArrayVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function keyBase(array $input, $key, int $base, string $chars = null, $description = null): void;
+    public static function keyBase($input, $key, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyBase64(array $input, $key, $description = null): void;
+    public static function keyBase64($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function keyBetween(array $input, $key, $minimum, $maximum, $description = null): void;
+    public static function keyBetween($input, $key, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function keyBic(array $input, $key, string $countryCode, $description = null): void;
+    public static function keyBic($input, $key, string $countryCode, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyBoolType(array $input, $key, $description = null): void;
+    public static function keyBoolType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyBoolVal(array $input, $key, $description = null): void;
+    public static function keyBoolVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyBsn(array $input, $key, $description = null): void;
+    public static function keyBsn($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyCallableType(array $input, $key, $description = null): void;
+    public static function keyCallableType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param callable $callback
      * @param Throwable|string|null $description
      */
-    public static function keyCallback(array $input, $key, callable $callback, $description = null): void;
+    public static function keyCallback($input, $key, callable $callback, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function keyCharset(array $input, $key, ?string $charset = null, $description = null): void;
+    public static function keyCharset($input, $key, ?string $charset = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyCnh(array $input, $key, $description = null): void;
+    public static function keyCnh($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyCnpj(array $input, $key, $description = null): void;
+    public static function keyCnpj($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyConsonant(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyConsonant($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $containsValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function keyContains(array $input, $key, $containsValue, bool $identical = false, $description = null): void;
+    public static function keyContains($input, $key, $containsValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param array<mixed> $needles
      * @param bool $strictCompareArray
      * @param Throwable|string|null $description
      */
-    public static function keyContainsAny(array $input, $key, array $needles, bool $strictCompareArray = false, $description = null): void;
+    public static function keyContainsAny($input, $key, array $needles, bool $strictCompareArray = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyControl(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyControl($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyCountable(array $input, $key, $description = null): void;
+    public static function keyCountable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function keyCountryCode(array $input, $key, string $set = null, $description = null): void;
+    public static function keyCountryCode($input, $key, string $set = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyCpf(array $input, $key, $description = null): void;
+    public static function keyCpf($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $brand
      * @param Throwable|string|null $description
      */
-    public static function keyCreditCard(array $input, $key, string $brand = null, $description = null): void;
+    public static function keyCreditCard($input, $key, string $brand = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyCurrencyCode(array $input, $key, $description = null): void;
+    public static function keyCurrencyCode($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
-     * @param mixed $key
-     * @param string $format
-     * @param Throwable|string|null $description
-     */
-    public static function keyDate(array $input, $key, string $format = 'Y-m-d', $description = null): void;
-
-    /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyDateTime(array $input, $key, string $format = null, $description = null): void;
+    public static function keyDate($input, $key, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
+     * @param mixed $key
+     * @param string $format
+     * @param Throwable|string|null $description
+     */
+    public static function keyDateTime($input, $key, string $format = null, $description = null): void;
+
+    /**
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyDigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyDigit($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyDirectory(array $input, $key, $description = null): void;
+    public static function keyDirectory($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param bool $tldCheck
      * @param Throwable|string|null $description
      */
-    public static function keyDomain(array $input, $key, bool $tldCheck = true, $description = null): void;
+    public static function keyDomain($input, $key, bool $tldCheck = true, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyEmail(array $input, $key, $description = null): void;
+    public static function keyEmail($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $endValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function keyEndsWith(array $input, $key, $endValue, bool $identical = false, $description = null): void;
+    public static function keyEndsWith($input, $key, $endValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyEquals(array $input, $key, $compareTo, $description = null): void;
+    public static function keyEquals($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyEquivalent(array $input, $key, $compareTo, $description = null): void;
+    public static function keyEquivalent($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyEven(array $input, $key, $description = null): void;
+    public static function keyEven($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyExecutable(array $input, $key, $description = null): void;
+    public static function keyExecutable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyExists(array $input, $key, $description = null): void;
+    public static function keyExists($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $extension
      * @param Throwable|string|null $description
      */
-    public static function keyExtension(array $input, $key, string $extension, $description = null): void;
+    public static function keyExtension($input, $key, string $extension, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function keyFactor(array $input, $key, int $dividend, $description = null): void;
+    public static function keyFactor($input, $key, int $dividend, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyFalseVal(array $input, $key, $description = null): void;
+    public static function keyFalseVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyFibonacci(array $input, $key, $description = null): void;
+    public static function keyFibonacci($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyFile(array $input, $key, $description = null): void;
+    public static function keyFile($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $filter
      * @param mixed $options
      * @param Throwable|string|null $description
      */
-    public static function keyFilterVar(array $input, $key, int $filter, $options = null, $description = null): void;
+    public static function keyFilterVar($input, $key, int $filter, $options = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyFinite(array $input, $key, $description = null): void;
+    public static function keyFinite($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyFloatType(array $input, $key, $description = null): void;
+    public static function keyFloatType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyFloatVal(array $input, $key, $description = null): void;
+    public static function keyFloatVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyGraph(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyGraph($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyGreaterThan(array $input, $key, $compareTo, $description = null): void;
+    public static function keyGreaterThan($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyHexRgbColor(array $input, $key, $description = null): void;
+    public static function keyHexRgbColor($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyIban(array $input, $key, $description = null): void;
+    public static function keyIban($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function keyIdentical(array $input, $key, $value, $description = null): void;
+    public static function keyIdentical($input, $key, $value, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param finfo $fileInfo
      * @param Throwable|string|null $description
      */
-    public static function keyImage(array $input, $key, finfo $fileInfo = null, $description = null): void;
+    public static function keyImage($input, $key, finfo $fileInfo = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyImei(array $input, $key, $description = null): void;
+    public static function keyImei($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function keyIn(array $input, $key, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function keyIn($input, $key, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyInfinite(array $input, $key, $description = null): void;
+    public static function keyInfinite($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $instanceName
      * @param Throwable|string|null $description
      */
-    public static function keyInstance(array $input, $key, string $instanceName, $description = null): void;
+    public static function keyInstance($input, $key, string $instanceName, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyIntType(array $input, $key, $description = null): void;
+    public static function keyIntType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyIntVal(array $input, $key, $description = null): void;
+    public static function keyIntVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $range
      * @param int $options
      * @param Throwable|string|null $description
      */
-    public static function keyIp(array $input, $key, string $range = '*', int $options = null, $description = null): void;
+    public static function keyIp($input, $key, string $range = '*', int $options = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyIsbn(array $input, $key, $description = null): void;
+    public static function keyIsbn($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyIterableType(array $input, $key, $description = null): void;
+    public static function keyIterableType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyJson(array $input, $key, $description = null): void;
+    public static function keyJson($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function keyLanguageCode(array $input, $key, string $set = null, $description = null): void;
+    public static function keyLanguageCode($input, $key, string $set = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyLeapDate(array $input, $key, string $format, $description = null): void;
+    public static function keyLeapDate($input, $key, string $format, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyLeapYear(array $input, $key, $description = null): void;
+    public static function keyLeapYear($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyLessThan(array $input, $key, $compareTo, $description = null): void;
+    public static function keyLessThan($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyLowercase(array $input, $key, $description = null): void;
+    public static function keyLowercase($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyLuhn(array $input, $key, $description = null): void;
+    public static function keyLuhn($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyMacAddress(array $input, $key, $description = null): void;
+    public static function keyMacAddress($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyMaxAge(array $input, $key, int $age, string $format = null, $description = null): void;
+    public static function keyMaxAge($input, $key, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $mimetype
      * @param Throwable|string|null $description
      */
-    public static function keyMimetype(array $input, $key, string $mimetype, $description = null): void;
+    public static function keyMimetype($input, $key, string $mimetype, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyMinAge(array $input, $key, int $age, string $format = null, $description = null): void;
+    public static function keyMinAge($input, $key, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function keyMultiple(array $input, $key, int $multipleOf, $description = null): void;
+    public static function keyMultiple($input, $key, int $multipleOf, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNegative(array $input, $key, $description = null): void;
+    public static function keyNegative($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNfeAccessKey(array $input, $key, $description = null): void;
+    public static function keyNfeAccessKey($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNif(array $input, $key, $description = null): void;
+    public static function keyNif($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNip(array $input, $key, $description = null): void;
+    public static function keyNip($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function keyNo(array $input, $key, $useLocale = false, $description = null): void;
+    public static function keyNo($input, $key, $useLocale = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNoWhitespace(array $input, $key, $description = null): void;
+    public static function keyNoWhitespace($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyNot(array $input, $key, $compareTo, $description = null): void;
+    public static function keyNot($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotAlnum(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotAlnum($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotAlpha(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotAlpha($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotArrayType(array $input, $key, $description = null): void;
+    public static function keyNotArrayType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotArrayVal(array $input, $key, $description = null): void;
+    public static function keyNotArrayVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function keyNotBase(array $input, $key, int $base, string $chars = null, $description = null): void;
+    public static function keyNotBase($input, $key, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotBase64(array $input, $key, $description = null): void;
+    public static function keyNotBase64($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function keyNotBetween(array $input, $key, $minimum, $maximum, $description = null): void;
+    public static function keyNotBetween($input, $key, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function keyNotBic(array $input, $key, string $countryCode, $description = null): void;
+    public static function keyNotBic($input, $key, string $countryCode, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotBlank(array $input, $key, $description = null): void;
+    public static function keyNotBlank($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotBoolType(array $input, $key, $description = null): void;
+    public static function keyNotBoolType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotBoolVal(array $input, $key, $description = null): void;
+    public static function keyNotBoolVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotBsn(array $input, $key, $description = null): void;
+    public static function keyNotBsn($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotCallableType(array $input, $key, $description = null): void;
+    public static function keyNotCallableType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param callable $callback
      * @param Throwable|string|null $description
      */
-    public static function keyNotCallback(array $input, $key, callable $callback, $description = null): void;
+    public static function keyNotCallback($input, $key, callable $callback, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $charset
      * @param Throwable|string|null $description
      */
-    public static function keyNotCharset(array $input, $key, ?string $charset = null, $description = null): void;
+    public static function keyNotCharset($input, $key, ?string $charset = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotCnh(array $input, $key, $description = null): void;
+    public static function keyNotCnh($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotCnpj(array $input, $key, $description = null): void;
+    public static function keyNotCnpj($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotConsonant(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotConsonant($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $containsValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function keyNotContains(array $input, $key, $containsValue, bool $identical = false, $description = null): void;
+    public static function keyNotContains($input, $key, $containsValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param array<mixed> $needles
      * @param bool $strictCompareArray
      * @param Throwable|string|null $description
      */
-    public static function keyNotContainsAny(array $input, $key, array $needles, bool $strictCompareArray = false, $description = null): void;
+    public static function keyNotContainsAny($input, $key, array $needles, bool $strictCompareArray = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotControl(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotControl($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotCountable(array $input, $key, $description = null): void;
+    public static function keyNotCountable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function keyNotCountryCode(array $input, $key, string $set = null, $description = null): void;
+    public static function keyNotCountryCode($input, $key, string $set = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotCpf(array $input, $key, $description = null): void;
+    public static function keyNotCpf($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $brand
      * @param Throwable|string|null $description
      */
-    public static function keyNotCreditCard(array $input, $key, string $brand = null, $description = null): void;
+    public static function keyNotCreditCard($input, $key, string $brand = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotCurrencyCode(array $input, $key, $description = null): void;
+    public static function keyNotCurrencyCode($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
-     * @param mixed $key
-     * @param string $format
-     * @param Throwable|string|null $description
-     */
-    public static function keyNotDate(array $input, $key, string $format = 'Y-m-d', $description = null): void;
-
-    /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyNotDateTime(array $input, $key, string $format = null, $description = null): void;
+    public static function keyNotDate($input, $key, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
+     * @param mixed $key
+     * @param string $format
+     * @param Throwable|string|null $description
+     */
+    public static function keyNotDateTime($input, $key, string $format = null, $description = null): void;
+
+    /**
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotDigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotDigit($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotDirectory(array $input, $key, $description = null): void;
+    public static function keyNotDirectory($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param bool $tldCheck
      * @param Throwable|string|null $description
      */
-    public static function keyNotDomain(array $input, $key, bool $tldCheck = true, $description = null): void;
+    public static function keyNotDomain($input, $key, bool $tldCheck = true, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotEmail(array $input, $key, $description = null): void;
+    public static function keyNotEmail($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotEmoji(array $input, $key, $description = null): void;
+    public static function keyNotEmoji($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotEmpty(array $input, $key, $description = null): void;
+    public static function keyNotEmpty($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $endValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function keyNotEndsWith(array $input, $key, $endValue, bool $identical = false, $description = null): void;
+    public static function keyNotEndsWith($input, $key, $endValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyNotEquals(array $input, $key, $compareTo, $description = null): void;
+    public static function keyNotEquals($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyNotEquivalent(array $input, $key, $compareTo, $description = null): void;
+    public static function keyNotEquivalent($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotEven(array $input, $key, $description = null): void;
+    public static function keyNotEven($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotExecutable(array $input, $key, $description = null): void;
+    public static function keyNotExecutable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotExists(array $input, $key, $description = null): void;
+    public static function keyNotExists($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $extension
      * @param Throwable|string|null $description
      */
-    public static function keyNotExtension(array $input, $key, string $extension, $description = null): void;
+    public static function keyNotExtension($input, $key, string $extension, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function keyNotFactor(array $input, $key, int $dividend, $description = null): void;
+    public static function keyNotFactor($input, $key, int $dividend, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotFalseVal(array $input, $key, $description = null): void;
+    public static function keyNotFalseVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotFibonacci(array $input, $key, $description = null): void;
+    public static function keyNotFibonacci($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotFile(array $input, $key, $description = null): void;
+    public static function keyNotFile($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $filter
      * @param mixed $options
      * @param Throwable|string|null $description
      */
-    public static function keyNotFilterVar(array $input, $key, int $filter, $options = null, $description = null): void;
+    public static function keyNotFilterVar($input, $key, int $filter, $options = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotFinite(array $input, $key, $description = null): void;
+    public static function keyNotFinite($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotFloatType(array $input, $key, $description = null): void;
+    public static function keyNotFloatType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotFloatVal(array $input, $key, $description = null): void;
+    public static function keyNotFloatVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotGraph(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotGraph($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyNotGreaterThan(array $input, $key, $compareTo, $description = null): void;
+    public static function keyNotGreaterThan($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotHexRgbColor(array $input, $key, $description = null): void;
+    public static function keyNotHexRgbColor($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotIban(array $input, $key, $description = null): void;
+    public static function keyNotIban($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function keyNotIdentical(array $input, $key, $value, $description = null): void;
+    public static function keyNotIdentical($input, $key, $value, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param finfo $fileInfo
      * @param Throwable|string|null $description
      */
-    public static function keyNotImage(array $input, $key, finfo $fileInfo = null, $description = null): void;
+    public static function keyNotImage($input, $key, finfo $fileInfo = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotImei(array $input, $key, $description = null): void;
+    public static function keyNotImei($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function keyNotIn(array $input, $key, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function keyNotIn($input, $key, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotInfinite(array $input, $key, $description = null): void;
+    public static function keyNotInfinite($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $instanceName
      * @param Throwable|string|null $description
      */
-    public static function keyNotInstance(array $input, $key, string $instanceName, $description = null): void;
+    public static function keyNotInstance($input, $key, string $instanceName, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotIntType(array $input, $key, $description = null): void;
+    public static function keyNotIntType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotIntVal(array $input, $key, $description = null): void;
+    public static function keyNotIntVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $range
      * @param int $options
      * @param Throwable|string|null $description
      */
-    public static function keyNotIp(array $input, $key, string $range = '*', int $options = null, $description = null): void;
+    public static function keyNotIp($input, $key, string $range = '*', int $options = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotIsbn(array $input, $key, $description = null): void;
+    public static function keyNotIsbn($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotIterableType(array $input, $key, $description = null): void;
+    public static function keyNotIterableType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotJson(array $input, $key, $description = null): void;
+    public static function keyNotJson($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $set
      * @param Throwable|string|null $description
      */
-    public static function keyNotLanguageCode(array $input, $key, string $set = null, $description = null): void;
+    public static function keyNotLanguageCode($input, $key, string $set = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyNotLeapDate(array $input, $key, string $format, $description = null): void;
+    public static function keyNotLeapDate($input, $key, string $format, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotLeapYear(array $input, $key, $description = null): void;
+    public static function keyNotLeapYear($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function keyNotLessThan(array $input, $key, $compareTo, $description = null): void;
+    public static function keyNotLessThan($input, $key, $compareTo, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotLowercase(array $input, $key, $description = null): void;
+    public static function keyNotLowercase($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotLuhn(array $input, $key, $description = null): void;
+    public static function keyNotLuhn($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotMacAddress(array $input, $key, $description = null): void;
+    public static function keyNotMacAddress($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyNotMaxAge(array $input, $key, int $age, string $format = null, $description = null): void;
+    public static function keyNotMaxAge($input, $key, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $mimetype
      * @param Throwable|string|null $description
      */
-    public static function keyNotMimetype(array $input, $key, string $mimetype, $description = null): void;
+    public static function keyNotMimetype($input, $key, string $mimetype, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyNotMinAge(array $input, $key, int $age, string $format = null, $description = null): void;
+    public static function keyNotMinAge($input, $key, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function keyNotMultiple(array $input, $key, int $multipleOf, $description = null): void;
+    public static function keyNotMultiple($input, $key, int $multipleOf, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNegative(array $input, $key, $description = null): void;
+    public static function keyNotNegative($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNfeAccessKey(array $input, $key, $description = null): void;
+    public static function keyNotNfeAccessKey($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNif(array $input, $key, $description = null): void;
+    public static function keyNotNif($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNip(array $input, $key, $description = null): void;
+    public static function keyNotNip($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function keyNotNo(array $input, $key, $useLocale = false, $description = null): void;
+    public static function keyNotNo($input, $key, $useLocale = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNoWhitespace(array $input, $key, $description = null): void;
+    public static function keyNotNoWhitespace($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNullType(array $input, $key, $description = null): void;
+    public static function keyNotNullType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNumber(array $input, $key, $description = null): void;
+    public static function keyNotNumber($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotNumericVal(array $input, $key, $description = null): void;
+    public static function keyNotNumericVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotObjectType(array $input, $key, $description = null): void;
+    public static function keyNotObjectType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotOdd(array $input, $key, $description = null): void;
+    public static function keyNotOdd($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotOptional(array $input, $key, $description = null): void;
+    public static function keyNotOptional($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPerfectSquare(array $input, $key, $description = null): void;
+    public static function keyNotPerfectSquare($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPesel(array $input, $key, $description = null): void;
+    public static function keyNotPesel($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPhone(array $input, $key, $description = null): void;
+    public static function keyNotPhone($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPhpLabel(array $input, $key, $description = null): void;
+    public static function keyNotPhpLabel($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPis(array $input, $key, $description = null): void;
+    public static function keyNotPis($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPolishIdCard(array $input, $key, $description = null): void;
+    public static function keyNotPolishIdCard($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPositive(array $input, $key, $description = null): void;
+    public static function keyNotPositive($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function keyNotPostalCode(array $input, $key, string $countryCode, $description = null): void;
+    public static function keyNotPostalCode($input, $key, string $countryCode, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPresent(array $input, $key, $description = null): void;
+    public static function keyNotPresent($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotPrimeNumber(array $input, $key, $description = null): void;
+    public static function keyNotPrimeNumber($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
-     * @param mixed $key
-     * @param string|null $additionalChars
-     * @param Throwable|string|null $description
-     */
-    public static function keyNotPrintable(array $input, $key, ?string $additionalChars = null, $description = null): void;
-
-    /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotPunct(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotPrintable($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
+     * @param mixed $key
+     * @param string|null $additionalChars
+     * @param Throwable|string|null $description
+     */
+    public static function keyNotPunct($input, $key, ?string $additionalChars = null, $description = null): void;
+
+    /**
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotReadable(array $input, $key, $description = null): void;
+    public static function keyNotReadable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $regex
      * @param Throwable|string|null $description
      */
-    public static function keyNotRegex(array $input, $key, string $regex, $description = null): void;
+    public static function keyNotRegex($input, $key, string $regex, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotResourceType(array $input, $key, $description = null): void;
+    public static function keyNotResourceType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotRoman(array $input, $key, $description = null): void;
+    public static function keyNotRoman($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotScalarVal(array $input, $key, $description = null): void;
+    public static function keyNotScalarVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $minSize
      * @param string $maxSize
      * @param Throwable|string|null $description
      */
-    public static function keyNotSize(array $input, $key, string $minSize = null, string $maxSize = null, $description = null): void;
+    public static function keyNotSize($input, $key, string $minSize = null, string $maxSize = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotSlug(array $input, $key, $description = null): void;
+    public static function keyNotSlug($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $direction
      * @param Throwable|string|null $description
      */
-    public static function keyNotSorted(array $input, $key, string $direction, $description = null): void;
+    public static function keyNotSorted($input, $key, string $direction, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotSpace(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotSpace($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $startValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function keyNotStartsWith(array $input, $key, $startValue, bool $identical = false, $description = null): void;
+    public static function keyNotStartsWith($input, $key, $startValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotStringType(array $input, $key, $description = null): void;
+    public static function keyNotStringType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotStringVal(array $input, $key, $description = null): void;
+    public static function keyNotStringVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function keyNotSubdivisionCode(array $input, $key, string $countryCode, $description = null): void;
+    public static function keyNotSubdivisionCode($input, $key, string $countryCode, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param array<mixed> $superset
      * @param Throwable|string|null $description
      */
-    public static function keyNotSubset(array $input, $key, array $superset, $description = null): void;
+    public static function keyNotSubset($input, $key, array $superset, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotSymbolicLink(array $input, $key, $description = null): void;
+    public static function keyNotSymbolicLink($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyNotTime(array $input, $key, string $format = 'H:i:s', $description = null): void;
+    public static function keyNotTime($input, $key, string $format = 'H:i:s', $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotTld(array $input, $key, $description = null): void;
+    public static function keyNotTld($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotTrueVal(array $input, $key, $description = null): void;
+    public static function keyNotTrueVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $type
      * @param Throwable|string|null $description
      */
-    public static function keyNotType(array $input, $key, string $type, $description = null): void;
+    public static function keyNotType($input, $key, string $type, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotUnique(array $input, $key, $description = null): void;
+    public static function keyNotUnique($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotUploaded(array $input, $key, $description = null): void;
+    public static function keyNotUploaded($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotUppercase(array $input, $key, $description = null): void;
+    public static function keyNotUppercase($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotUrl(array $input, $key, $description = null): void;
+    public static function keyNotUrl($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $version
      * @param Throwable|string|null $description
      */
-    public static function keyNotUuid(array $input, $key, int $version = null, $description = null): void;
+    public static function keyNotUuid($input, $key, int $version = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotVersion(array $input, $key, $description = null): void;
+    public static function keyNotVersion($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $service
      * @param Throwable|string|null $description
      */
-    public static function keyNotVideoUrl(array $input, $key, string $service = null, $description = null): void;
+    public static function keyNotVideoUrl($input, $key, string $service = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotVowel(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotVowel($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNotWritable(array $input, $key, $description = null): void;
+    public static function keyNotWritable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyNotXdigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyNotXdigit($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function keyNotYes(array $input, $key, $useLocale = false, $description = null): void;
+    public static function keyNotYes($input, $key, $useLocale = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNullType(array $input, $key, $description = null): void;
+    public static function keyNullType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNumber(array $input, $key, $description = null): void;
+    public static function keyNumber($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyNumericVal(array $input, $key, $description = null): void;
+    public static function keyNumericVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyObjectType(array $input, $key, $description = null): void;
+    public static function keyObjectType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyOdd(array $input, $key, $description = null): void;
+    public static function keyOdd($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPerfectSquare(array $input, $key, $description = null): void;
+    public static function keyPerfectSquare($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPesel(array $input, $key, $description = null): void;
+    public static function keyPesel($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPhone(array $input, $key, $description = null): void;
+    public static function keyPhone($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPhpLabel(array $input, $key, $description = null): void;
+    public static function keyPhpLabel($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPis(array $input, $key, $description = null): void;
+    public static function keyPis($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPolishIdCard(array $input, $key, $description = null): void;
+    public static function keyPolishIdCard($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPositive(array $input, $key, $description = null): void;
+    public static function keyPositive($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function keyPostalCode(array $input, $key, string $countryCode, $description = null): void;
+    public static function keyPostalCode($input, $key, string $countryCode, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPresent(array $input, $key, $description = null): void;
+    public static function keyPresent($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyPrimeNumber(array $input, $key, $description = null): void;
+    public static function keyPrimeNumber($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
-     * @param mixed $key
-     * @param string|null $additionalChars
-     * @param Throwable|string|null $description
-     */
-    public static function keyPrintable(array $input, $key, ?string $additionalChars = null, $description = null): void;
-
-    /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyPunct(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyPrintable($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
+     * @param mixed $key
+     * @param string|null $additionalChars
+     * @param Throwable|string|null $description
+     */
+    public static function keyPunct($input, $key, ?string $additionalChars = null, $description = null): void;
+
+    /**
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyReadable(array $input, $key, $description = null): void;
+    public static function keyReadable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $regex
      * @param Throwable|string|null $description
      */
-    public static function keyRegex(array $input, $key, string $regex, $description = null): void;
+    public static function keyRegex($input, $key, string $regex, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyResourceType(array $input, $key, $description = null): void;
+    public static function keyResourceType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyRoman(array $input, $key, $description = null): void;
+    public static function keyRoman($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyScalarVal(array $input, $key, $description = null): void;
+    public static function keyScalarVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $minSize
      * @param string $maxSize
      * @param Throwable|string|null $description
      */
-    public static function keySize(array $input, $key, string $minSize = null, string $maxSize = null, $description = null): void;
+    public static function keySize($input, $key, string $minSize = null, string $maxSize = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keySlug(array $input, $key, $description = null): void;
+    public static function keySlug($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $direction
      * @param Throwable|string|null $description
      */
-    public static function keySorted(array $input, $key, string $direction, $description = null): void;
+    public static function keySorted($input, $key, string $direction, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keySpace(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keySpace($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $startValue
      * @param bool $identical
      * @param Throwable|string|null $description
      */
-    public static function keyStartsWith(array $input, $key, $startValue, bool $identical = false, $description = null): void;
+    public static function keyStartsWith($input, $key, $startValue, bool $identical = false, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyStringType(array $input, $key, $description = null): void;
+    public static function keyStringType($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyStringVal(array $input, $key, $description = null): void;
+    public static function keyStringVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $countryCode
      * @param Throwable|string|null $description
      */
-    public static function keySubdivisionCode(array $input, $key, string $countryCode, $description = null): void;
+    public static function keySubdivisionCode($input, $key, string $countryCode, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param array<mixed> $superset
      * @param Throwable|string|null $description
      */
-    public static function keySubset(array $input, $key, array $superset, $description = null): void;
+    public static function keySubset($input, $key, array $superset, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keySymbolicLink(array $input, $key, $description = null): void;
+    public static function keySymbolicLink($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function keyTime(array $input, $key, string $format = 'H:i:s', $description = null): void;
+    public static function keyTime($input, $key, string $format = 'H:i:s', $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyTld(array $input, $key, $description = null): void;
+    public static function keyTld($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyTrueVal(array $input, $key, $description = null): void;
+    public static function keyTrueVal($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $type
      * @param Throwable|string|null $description
      */
-    public static function keyType(array $input, $key, string $type, $description = null): void;
+    public static function keyType($input, $key, string $type, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyUnique(array $input, $key, $description = null): void;
+    public static function keyUnique($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyUploaded(array $input, $key, $description = null): void;
+    public static function keyUploaded($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyUppercase(array $input, $key, $description = null): void;
+    public static function keyUppercase($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyUrl(array $input, $key, $description = null): void;
+    public static function keyUrl($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param int $version
      * @param Throwable|string|null $description
      */
-    public static function keyUuid(array $input, $key, int $version = null, $description = null): void;
+    public static function keyUuid($input, $key, int $version = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyVersion(array $input, $key, $description = null): void;
+    public static function keyVersion($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string $service
      * @param Throwable|string|null $description
      */
-    public static function keyVideoUrl(array $input, $key, string $service = null, $description = null): void;
+    public static function keyVideoUrl($input, $key, string $service = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyVowel(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyVowel($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param Throwable|string|null $description
      */
-    public static function keyWritable(array $input, $key, $description = null): void;
+    public static function keyWritable($input, $key, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function keyXdigit(array $input, $key, ?string $additionalChars = null, $description = null): void;
+    public static function keyXdigit($input, $key, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param array<mixed> $input
+     * @param mixed $input
      * @param mixed $key
      * @param mixed $useLocale
      * @param Throwable|string|null $description
      */
-    public static function keyYes(array $input, $key, $useLocale = false, $description = null): void;
+    public static function keyYes($input, $key, $useLocale = false, $description = null): void;
 
     /**
      * @param mixed $input
@@ -4063,11 +4063,11 @@ interface AssertMixin
     public static function leapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function length(iterable $input, $compareTo, $description = null): void;
+    public static function length($input, $compareTo, $description = null): void;
 
     /**
      * @param mixed $input
@@ -4247,11 +4247,11 @@ interface AssertMixin
     public static function lengthNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function lengthNot(iterable $input, $compareTo, $description = null): void;
+    public static function lengthNot($input, $compareTo, $description = null): void;
 
     /**
      * @param mixed $input
@@ -4578,11 +4578,11 @@ interface AssertMixin
     public static function macAddress($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function max(iterable $input, $compareTo, $description = null): void;
+    public static function max($input, $compareTo, $description = null): void;
 
     /**
      * @param mixed $input
@@ -4593,487 +4593,487 @@ interface AssertMixin
     public static function maxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function maxBase(iterable $input, int $base, string $chars = null, $description = null): void;
+    public static function maxBase($input, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function maxBetween(iterable $input, $minimum, $maximum, $description = null): void;
+    public static function maxBetween($input, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxDate(iterable $input, string $format = 'Y-m-d', $description = null): void;
+    public static function maxDate($input, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxDateTime(iterable $input, string $format = null, $description = null): void;
+    public static function maxDateTime($input, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function maxDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function maxDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxEquals(iterable $input, $compareTo, $description = null): void;
+    public static function maxEquals($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxEquivalent(iterable $input, $compareTo, $description = null): void;
+    public static function maxEquivalent($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxEven(iterable $input, $description = null): void;
+    public static function maxEven($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function maxFactor(iterable $input, int $dividend, $description = null): void;
+    public static function maxFactor($input, int $dividend, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxFibonacci(iterable $input, $description = null): void;
+    public static function maxFibonacci($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxFinite(iterable $input, $description = null): void;
+    public static function maxFinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxFloatType(iterable $input, $description = null): void;
+    public static function maxFloatType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxFloatVal(iterable $input, $description = null): void;
+    public static function maxFloatVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxGreaterThan(iterable $input, $compareTo, $description = null): void;
+    public static function maxGreaterThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function maxIdentical(iterable $input, $value, $description = null): void;
+    public static function maxIdentical($input, $value, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function maxIn(iterable $input, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function maxIn($input, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxInfinite(iterable $input, $description = null): void;
+    public static function maxInfinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxIntType(iterable $input, $description = null): void;
+    public static function maxIntType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxIntVal(iterable $input, $description = null): void;
+    public static function maxIntVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxLeapDate(iterable $input, string $format, $description = null): void;
+    public static function maxLeapDate($input, string $format, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxLeapYear(iterable $input, $description = null): void;
+    public static function maxLeapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxLessThan(iterable $input, $compareTo, $description = null): void;
+    public static function maxLessThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxMaxAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function maxMaxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxMinAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function maxMinAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function maxMultiple(iterable $input, int $multipleOf, $description = null): void;
+    public static function maxMultiple($input, int $multipleOf, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNegative(iterable $input, $description = null): void;
+    public static function maxNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxNot(iterable $input, $compareTo, $description = null): void;
+    public static function maxNot($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function maxNotBase(iterable $input, int $base, string $chars = null, $description = null): void;
+    public static function maxNotBase($input, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function maxNotBetween(iterable $input, $minimum, $maximum, $description = null): void;
+    public static function maxNotBetween($input, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxNotDate(iterable $input, string $format = 'Y-m-d', $description = null): void;
+    public static function maxNotDate($input, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxNotDateTime(iterable $input, string $format = null, $description = null): void;
+    public static function maxNotDateTime($input, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function maxNotDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function maxNotDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxNotEquals(iterable $input, $compareTo, $description = null): void;
+    public static function maxNotEquals($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxNotEquivalent(iterable $input, $compareTo, $description = null): void;
+    public static function maxNotEquivalent($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotEven(iterable $input, $description = null): void;
+    public static function maxNotEven($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function maxNotFactor(iterable $input, int $dividend, $description = null): void;
+    public static function maxNotFactor($input, int $dividend, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotFibonacci(iterable $input, $description = null): void;
+    public static function maxNotFibonacci($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotFinite(iterable $input, $description = null): void;
+    public static function maxNotFinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotFloatType(iterable $input, $description = null): void;
+    public static function maxNotFloatType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotFloatVal(iterable $input, $description = null): void;
+    public static function maxNotFloatVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxNotGreaterThan(iterable $input, $compareTo, $description = null): void;
+    public static function maxNotGreaterThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function maxNotIdentical(iterable $input, $value, $description = null): void;
+    public static function maxNotIdentical($input, $value, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function maxNotIn(iterable $input, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function maxNotIn($input, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotInfinite(iterable $input, $description = null): void;
+    public static function maxNotInfinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotIntType(iterable $input, $description = null): void;
+    public static function maxNotIntType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotIntVal(iterable $input, $description = null): void;
+    public static function maxNotIntVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxNotLeapDate(iterable $input, string $format, $description = null): void;
+    public static function maxNotLeapDate($input, string $format, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotLeapYear(iterable $input, $description = null): void;
+    public static function maxNotLeapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function maxNotLessThan(iterable $input, $compareTo, $description = null): void;
+    public static function maxNotLessThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxNotMaxAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function maxNotMaxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxNotMinAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function maxNotMinAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function maxNotMultiple(iterable $input, int $multipleOf, $description = null): void;
+    public static function maxNotMultiple($input, int $multipleOf, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotNegative(iterable $input, $description = null): void;
+    public static function maxNotNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotNumber(iterable $input, $description = null): void;
+    public static function maxNotNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotNumericVal(iterable $input, $description = null): void;
+    public static function maxNotNumericVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotOdd(iterable $input, $description = null): void;
+    public static function maxNotOdd($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotPerfectSquare(iterable $input, $description = null): void;
+    public static function maxNotPerfectSquare($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotPositive(iterable $input, $description = null): void;
+    public static function maxNotPositive($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotPrimeNumber(iterable $input, $description = null): void;
+    public static function maxNotPrimeNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotRoman(iterable $input, $description = null): void;
+    public static function maxNotRoman($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotStringType(iterable $input, $description = null): void;
+    public static function maxNotStringType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNotStringVal(iterable $input, $description = null): void;
+    public static function maxNotStringVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxNotTime(iterable $input, string $format = 'H:i:s', $description = null): void;
+    public static function maxNotTime($input, string $format = 'H:i:s', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNumber(iterable $input, $description = null): void;
+    public static function maxNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxNumericVal(iterable $input, $description = null): void;
+    public static function maxNumericVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxOdd(iterable $input, $description = null): void;
+    public static function maxOdd($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxPerfectSquare(iterable $input, $description = null): void;
+    public static function maxPerfectSquare($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxPositive(iterable $input, $description = null): void;
+    public static function maxPositive($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxPrimeNumber(iterable $input, $description = null): void;
+    public static function maxPrimeNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxRoman(iterable $input, $description = null): void;
+    public static function maxRoman($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxStringType(iterable $input, $description = null): void;
+    public static function maxStringType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function maxStringVal(iterable $input, $description = null): void;
+    public static function maxStringVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function maxTime(iterable $input, string $format = 'H:i:s', $description = null): void;
+    public static function maxTime($input, string $format = 'H:i:s', $description = null): void;
 
     /**
      * @param mixed $input
@@ -5083,11 +5083,11 @@ interface AssertMixin
     public static function mimetype($input, string $mimetype, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function min(iterable $input, $compareTo, $description = null): void;
+    public static function min($input, $compareTo, $description = null): void;
 
     /**
      * @param mixed $input
@@ -5098,487 +5098,487 @@ interface AssertMixin
     public static function minAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function minBase(iterable $input, int $base, string $chars = null, $description = null): void;
+    public static function minBase($input, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function minBetween(iterable $input, $minimum, $maximum, $description = null): void;
+    public static function minBetween($input, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minDate(iterable $input, string $format = 'Y-m-d', $description = null): void;
+    public static function minDate($input, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minDateTime(iterable $input, string $format = null, $description = null): void;
+    public static function minDateTime($input, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function minDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function minDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minEquals(iterable $input, $compareTo, $description = null): void;
+    public static function minEquals($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minEquivalent(iterable $input, $compareTo, $description = null): void;
+    public static function minEquivalent($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minEven(iterable $input, $description = null): void;
+    public static function minEven($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function minFactor(iterable $input, int $dividend, $description = null): void;
+    public static function minFactor($input, int $dividend, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minFibonacci(iterable $input, $description = null): void;
+    public static function minFibonacci($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minFinite(iterable $input, $description = null): void;
+    public static function minFinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minFloatType(iterable $input, $description = null): void;
+    public static function minFloatType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minFloatVal(iterable $input, $description = null): void;
+    public static function minFloatVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minGreaterThan(iterable $input, $compareTo, $description = null): void;
+    public static function minGreaterThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function minIdentical(iterable $input, $value, $description = null): void;
+    public static function minIdentical($input, $value, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function minIn(iterable $input, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function minIn($input, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minInfinite(iterable $input, $description = null): void;
+    public static function minInfinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minIntType(iterable $input, $description = null): void;
+    public static function minIntType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minIntVal(iterable $input, $description = null): void;
+    public static function minIntVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minLeapDate(iterable $input, string $format, $description = null): void;
+    public static function minLeapDate($input, string $format, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minLeapYear(iterable $input, $description = null): void;
+    public static function minLeapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minLessThan(iterable $input, $compareTo, $description = null): void;
+    public static function minLessThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minMaxAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function minMaxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minMinAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function minMinAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function minMultiple(iterable $input, int $multipleOf, $description = null): void;
+    public static function minMultiple($input, int $multipleOf, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNegative(iterable $input, $description = null): void;
+    public static function minNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minNot(iterable $input, $compareTo, $description = null): void;
+    public static function minNot($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $base
      * @param string $chars
      * @param Throwable|string|null $description
      */
-    public static function minNotBase(iterable $input, int $base, string $chars = null, $description = null): void;
+    public static function minNotBase($input, int $base, string $chars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $minimum
      * @param mixed $maximum
      * @param Throwable|string|null $description
      */
-    public static function minNotBetween(iterable $input, $minimum, $maximum, $description = null): void;
+    public static function minNotBetween($input, $minimum, $maximum, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minNotDate(iterable $input, string $format = 'Y-m-d', $description = null): void;
+    public static function minNotDate($input, string $format = 'Y-m-d', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minNotDateTime(iterable $input, string $format = null, $description = null): void;
+    public static function minNotDateTime($input, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string|null $additionalChars
      * @param Throwable|string|null $description
      */
-    public static function minNotDigit(iterable $input, ?string $additionalChars = null, $description = null): void;
+    public static function minNotDigit($input, ?string $additionalChars = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minNotEquals(iterable $input, $compareTo, $description = null): void;
+    public static function minNotEquals($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minNotEquivalent(iterable $input, $compareTo, $description = null): void;
+    public static function minNotEquivalent($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotEven(iterable $input, $description = null): void;
+    public static function minNotEven($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $dividend
      * @param Throwable|string|null $description
      */
-    public static function minNotFactor(iterable $input, int $dividend, $description = null): void;
+    public static function minNotFactor($input, int $dividend, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotFibonacci(iterable $input, $description = null): void;
+    public static function minNotFibonacci($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotFinite(iterable $input, $description = null): void;
+    public static function minNotFinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotFloatType(iterable $input, $description = null): void;
+    public static function minNotFloatType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotFloatVal(iterable $input, $description = null): void;
+    public static function minNotFloatVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minNotGreaterThan(iterable $input, $compareTo, $description = null): void;
+    public static function minNotGreaterThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $value
      * @param Throwable|string|null $description
      */
-    public static function minNotIdentical(iterable $input, $value, $description = null): void;
+    public static function minNotIdentical($input, $value, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $haystack
      * @param bool $compareIdentical
      * @param Throwable|string|null $description
      */
-    public static function minNotIn(iterable $input, $haystack, bool $compareIdentical = false, $description = null): void;
+    public static function minNotIn($input, $haystack, bool $compareIdentical = false, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotInfinite(iterable $input, $description = null): void;
+    public static function minNotInfinite($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotIntType(iterable $input, $description = null): void;
+    public static function minNotIntType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotIntVal(iterable $input, $description = null): void;
+    public static function minNotIntVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minNotLeapDate(iterable $input, string $format, $description = null): void;
+    public static function minNotLeapDate($input, string $format, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotLeapYear(iterable $input, $description = null): void;
+    public static function minNotLeapYear($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param mixed $compareTo
      * @param Throwable|string|null $description
      */
-    public static function minNotLessThan(iterable $input, $compareTo, $description = null): void;
+    public static function minNotLessThan($input, $compareTo, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minNotMaxAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function minNotMaxAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $age
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minNotMinAge(iterable $input, int $age, string $format = null, $description = null): void;
+    public static function minNotMinAge($input, int $age, string $format = null, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param int $multipleOf
      * @param Throwable|string|null $description
      */
-    public static function minNotMultiple(iterable $input, int $multipleOf, $description = null): void;
+    public static function minNotMultiple($input, int $multipleOf, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotNegative(iterable $input, $description = null): void;
+    public static function minNotNegative($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotNumber(iterable $input, $description = null): void;
+    public static function minNotNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotNumericVal(iterable $input, $description = null): void;
+    public static function minNotNumericVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotOdd(iterable $input, $description = null): void;
+    public static function minNotOdd($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotPerfectSquare(iterable $input, $description = null): void;
+    public static function minNotPerfectSquare($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotPositive(iterable $input, $description = null): void;
+    public static function minNotPositive($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotPrimeNumber(iterable $input, $description = null): void;
+    public static function minNotPrimeNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotRoman(iterable $input, $description = null): void;
+    public static function minNotRoman($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotStringType(iterable $input, $description = null): void;
+    public static function minNotStringType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNotStringVal(iterable $input, $description = null): void;
+    public static function minNotStringVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minNotTime(iterable $input, string $format = 'H:i:s', $description = null): void;
+    public static function minNotTime($input, string $format = 'H:i:s', $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNumber(iterable $input, $description = null): void;
+    public static function minNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minNumericVal(iterable $input, $description = null): void;
+    public static function minNumericVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minOdd(iterable $input, $description = null): void;
+    public static function minOdd($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minPerfectSquare(iterable $input, $description = null): void;
+    public static function minPerfectSquare($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minPositive(iterable $input, $description = null): void;
+    public static function minPositive($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minPrimeNumber(iterable $input, $description = null): void;
+    public static function minPrimeNumber($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minRoman(iterable $input, $description = null): void;
+    public static function minRoman($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minStringType(iterable $input, $description = null): void;
+    public static function minStringType($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param Throwable|string|null $description
      */
-    public static function minStringVal(iterable $input, $description = null): void;
+    public static function minStringVal($input, $description = null): void;
 
     /**
-     * @param iterable<mixed> $input
+     * @param mixed $input
      * @param string $format
      * @param Throwable|string|null $description
      */
-    public static function minTime(iterable $input, string $format = 'H:i:s', $description = null): void;
+    public static function minTime($input, string $format = 'H:i:s', $description = null): void;
 
     /**
      * @param mixed $input
