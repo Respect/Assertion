@@ -23,8 +23,6 @@ use Respect\Validation\Validatable;
 
 /**
  * @covers \Respect\Assertion\Creator\NotCreator
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class NotCreatorTest extends TestCase
 {

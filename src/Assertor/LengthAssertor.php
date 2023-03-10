@@ -27,18 +27,12 @@ use function Respect\Stringifier\stringify;
 
 final class LengthAssertor implements Assertor
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'length';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function execute(Assertion $assertion, $input): void
+    public function execute(Assertion $assertion, mixed $input): void
     {
         try {
             $assertion->assert($this->getLength($input));
@@ -47,10 +41,7 @@ final class LengthAssertor implements Assertor
         }
     }
 
-    /**
-     * @param mixed $input
-     */
-    private function getLength($input): int
+    private function getLength(mixed $input): int
     {
         if (is_string($input)) {
             return mb_strlen($input);
@@ -67,10 +58,7 @@ final class LengthAssertor implements Assertor
         throw new BadMethodCallException('Assertion with "length" prefix must be countable or string');
     }
 
-    /**
-     * @param mixed $asserted
-     */
-    private function getCustomizedException($asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(mixed $asserted, ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;

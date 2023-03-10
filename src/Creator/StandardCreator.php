@@ -29,11 +29,6 @@ use function count;
 use function sprintf;
 use function ucfirst;
 
-/**
- * Default factory of assertors.
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
- */
 final class StandardCreator implements AssertionCreator
 {
     /**
@@ -82,10 +77,8 @@ final class StandardCreator implements AssertionCreator
     /**
      * @param mixed[] $parameters
      * @param mixed[] $constructorParameters
-     *
-     * @return string|Throwable|null
      */
-    private function description(array $parameters, array $constructorParameters)
+    private function description(array $parameters, array $constructorParameters): string|Throwable|null
     {
         if ($constructorParameters === $parameters) {
             return null;

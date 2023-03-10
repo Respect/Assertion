@@ -23,23 +23,10 @@ use Respect\Validation\Rules\IntType;
 
 /**
  * @covers \Respect\Assertion\Creator\StandardCreator
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class StandardCreatorTest extends TestCase
 {
-    /**
-     * @var StandardCreator
-     */
-    private $sut;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function setUp(): void
-    {
-        $this->sut = new StandardCreator();
-    }
+    private StandardCreator $sut;
 
     /**
      * @test
@@ -105,5 +92,10 @@ final class StandardCreatorTest extends TestCase
         $this->expectException(CannotCreateAssertionException::class);
 
         $this->sut->create('AbstractRule', []);
+    }
+
+    protected function setUp(): void
+    {
+        $this->sut = new StandardCreator();
     }
 }

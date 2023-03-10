@@ -21,25 +21,14 @@ use Respect\Validation\Exceptions\ValidationException;
 use function is_iterable;
 use function Respect\Stringifier\stringify;
 
-/**
- * Assert every value in the input.
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
- */
 final class AllAssertor implements Assertor
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'all';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function execute(Assertion $assertion, $input): void
+    public function execute(Assertion $assertion, mixed $input): void
     {
         if (!is_iterable($input)) {
             throw new BadMethodCallException();
@@ -54,10 +43,7 @@ final class AllAssertor implements Assertor
         }
     }
 
-    /**
-     * @param mixed $asserted
-     */
-    private function getCustomizedException($asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(mixed $asserted, ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;

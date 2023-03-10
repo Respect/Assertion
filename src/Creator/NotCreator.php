@@ -31,14 +31,8 @@ final class NotCreator implements AssertionCreator
         'notoptional',
     ];
 
-    /**
-     * @var AssertionCreator
-     */
-    private $assertionCreator;
-
-    public function __construct(AssertionCreator $assertionCreator)
+    public function __construct(private AssertionCreator $assertionCreator)
     {
-        $this->assertionCreator = $assertionCreator;
     }
 
     /**

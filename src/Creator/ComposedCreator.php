@@ -22,27 +22,10 @@ use function strlen;
 use function strpos;
 use function substr;
 
-/**
- * Creates a composed assertion, which contains an specific assertor.
- *
- * @author Henrique Moody <henriquemoody@gmail.com
- */
 final class ComposedCreator implements AssertionCreator
 {
-    /**
-     * @var Assertor
-     */
-    private $assertor;
-
-    /**
-     * @var AssertionCreator
-     */
-    private $nextCreator;
-
-    public function __construct(Assertor $assertor, AssertionCreator $nextCreator)
+    public function __construct(private Assertor $assertor, private AssertionCreator $nextCreator)
     {
-        $this->assertor = $assertor;
-        $this->nextCreator = $nextCreator;
     }
 
     /**

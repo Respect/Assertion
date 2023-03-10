@@ -21,9 +21,6 @@ use Respect\Validation\Exceptions\ValidationException;
 
 use function array_merge;
 
-/**
- * @author Henrique Moody <henriquemoody@gmail.com>
- */
 final class AssertTest extends TestCase
 {
     /**

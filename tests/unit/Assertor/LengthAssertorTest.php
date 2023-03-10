@@ -30,23 +30,10 @@ use function tmpfile;
 
 /**
  * @covers \Respect\Assertion\Assertor\LengthAssertor
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class LengthAssertorTest extends TestCase
 {
-    /**
-     * @var LengthAssertor
-     */
-    private $sut;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function setUp(): void
-    {
-        $this->sut = new LengthAssertor();
-    }
+    private LengthAssertor $sut;
 
     /**
      * @test
@@ -120,11 +107,10 @@ final class LengthAssertorTest extends TestCase
     /**
      * @test
      *
-     * @param mixed $input
      *
      * @dataProvider noLengthProvider
      */
-    public function itShouldThrowAnExceptionWhenCannotGetLengthOfInput($input): void
+    public function itShouldThrowAnExceptionWhenCannotGetLengthOfInput(mixed $input): void
     {
         $assertion = $this->createMock(Assertion::class);
         $assertion
@@ -201,5 +187,10 @@ final class LengthAssertorTest extends TestCase
         $this->expectExceptionObject($exception);
 
         $this->sut->execute($assertion, $input);
+    }
+
+    protected function setUp(): void
+    {
+        $this->sut = new LengthAssertor();
     }
 }

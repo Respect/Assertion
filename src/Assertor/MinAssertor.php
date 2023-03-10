@@ -26,18 +26,12 @@ use function Respect\Stringifier\stringify;
 
 final class MinAssertor implements Assertor
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'min';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function execute(Assertion $assertion, $input): void
+    public function execute(Assertion $assertion, mixed $input): void
     {
         if (!is_iterable($input)) {
             throw new BadMethodCallException('Assertion with "min" prefix must be iterable');
@@ -52,10 +46,8 @@ final class MinAssertor implements Assertor
 
     /**
      * @param mixed[] $input
-     *
-     * @return mixed
      */
-    private function getMin(iterable $input)
+    private function getMin(iterable $input): mixed
     {
         if (is_array($input)) {
             return min($input);

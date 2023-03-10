@@ -24,8 +24,6 @@ use Respect\Validation\Validatable;
 
 /**
  * @covers \Respect\Assertion\Standard
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class StandardTest extends TestCase
 {

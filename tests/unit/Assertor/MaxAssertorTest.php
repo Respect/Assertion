@@ -27,23 +27,10 @@ use function range;
 
 /**
  * @covers \Respect\Assertion\Assertor\MaxAssertor
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class MaxAssertorTest extends TestCase
 {
-    /**
-     * @var MaxAssertor
-     */
-    private $sut;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function setUp(): void
-    {
-        $this->sut = new MaxAssertor();
-    }
+    private MaxAssertor $sut;
 
     /**
      * @test
@@ -160,5 +147,10 @@ final class MaxAssertorTest extends TestCase
         $this->expectExceptionObject($exception);
 
         $this->sut->execute($assertion, $input);
+    }
+
+    protected function setUp(): void
+    {
+        $this->sut = new MaxAssertor();
     }
 }

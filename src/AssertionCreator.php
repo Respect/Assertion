@@ -18,8 +18,6 @@ use Respect\Assertion\Exception\CannotCreateAssertionException;
 interface AssertionCreator
 {
     /**
-     * Create an assertion based on its name and parameters.
-     *
      * @param mixed[] $parameters
      *
      * @throws CannotCreateAssertionException

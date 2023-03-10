@@ -22,8 +22,6 @@ use Respect\Validation\Validatable;
 
 /**
  * @covers \Respect\Assertion\Creator\NullOrCreator
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class NullOrCreatorTest extends TestCase
 {

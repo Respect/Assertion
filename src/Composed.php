@@ -14,45 +14,25 @@ declare(strict_types=1);
 namespace Respect\Assertion;
 
 use Respect\Validation\Validatable;
+use Throwable;
 
 final class Composed implements Assertion
 {
-    /**
-     * @var Assertion
-     */
-    private $assertion;
-
-    /**
-     * @var Assertor
-     */
-    private $assertor;
-
-    public function __construct(Assertion $assertion, Assertor $assertor)
+    public function __construct(private Assertion $assertion, private Assertor $assertor)
     {
-        $this->assertion = $assertion;
-        $this->assertor = $assertor;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getRule(): Validatable
     {
         return $this->assertion->getRule();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getDescription()
+    public function getDescription(): Throwable|string|null
     {
         return $this->assertion->getDescription();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function assert($input): void
+    public function assert(mixed $input): void
     {
         $this->assertor->execute($this->assertion, $input);
     }

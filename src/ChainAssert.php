@@ -20,17 +20,8 @@ use function array_unshift;
  */
 final class ChainAssert
 {
-    /**
-     * @var mixed
-     */
-    private $input;
-
-    /**
-     * @param mixed $input
-     */
-    public function __construct($input)
+    public function __construct(private mixed $input)
     {
-        $this->input = $input;
     }
 
     /**

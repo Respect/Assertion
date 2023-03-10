@@ -29,23 +29,10 @@ use function range;
 
 /**
  * @covers \Respect\Assertion\Assertor\AllAssertor
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class AllAssertorTest extends TestCase
 {
-    /**
-     * @var AllAssertor
-     */
-    private $sut;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function setUp(): void
-    {
-        $this->sut = new AllAssertor();
-    }
+    private AllAssertor $sut;
 
     /**
      * @test
@@ -146,5 +133,10 @@ final class AllAssertorTest extends TestCase
         $this->expectExceptionObject($exception);
 
         $this->sut->execute($assertion, $input);
+    }
+
+    protected function setUp(): void
+    {
+        $this->sut = new AllAssertor();
     }
 }

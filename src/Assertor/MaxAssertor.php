@@ -26,18 +26,12 @@ use function Respect\Stringifier\stringify;
 
 final class MaxAssertor implements Assertor
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getName(): string
     {
         return 'max';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function execute(Assertion $assertion, $input): void
+    public function execute(Assertion $assertion, mixed $input): void
     {
         if (!is_iterable($input)) {
             throw new BadMethodCallException('Assertion with "max" prefix must be iterable');
@@ -52,10 +46,8 @@ final class MaxAssertor implements Assertor
 
     /**
      * @param mixed[] $input
-     *
-     * @return mixed
      */
-    private function getMax(iterable $input)
+    private function getMax(iterable $input): mixed
     {
         if (is_array($input)) {
             return max($input);
@@ -64,10 +56,7 @@ final class MaxAssertor implements Assertor
         return $this->getMax(iterator_to_array($input));
     }
 
-    /**
-     * @param mixed $asserted
-     */
-    private function getCustomizedException($asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(mixed $asserted, ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;

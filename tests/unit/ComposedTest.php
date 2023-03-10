@@ -23,8 +23,6 @@ use stdClass;
 
 /**
  * @covers \Respect\Assertion\Composed
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class ComposedTest extends TestCase
 {

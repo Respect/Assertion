@@ -22,8 +22,6 @@ use Respect\Assertion\Creator\ComposedCreator;
 
 /**
  * @covers \Respect\Assertion\Creator\ComposedCreator
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class ComposedCreatorTest extends TestCase
 {

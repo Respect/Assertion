@@ -17,54 +17,23 @@ use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validatable;
 use Throwable;
 
-/**
- * Assertor using a Respect\Validation rule.
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
- */
 final class Standard implements Assertion
 {
-    /**
-     * @var Validatable
-     */
-    private $rule;
-
-    /**
-     * @var Throwable|string|null
-     */
-    private $description;
-
-    /**
-     * Initializes the assertion.
-     *
-     * @param Throwable|string|null $description
-     */
-    public function __construct(Validatable $rule, $description = null)
+    public function __construct(private Validatable $rule, private Throwable|string|null $description = null)
     {
-        $this->rule = $rule;
-        $this->description = $description;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getRule(): Validatable
     {
         return $this->rule;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getDescription()
+    public function getDescription(): Throwable|string|null
     {
         return $this->description;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function assert($input): void
+    public function assert(mixed $input): void
     {
         try {
             $this->rule->check($input);

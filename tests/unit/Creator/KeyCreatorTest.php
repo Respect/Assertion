@@ -23,8 +23,6 @@ use Respect\Validation\Validatable;
 
 /**
  * @covers \Respect\Assertion\Creator\KeyCreator
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class KeyCreatorTest extends TestCase
 {

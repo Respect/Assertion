@@ -27,23 +27,10 @@ use function range;
 
 /**
  * @covers \Respect\Assertion\Assertor\MinAssertor
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
  */
 final class MinAssertorTest extends TestCase
 {
-    /**
-     * @var MinAssertor
-     */
-    private $sut;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function setUp(): void
-    {
-        $this->sut = new MinAssertor();
-    }
+    private MinAssertor $sut;
 
     /**
      * @test
@@ -160,5 +147,10 @@ final class MinAssertorTest extends TestCase
         $this->expectExceptionObject($exception);
 
         $this->sut->execute($assertion, $input);
+    }
+
+    protected function setUp(): void
+    {
+        $this->sut = new MinAssertor();
     }
 }

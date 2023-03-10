@@ -10,7 +10,7 @@
         }
     },
     "require": {
-        "php": "^7.3 || ^8.0",
+        "php": "^8.1",
         "respect/stringifier": "^0.2.0",
         "respect/validation": "^2.0",
         "symfony/polyfill-mbstring": "^1.8"
@@ -19,8 +19,8 @@
         "malukenho/docheader": "^0.1.7",
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": "^9.2",
-        "respect/coding-standard": "^2.1",
-        "squizlabs/php_codesniffer": "^3.4"
+        "respect/coding-standard": "^4.0",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "suggest": {
         "ext-mbstring": "Multibyte String Functions"
@@ -32,7 +32,10 @@
         }
     ],
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "scripts": {
         "docheader": "vendor/bin/docheader check src/ tests/",

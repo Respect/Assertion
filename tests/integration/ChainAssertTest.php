@@ -18,9 +18,6 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assert;
 use Respect\Validation\Exceptions\NegativeException;
 
-/**
- * @author Henrique Moody <henriquemoody@gmail.com>
- */
 final class ChainAssertTest extends TestCase
 {
     /**

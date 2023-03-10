@@ -15,19 +15,12 @@ namespace Respect\Assertion;
 
 use Exception;
 
-/**
- * Executes an assertion on top of another assertion against an input.
- *
- * @author Henrique Moody <henriquemoody@gmail.com>
- */
 interface Assertor
 {
     public function getName(): string;
 
     /**
-     * @param mixed $input
-     *
      * @throws Exception
      */
-    public function execute(Assertion $assertion, $input): void;
+    public function execute(Assertion $assertion, mixed $input): void;
 }

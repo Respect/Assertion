@@ -20,17 +20,10 @@ interface Assertion
 {
     public function getRule(): Validatable;
 
-    /**
-     * @return Throwable|string|null
-     */
-    public function getDescription();
+    public function getDescription(): Throwable|string|null;
 
     /**
-     * Execute the assertion
-     *
-     * @param mixed $input
-     *
      * @throws Throwable
      */
-    public function assert($input): void;
+    public function assert(mixed $input): void;
 }

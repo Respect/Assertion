@@ -32,29 +32,9 @@ use function array_shift;
  */
 final class Assert
 {
-    /**
-     * @var AssertionCreator
-     */
-    private static $assertionCreator;
+    private static ?AssertionCreator $assertionCreator = null;
 
-    /**
-     * @param mixed[] $parameters
-     *
-     * @throws CannotCreateAssertionException
-     * @throws Exception
-     */
-    public static function __callStatic(string $name, array $parameters): void
-    {
-        $input = array_shift($parameters);
-
-        $assertion = self::getAssertionCreator()->create($name, $parameters);
-        $assertion->assert($input);
-    }
-
-    /**
-     * @param mixed $input
-     */
-    public static function that($input): ChainAssert
+    public static function that(mixed $input): ChainAssert
     {
         return new ChainAssert($input);
     }
@@ -78,5 +58,19 @@ final class Assert
         }
 
         return self::$assertionCreator;
+    }
+
+    /**
+     * @param mixed[] $parameters
+     *
+     * @throws CannotCreateAssertionException
+     * @throws Exception
+     */
+    public static function __callStatic(string $name, array $parameters): void
+    {
+        $input = array_shift($parameters);
+
+        $assertion = self::getAssertionCreator()->create($name, $parameters);
+        $assertion->assert($input);
     }
 }
