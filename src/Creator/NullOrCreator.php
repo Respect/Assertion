@@ -19,13 +19,14 @@ use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Nullable;
 
 use function lcfirst;
-use function strpos;
+use function str_starts_with;
 use function substr;
 
 final class NullOrCreator implements AssertionCreator
 {
-    public function __construct(private AssertionCreator $assertionCreator)
-    {
+    public function __construct(
+        private readonly AssertionCreator $assertionCreator
+    ) {
     }
 
     /**
@@ -33,7 +34,7 @@ final class NullOrCreator implements AssertionCreator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        if (strpos($name, 'nullOr') !== 0) {
+        if (!str_starts_with($name, 'nullOr')) {
             return $this->assertionCreator->create($name, $parameters);
         }
 

@@ -18,8 +18,10 @@ use Throwable;
 
 final class Composed implements Assertion
 {
-    public function __construct(private Assertion $assertion, private Assertor $assertor)
-    {
+    public function __construct(
+        private readonly Assertion $assertion,
+        private readonly Assertor $assertor
+    ) {
     }
 
     public function getRule(): Validatable

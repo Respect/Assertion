@@ -18,14 +18,16 @@ use Respect\Assertion\AssertionCreator;
 use Respect\Assertion\Assertor;
 use Respect\Assertion\Composed;
 
+use function str_starts_with;
 use function strlen;
-use function strpos;
 use function substr;
 
 final class ComposedCreator implements AssertionCreator
 {
-    public function __construct(private Assertor $assertor, private AssertionCreator $nextCreator)
-    {
+    public function __construct(
+        private readonly Assertor $assertor,
+        private readonly AssertionCreator $nextCreator
+    ) {
     }
 
     /**
@@ -34,7 +36,7 @@ final class ComposedCreator implements AssertionCreator
     public function create(string $name, array $parameters): Assertion
     {
         $prefix = $this->assertor->getName();
-        if (strpos($name, $prefix) !== 0) {
+        if (!str_starts_with($name, $prefix)) {
             return $this->nextCreator->create($name, $parameters);
         }
 

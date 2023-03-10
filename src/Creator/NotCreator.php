@@ -19,7 +19,7 @@ use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Not;
 
 use function in_array;
-use function strpos;
+use function str_starts_with;
 use function strtolower;
 use function substr;
 
@@ -31,8 +31,9 @@ final class NotCreator implements AssertionCreator
         'notoptional',
     ];
 
-    public function __construct(private AssertionCreator $assertionCreator)
-    {
+    public function __construct(
+        private readonly AssertionCreator $assertionCreator
+    ) {
     }
 
     /**
@@ -40,7 +41,7 @@ final class NotCreator implements AssertionCreator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        if (strpos(strtolower($name), 'not') !== 0) {
+        if (!str_starts_with(strtolower($name), 'not')) {
             return $this->assertionCreator->create($name, $parameters);
         }
 

@@ -22,13 +22,14 @@ use Respect\Validation\Rules\Not;
 use function array_pop;
 use function array_shift;
 use function lcfirst;
-use function strpos;
+use function str_starts_with;
 use function substr;
 
 final class KeyCreator implements AssertionCreator
 {
-    public function __construct(private AssertionCreator $assertionCreator)
-    {
+    public function __construct(
+        private readonly AssertionCreator $assertionCreator
+    ) {
     }
 
     /**
@@ -36,7 +37,7 @@ final class KeyCreator implements AssertionCreator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        if (strpos($name, 'key') !== 0) {
+        if (!str_starts_with($name, 'key')) {
             return $this->assertionCreator->create($name, $parameters);
         }
 

@@ -19,8 +19,10 @@ use Throwable;
 
 final class Standard implements Assertion
 {
-    public function __construct(private Validatable $rule, private Throwable|string|null $description = null)
-    {
+    public function __construct(
+        private readonly Validatable $rule,
+        private readonly Throwable|string|null $description = null
+    ) {
     }
 
     public function getRule(): Validatable
