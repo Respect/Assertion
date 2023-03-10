@@ -92,19 +92,6 @@ final class LengthAssertorTest extends TestCase
     }
 
     /**
-     * @return mixed[][]
-     */
-    public function noLengthProvider(): array
-    {
-        return [
-            [42],
-            [true],
-            [new stdClass()],
-            [tmpfile()],
-        ];
-    }
-
-    /**
      * @test
      *
      *
@@ -187,6 +174,19 @@ final class LengthAssertorTest extends TestCase
         $this->expectExceptionObject($exception);
 
         $this->sut->execute($assertion, $input);
+    }
+
+    /**
+     * @return mixed[][]
+     */
+    public static function noLengthProvider(): array
+    {
+        return [
+            [42],
+            [true],
+            [new stdClass()],
+            [tmpfile()],
+        ];
     }
 
     protected function setUp(): void

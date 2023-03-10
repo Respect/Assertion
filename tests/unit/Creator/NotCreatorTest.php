@@ -49,18 +49,6 @@ final class NotCreatorTest extends TestCase
     }
 
     /**
-     * @return string[][]
-     */
-    public function cannotInvertProvider(): array
-    {
-        return [
-            ['notEmpty'],
-            ['notBlank'],
-            ['notOptional'],
-        ];
-    }
-
-    /**
      * @test
      *
      * @dataProvider cannotInvertProvider
@@ -122,5 +110,17 @@ final class NotCreatorTest extends TestCase
         self::assertInstanceOf(Not::class, $validatable);
         self::assertSame($rule, $validatable->getNegatedRule());
         self::assertSame($description, $actual->getDescription());
+    }
+
+    /**
+     * @return string[][]
+     */
+    public static function cannotInvertProvider(): array
+    {
+        return [
+            ['notEmpty'],
+            ['notBlank'],
+            ['notOptional'],
+        ];
     }
 }

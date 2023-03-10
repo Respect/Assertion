@@ -63,7 +63,7 @@ final class AllAssertorTest extends TestCase
         $assertion
             ->expects($this->exactly(count($input)))
             ->method('assert')
-            ->withConsecutive(...array_chunk($input, 1));
+            ->will($this->onConsecutiveCalls(...array_chunk($input, 1)));
 
         $this->sut->execute($assertion, $input);
     }
