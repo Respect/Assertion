@@ -9,12 +9,13 @@
 
 The power of [Validation][] into an assertion library.
 
-This library allows to use any rule from [Validation][] as an assertion. For a
+This library allows using any rule from [Validation][] as an assertion. For a
 complete list of rules, check the [list of rules][].
 
 ## Installation
 
-Package is available on [Packagist][], it can be installed using [Composer][].
+This package is available on [Packagist][], and you can install it using
+[Composer][].
 
 ```shell
 composer require respect/assertion
@@ -24,28 +25,30 @@ Works on PHP 8.1 or above.
 
 ## Another assertion library
 
-There are two great PHP assertion libraries that are very much known in the PHP
-community:
+There are PHP assertion libraries that a lot of people in the PHP the community
+use:
 
 - [beberlei/assert][]
 - [webmozart/assert][]
 
-They are both extremely easy to use and have a lot of assertions. This library
-has no intention to compete or do something better than them, the advantages and
-the reason why this library was created is that [Validation][] has **a lot** of
-rules and that this library also allows to use custom exceptions at runtime.
+They are both straightforward to use and have a lot of assertions, so there
+would be no reason to create yet another one. On the other hand, they have fewer
+assertions than [Validation][] does.
 
-The idea of [Validation][] is to make easy to create chain of validations, it
-has a very clean API. This library offers a more straightforward API for when
-only a simple assertion is needed.
+The main idea of [Validation][] is to make it easy to create chain of
+validations, but when it can get verbose when you want to make a simple
+assertion.
+
+This library offers a more straightforward assertion API for [Validation][],
+which means that you can use all [Validation][]'s rules plus your own rules.
 
 ## Usage
 
 The examples in the document will assume that this library is available in the
 autoload and that the class `Respect\Assertion\Assert` is imported.
 
-Any rule from [Validation][] can be used by the `Assert` class if the input is
-passed as the first argument:
+The `Assert` class can use any rule from [Validation][] with the input as its
+first argument:
 
 ```php
 // will throw an exception => 1 must be equals 5
@@ -58,28 +61,30 @@ Assert::intType('string');
 Assert::odd(5);
 ```
 
-The exceptions that are throw are the same that [Validation][] throws, that also
-allows message customization:
+The exceptions that `Assert` throws are the same that [Validation][] throws.
+That allows you to customize the error messages using templates:
+
 
 ```php
 // will throw an exception => 5 is the value that 1 should be
 Assert::equals(1, 5, '{{compareTo}} is the value that {{input}} should be');
 ```
 
-This library also allows the use of custom exceptions:
+Instead of throwing [Validation][] exceptions, you can use your exceptions:
 
 ```php
 // will throw the defined DomainException
 Assert::between(42, 1, 10, true, new DomainException('Something is not right'));
 ```
 
-That can be very useful if you want to throw custom exceptions. That was a great
-idea from [Malukenho][]!
+That can be very useful if you want to throw specific exceptions for your
+application. That was a great idea from [Malukenho][]!
 
 ### That
 
-You can chain assertions using `Assert::that($input)`, that allows you to perform
-multiple assertions to the same input with less duplication.
+You can chain assertions using `Assert::that($input)`, which allows you to
+perform multiple assertions to the same input with less duplication.
+
 
 ```php
 Assert::that($input)
@@ -89,13 +94,13 @@ Assert::that($input)
     ->notEquals(2, new Exception('The number should never equals two'));
 ```
 
-In the example above, as soon as any assertion fails, it will throw an exception.
-You wish to chain validations and only check them all at the same time we suggest
-you use the API from [Validation][].
+In the example above, as soon as any assertion fails, it will throw an
+exception. If you wish to chain validations and only check them all
+simultaneously, we suggest you use the API from [Validation][].
 
 ### Not
 
-Assertions can be executed with the `not` prefix which will assert the opposite
+You can execute assertions with the `not` prefix, which will assert the opposite
 of the prefixed assertion:
 
 ```php
@@ -106,7 +111,7 @@ Assert::notEven(3);
 Assert::notIn(3, [1, 2, 3, 4]);
 ```
 
-If `not` is used without a suffix, this library will use [Equals][] to assert:
+If you use `not` without a suffix, this library will use [Equals][] to assert:
 
 ```php
 // will throw an exception => 42 must not be equals 42
