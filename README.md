@@ -1,7 +1,8 @@
 # Respect\Assertion
 
-[![Build Status](https://img.shields.io/travis/Respect/Assertion/master.svg?style=flat-square)](http://travis-ci.org/Respect/Assertion)
-[![Latest Version](https://img.shields.io/packagist/v/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Respect/Assertion/continuous-integration.yml?branch=master&style=flat-square)](https://github.com/Respect/Assertion/actions/workflows/continuous-integration.yml)
+[![Code Coverage](https://img.shields.io/codecov/c/github/Respect/Assertion?style=flat-square)](https://codecov.io/gh/Respect/Assertion)
+[![Latest Stable Version](https://img.shields.io/packagist/v/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 [![Total Downloads](https://img.shields.io/packagist/dt/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 [![License](https://img.shields.io/packagist/l/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 

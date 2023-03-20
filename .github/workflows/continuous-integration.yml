@@ -1,0 +1,91 @@
+name: Continuous Integration
+
+on:
+  push:
+    paths-ignore:
+      - 'bin/**'
+  pull_request:
+    paths-ignore:
+      - 'bin/**'
+
+jobs:
+  tests:
+    name: Tests
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.1"
+          - "8.2"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist
+
+      - name: Run Unit Tests
+        run: ./vendor/bin/phpunit --testsuite=unit
+
+      - name: Run Integration Tests
+        run: ./vendor/bin/phpunit --testsuite=integration
+
+  code-coverage:
+    name: Code coverage
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          coverage: pcov
+
+      - name: Install Dependencies
+        run: composer install --prefer-dist
+
+      - name: Generating Code Coverage Report
+        run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Send Code Coverage Report to Codecov.io
+        uses: codecov/codecov-action@v3
+
+  static-analysis:
+    name: Static Analysis
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist
+
+      - name: Run DocHeader
+        run: vendor/bin/docheader check library/ tests/
+
+      - name: Run PHP_CodeSniffer
+        run: vendor/bin/phpcs
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyze
