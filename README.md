@@ -6,10 +6,11 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 [![License](https://img.shields.io/packagist/l/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 
-The power of [Validation][] into an assertion library.
+The power of [Validation][] into an assertion library with
+**more than 1k assertions**.
 
-This library allows using any rule from [Validation][] as an assertion. For a
-complete list of rules, check the [list of rules][].
+For a complete list of assertions, check the [list of rules][] or check
+the [AssertMixin][] interface.
 
 ## Installation
 
@@ -317,6 +318,7 @@ If `nullOr` is used without a suffix, this library will use [Equals][] to assert
 Assert::nullOr(1, 2);
 ```
 
+[AssertMixin]: src/AssertMixin.php
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
 [Countable]: http://php.net/countable
