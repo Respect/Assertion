@@ -3,155 +3,117 @@
 set -euo pipefail
 
 declare -r IFS=$'\n'
-declare -r ASSERT_METHOD_DECLARATION="    public static function"
-declare -r CHAIN_ASSERT_METHOD_DECLARATION="    public function"
-declare -r EQUALS_ARGUMENTS="mixed \$compareTo, Throwable|string|null \$description = null"
 declare -r DIRECTORY=$(dirname "${BASH_SOURCE}")
-declare -r TEMPORARY_METHODS=$(mktemp)
-declare -r TEMPORARY_ASSERT=$(mktemp)
-declare -r TEMPORARY_CHAIN_ASSERT=$(mktemp)
+declare -r ALLOW_LIST="${DIRECTORY}/allow_list"
+declare -r ORIGINAL_VALIDATOR="${DIRECTORY}/../vendor/respect/validation/library/ChainedValidator.php"
+declare -r ORIGINAL_ASSERT="${DIRECTORY}/../src/AssertMixin.php"
+declare -r ORIGINAL_CHAIN_ASSERT="${DIRECTORY}/../src/ChainAssertMixin.php"
 
+
+declare -r TRANSFORMED_VALIDATOR="${DIRECTORY}/../src/ChainedValidator.php"
+declare -r ALL_RULES=$(mktemp)
+declare -r CANONICAL_RULES=$(mktemp)
+declare -r SPECIAL_RULES=$(mktemp)
+declare -r TEMPORARY_ASSERT="${DIRECTORY}/../src/AssertTmp.php"
+declare -r TEMPORARY_CHAIN_ASSERT="${DIRECTORY}/../src/ChainAssertTmp.php"
+
+exclude-function()
 {
-  while read rule; do
-    declare name=$(cut --delimiter '(' --field 1 <<< "${rule}")
-    declare assertion=$(
-      sed 's/(/(mixed $input, /' <<< "${rule}" |
-        sed --regexp-extended 's,([a-zA-Z0-9]+ )?\.\.\.(\$[a-z0-9A-Z]+),\?\1\2 = null,' |
-        sed 's/)/, Throwable|string|null $description = null)/' |
-        sed "s/, ,/,/"
-    )
-    declare assertion_key=$(
-      sed 's/(mixed $input/(mixed $input, mixed $key/' <<< "${assertion}"
-    )
-
-    echo -e -n "Processing '${name}' assertion\r" 1>&2
-
-    if [[ "${assertion}" =~ "Validatable" ]] ||
-        [[ "${name}" = "length" ]] ||
-        [[ "${name}" = "max" ]] ||
-        [[ "${name}" = "min" ]] ||
-        [[ "${name}" = "sf" ]] ||
-        [[ "${name}" = "zend" ]]; then
-      echo "Assertion '${name}' will not be created" 1>&2
-      continue
-    fi
-
-    if  [[ "${name}" =~ "always"* ]]; then
-      echo "Assertion '${name}' will not be created" 1>&2
-      continue
-    fi
-
-    if  [[ "${name}" =~ "key"* ]]; then
-      echo "Assertion '${name}' will not be created" 1>&2
-      continue
-    fi
-
-    echo "${assertion}"
-    echo "nullOr${assertion^}"
-    echo "all${assertion^}"
-    echo "key${assertion_key^}"
-
-    grep --quiet "^not" <<< "${name}" || {
-      echo "not${assertion^}"
-      echo "nullOrNot${assertion^}"
-      echo "allNot${assertion^}"
-      echo "keyNot${assertion_key^}"
-    }
-
-    grep --quiet "^${name}$" "${DIRECTORY}/allow_list" || {
-      echo "Assertion '${name}' created without prefixes" 1>&2
-      continue
-    }
-
-    echo "length${assertion^}"
-    echo "max${assertion^}"
-    echo "min${assertion^}"
-
-    grep --quiet "^not" <<< "${name}" || {
-      echo "lengthNot${assertion^}"
-      echo "maxNot${assertion^}"
-      echo "minNot${assertion^}"
-    }
-
-    echo "Assertion '${name}' created with success" 1>&2
-
-  done < <(
-    grep '@method' "${DIRECTORY}/../vendor/respect/validation/library/Validator.php" |
-      cut --delimiter ' ' --field 6-
-  )
-
-  echo "all(mixed \$input, ${EQUALS_ARGUMENTS})"
-  echo "allNot(mixed \$input, ${EQUALS_ARGUMENTS})"
-
-  echo "nullOr(mixed \$input, ${EQUALS_ARGUMENTS})"
-  echo "nullOrNot(mixed \$input, ${EQUALS_ARGUMENTS})"
-
-  echo "key(mixed \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
-  echo "keyNot(mixed \$input, mixed \$key, ${EQUALS_ARGUMENTS})"
-
-  echo "keyPresent(mixed \$input, mixed \$key, Throwable|string|null \$description = null)"
-  echo "keyNotPresent(mixed \$input, mixed \$key, Throwable|string|null \$description = null)"
-
-  echo "length(mixed \$input, ${EQUALS_ARGUMENTS})"
-  echo "lengthNot(mixed \$input, ${EQUALS_ARGUMENTS})"
-
-  echo "min(mixed \$input, ${EQUALS_ARGUMENTS})"
-  echo "minNot(mixed \$input, ${EQUALS_ARGUMENTS})"
-
-  echo "max(mixed \$input, ${EQUALS_ARGUMENTS})"
-  echo "maxNot(mixed \$input, ${EQUALS_ARGUMENTS})"
-
-} | sort > "${TEMPORARY_METHODS}"
-
-create-method()
-{
-  local -r signature="${1}"
-  local -r return="${2}"
-  local -r static="${3:-}"
-  local -r method_signature=$(
-    sed 's,mixed ,,g; s,Throwable|string|null ,,g' <<< "${signature}"
-  )
-
-  echo "    /**"
-  sed --regexp-extended 's,^[a-z0-9A-Z]+\((.+)\)$, \1,g' <<< "${signature}" |
-     tr ',' '\n' |
-     sed 's,^,     * @param,' |
-     sed --regexp-extended 's, = .+,,' |
-     sed --regexp-extended 's,\?([a-zA-Z0-9|]+),\1|null,' |
-     sed 's,param \$,param mixed \$,g' |
-     sed 's,iterable,iterable<mixed>,g' |
-     sed 's,array,array<mixed>,g'
-  echo "     */"
-  if [[ ${static} -eq 1 ]]; then
-    echo "    public static function ${method_signature}: ${return};"
-    echo
-    return
-  fi
-
-  echo "    public function ${method_signature}: ${return};"
-  echo
+  grep --invert-match "public function ${1}("
 }
 
-echo "- Updating AssertMixin.php"
+echo "- Parsing all rules"
+cp "${ORIGINAL_VALIDATOR}" "${TRANSFORMED_VALIDATOR}"
+vendor/bin/phpcbf -q "${TRANSFORMED_VALIDATOR}" || true
 {
-  sed --silent "/<?/,/^{/p" "${DIRECTORY}/../src/AssertMixin.php"
-  while read signature; do
-    create-method "${signature}" "void" 1
-  done < "${TEMPORARY_METHODS}"
+  sed -n "/^{/,/^}/p" "${TRANSFORMED_VALIDATOR}" |
+    tr --delete '{}' |
+    sed --regexp-extended ':a;N;$!ba;s/\n+( +)//g' |
+    sed "s,* @param,\n    * @param,g" |
+    sed "s,*/,\n    */\n    ,g" |
+    sed "s,\;,;\n\n    ,g" |
+    sed --regexp-extended 's,string \.{3}(\$[a-zA-Z0-9_]+),string \1 = "",g' |
+    sed --regexp-extended 's,([a-zA-Z0-9_]+) \.{3}(\$[a-zA-Z0-9_]+),?\1 \2 = null,g' |
+    grep --invert-match "Validatable" |
+    exclude-function "alwaysInvalid" |
+    exclude-function "alwaysValid" |
+    exclude-function "key" |
+    exclude-function "keySet" |
+    exclude-function "keyValue" |
+    exclude-function "length" |
+    exclude-function "max" |
+    exclude-function "min" |
+    exclude-function "sf" |
+    exclude-function "zend" |
+    sed "s/): .\+/, Throwable|string|null \$description = null): self\;/g" |
+    sed "s/(, /(/g" > "${CANONICAL_RULES}"
+
+  while read -r rule_name; do
+    grep "public function ${rule_name}(" "${CANONICAL_RULES}" >> "${SPECIAL_RULES}" || continue
+  done < "${ALLOW_LIST}"
+
+  # original rules
+  cat "${CANONICAL_RULES}"
+
+
+  # "all" rules
+  sed --regexp-extended "s,public function ([^(]+)\(,public function all\u\1(,g" "${CANONICAL_RULES}" |
+    sed "s,allEquals,all,g"
+
+  # "allNot" rules
+  sed --regexp-extended "s,public function ([^(]+)\(,public function allNot\u\1(,g" "${CANONICAL_RULES}" |
+    sed "s,allNotEquals,allNot,g"
+
+  # "key" rules
+  sed --regexp-extended "s/public function ([^(]+)\(/public function key\u\1(mixed \$key, /g; s/, \)/)/g" "${CANONICAL_RULES}" |
+    sed "s,keyEquals,key,g"
+
+  # "keyNot" rules
+  sed --regexp-extended "s/public function ([^(]+)\(/public function keyNot\u\1(mixed \$key, /g; s/, \)/)/g" "${CANONICAL_RULES}" |
+    sed "s,keyNotEquals,keyNot,g"
+
+  # "not" rules
+  sed --regexp-extended "s,public function ([^(]+)\(,public function not\u\1(,g" "${CANONICAL_RULES}" |
+    sed "s,notEquals,not,g"
+
+  sed --regexp-extended "s,public function ([^(]+)\(,public function nullOr\u\1(,g" "${CANONICAL_RULES}" |
+    sed "s,nullOrEquals,nullOr,g"
+
+  sed --regexp-extended "s,public function ([^(]+)\(,public function nullOrNot\u\1(,g" "${CANONICAL_RULES}" |
+    sed "s,nullOrNotEquals,nullOrNot,g"
+
+  sed --regexp-extended "s,public function ([^(]+)\(,public function length\u\1(,g" "${SPECIAL_RULES}" |
+    sed "s,lengthEquals,length,g"
+
+  sed --regexp-extended "s,public function ([^(]+)\(,public function max\u\1(,g" "${SPECIAL_RULES}" |
+    sed "s,maxEquals,max,g"
+
+  sed --regexp-extended "s,public function ([^(]+)\(,public function min\u\1(,g" "${SPECIAL_RULES}" |
+    sed "s,minEquals,min,g"
+} > "${ALL_RULES}"
+
+rm "${TRANSFORMED_VALIDATOR}"
+
+echo "- Updating ${ORIGINAL_ASSERT}"
+{
+  sed --silent "/<?/,/^{/p" "${ORIGINAL_ASSERT}"
+  sed --regexp-extended "s/public function ([^(]+)\(/public static function \1(mixed \$input, /g" "${ALL_RULES}" |
+    sed "s/, )/)/g" |
+    sed "s,self,void,g"
   echo "}"
 } > "${TEMPORARY_ASSERT}"
 
-mv "${TEMPORARY_ASSERT}" "${DIRECTORY}/../src/AssertMixin.php"
+vendor/bin/phpcbf -q "${TEMPORARY_ASSERT}" || true
+mv "${TEMPORARY_ASSERT}" "${ORIGINAL_ASSERT}"
 
-echo "- Updating ChainAssertMixin.php"
+echo "- Updating ${ORIGINAL_CHAIN_ASSERT}"
 {
-  sed --silent "/<?/,/^{/p" "${DIRECTORY}/../src/ChainAssertMixin.php"
-  while read signature; do
-    create-method "${signature}" "self"
-  done < <(sed --regexp-extended 's/\((mixed|iterable|array) \$input, /(/g' < "${TEMPORARY_METHODS}")
+  sed --silent "/<?/,/^{/p" "${ORIGINAL_CHAIN_ASSERT}"
+  cat "${ALL_RULES}"
   echo "}"
 } > "${TEMPORARY_CHAIN_ASSERT}"
 
-mv "${TEMPORARY_CHAIN_ASSERT}" "${DIRECTORY}/../src/ChainAssertMixin.php"
+vendor/bin/phpcbf -q "${TEMPORARY_CHAIN_ASSERT}" || true
+mv "${TEMPORARY_CHAIN_ASSERT}" "${ORIGINAL_CHAIN_ASSERT}"
 
 echo "Finished!"
