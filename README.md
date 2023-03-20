@@ -1,8 +1,6 @@
 # Respect\Assertion
 
 [![Build Status](https://img.shields.io/travis/Respect/Assertion/master.svg?style=flat-square)](http://travis-ci.org/Respect/Assertion)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/Respect/Assertion/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/Respect/Assertion/?branch=master)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/Respect/Assertion/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/Respect/Assertion/?branch=master)
 [![Latest Version](https://img.shields.io/packagist/v/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 [![Total Downloads](https://img.shields.io/packagist/dt/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 [![License](https://img.shields.io/packagist/l/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
