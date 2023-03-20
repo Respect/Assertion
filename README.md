@@ -61,6 +61,8 @@ Assert::intType('string');
 Assert::odd(5);
 ```
 
+### Custom messages
+
 The exceptions that `Assert` throws are the same that [Validation][] throws.
 That allows you to customize the error messages using templates:
 
@@ -69,6 +71,8 @@ That allows you to customize the error messages using templates:
 // will throw an exception => 5 is the value that 1 should be
 Assert::equals(1, 5, '{{compareTo}} is the value that {{input}} should be');
 ```
+
+### Custom exceptions
 
 Instead of throwing [Validation][] exceptions, you can use your exceptions:
 
