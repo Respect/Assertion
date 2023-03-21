@@ -149,7 +149,7 @@ final class LengthAssertorTest extends TestCase
         self::assertEquals('2 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('2, the length of `{ 1, 2, 3 }`, is always invalid');
+        $this->expectExceptionMessage('2 (the length of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }

@@ -66,7 +66,7 @@ final class MinAssertor implements Assertor
         }
 
         $params = $exception->getParams();
-        $params['name'] = stringify($params['input']) . ', the minimum of ' . stringify($asserted) . ',';
+        $params['name'] = stringify($params['input']) . ' (the minimum of the input)';
         $exception->updateParams($params);
 
         return $exception;

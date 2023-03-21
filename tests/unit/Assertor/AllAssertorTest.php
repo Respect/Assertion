@@ -109,7 +109,7 @@ final class AllAssertorTest extends TestCase
         self::assertEquals('2 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('2, and all values of `{ 1, 2, 3 }`, is always invalid');
+        $this->expectExceptionMessage('2 (like all items of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -156,9 +156,7 @@ final class AllAssertorTest extends TestCase
         self::assertEquals('`[object] (stdClass: { })` is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage(
-            '`[object] (stdClass: { })`, and all values of `{ [object] (stdClass: { }), { } }`, is always invalid'
-        );
+        $this->expectExceptionMessage('`[object] (stdClass: { })` (like all items of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }

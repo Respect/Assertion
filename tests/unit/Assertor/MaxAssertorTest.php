@@ -124,7 +124,7 @@ final class MaxAssertorTest extends TestCase
         self::assertEquals('3 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('3, the maximum of `{ 1, 2, 3 }`, is always invalid');
+        $this->expectExceptionMessage('3 (the maximum of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -170,9 +170,7 @@ final class MaxAssertorTest extends TestCase
         self::assertEquals('`[object] (stdClass: { })` is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage(
-            '`[object] (stdClass: { })`, the maximum of `{ [object] (stdClass: { }), { } }`, is always invalid'
-        );
+        $this->expectExceptionMessage('`[object] (stdClass: { })` (the maximum of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }

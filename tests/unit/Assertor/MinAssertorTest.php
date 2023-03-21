@@ -124,7 +124,7 @@ final class MinAssertorTest extends TestCase
         self::assertEquals('1 is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('1, the minimum of `{ 1, 2, 3 }`, is always invalid');
+        $this->expectExceptionMessage('1 (the minimum of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }
@@ -170,7 +170,7 @@ final class MinAssertorTest extends TestCase
         self::assertEquals('`{ }` is always invalid', $exception->getMessage());
 
         $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('`{ }`, the minimum of `{ { }, [object] (stdClass: { }) }`, is always invalid');
+        $this->expectExceptionMessage('`{ }` (the minimum of the input) is always invalid');
 
         $this->sut->execute($assertion, $input);
     }

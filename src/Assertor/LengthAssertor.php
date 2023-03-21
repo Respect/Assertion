@@ -23,7 +23,6 @@ use function count;
 use function is_array;
 use function is_string;
 use function mb_strlen;
-use function Respect\Stringifier\stringify;
 
 final class LengthAssertor implements Assertor
 {
@@ -65,7 +64,7 @@ final class LengthAssertor implements Assertor
         }
 
         $params = $exception->getParams();
-        $params['name'] = $params['input'] . ', the length of ' . stringify($asserted) . ',';
+        $params['name'] = $params['input'] . ' (the length of the input)';
         $exception->updateParams($params);
 
         return $exception;
