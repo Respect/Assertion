@@ -182,6 +182,53 @@ Assert::keyExists(['foo' => '/path/to/file.txt'], 'foo');
 Not that `keyExists` assertion, will assert whether the value of key `foo` exists
 in the Filesystem.
 
+### Property
+
+We'll use the object below as input in the examples that follow.
+
+```php
+$input = new stdClass();
+$input->foo = 1;
+```
+
+You can use `propertyPresent` to check whether a property is present in an object.
+
+```php
+// will throw an exception => Attribute bar must be present
+Assert::propertyPresent(['foo' => true], 'bar');
+```
+
+You can use `propertyNotPresent` to check whether a property is *not* present in
+an object.
+
+```php
+// will throw an exception => Attribute foo must not be present
+Assert::propertyNotPresent($input, 'foo');
+```
+
+With the `property` prefix, you can make assertions with the value of a specific
+object's property.
+
+```php
+// will throw an exception => foo must equal 3
+Assert::property($input, 'foo', 3);
+
+// will throw an exception => foo must be negative
+Assert::propertyNegative($input, 'foo');
+
+// will throw an exception => foo must not be of type integer
+Assert::propertyNotIntType($input, 'foo');
+
+// will throw an exception => Attribute baz must be present
+Assert::propertyNegative($input, 'baz');
+
+// will throw an exception => foo must exists
+Assert::propertyExists($input, 'foo');
+```
+
+Note that the `propertyExists` assertion will assert whether the value of
+property `foo` exists in the FileSystem.
+
 ### Length
 
 Assertions can be executed with the `length` prefix which will assert the length

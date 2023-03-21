@@ -22,6 +22,7 @@ use Respect\Assertion\Creator\ComposedCreator;
 use Respect\Assertion\Creator\KeyCreator;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Assertion\Creator\NullOrCreator;
+use Respect\Assertion\Creator\PropertyCreator;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 
@@ -50,7 +51,9 @@ final class Assert
                         new LengthAssertor(),
                         new ComposedCreator(
                             new AllAssertor(),
-                            new KeyCreator(new NullOrCreator(new NotCreator(new StandardCreator())))
+                            new PropertyCreator(
+                                new KeyCreator(new NullOrCreator(new NotCreator(new StandardCreator())))
+                            )
                         )
                     )
                 )

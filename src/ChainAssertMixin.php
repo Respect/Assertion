@@ -1368,6 +1368,548 @@ interface ChainAssertMixin
 
     public function keyNotPresent(mixed $key, Throwable|string|null $description = null): self;
 
+    public function propertyAlnum(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyAlpha(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyArrayType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyArrayVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyBase(string $property, int $base, ?string $chars = null, Throwable|string|null $description = null): self;
+
+    public function propertyBase64(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyBetween(string $property, mixed $minimum, mixed $maximum, Throwable|string|null $description = null): self;
+
+    public function propertyBic(string $property, string $countryCode, Throwable|string|null $description = null): self;
+
+    public function propertyBoolType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyBoolVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyBsn(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyCallableType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyCallback(string $property, callable $callback, Throwable|string|null $description = null): self;
+
+    public function propertyCharset(string $property, string $charset = '', Throwable|string|null $description = null): self;
+
+    public function propertyCnh(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyCnpj(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyControl(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyConsonant(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyContains(string $property, mixed $containsValue, bool $identical = false, Throwable|string|null $description = null): self;
+
+    /**
+    * @param mixed[] $needles
+    */
+    public function propertyContainsAny(string $property, array $needles, bool $strictCompareArray = false, Throwable|string|null $description = null): self;
+
+    public function propertyCountable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyCountryCode(string $property, ?string $set = null, Throwable|string|null $description = null): self;
+
+    public function propertyCurrencyCode(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyCpf(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyCreditCard(string $property, ?string $brand = null, Throwable|string|null $description = null): self;
+
+    public function propertyDate(string $property, string $format = 'Y-m-d', Throwable|string|null $description = null): self;
+
+    public function propertyDateTime(string $property, ?string $format = null, Throwable|string|null $description = null): self;
+
+    public function propertyDecimal(string $property, int $decimals, Throwable|string|null $description = null): self;
+
+    public function propertyDigit(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyDirectory(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyDomain(string $property, bool $tldCheck = true, Throwable|string|null $description = null): self;
+
+    public function propertyEmail(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyEndsWith(string $property, mixed $endValue, bool $identical = false, Throwable|string|null $description = null): self;
+
+    public function property(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyEquivalent(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyEven(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyExecutable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyExists(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyExtension(string $property, string $extension, Throwable|string|null $description = null): self;
+
+    public function propertyFactor(string $property, int $dividend, Throwable|string|null $description = null): self;
+
+    public function propertyFalseVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyFibonacci(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyFile(string $property, Throwable|string|null $description = null): self;
+
+    /**
+    * @param mixed[]|int $options
+    */
+    public function propertyFilterVar(string $property, int $filter, array|int|null $options = null, Throwable|string|null $description = null): self;
+
+    public function propertyFinite(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyFloatVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyFloatType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyGraph(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyGreaterThan(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyHexRgbColor(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyIban(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyIdentical(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyImage(string $property, ?finfo $fileInfo = null, Throwable|string|null $description = null): self;
+
+    public function propertyImei(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyIn(string $property, mixed $haystack, bool $compareIdentical = false, Throwable|string|null $description = null): self;
+
+    public function propertyInfinite(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyInstance(string $property, string $instanceName, Throwable|string|null $description = null): self;
+
+    public function propertyIntVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyIntType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyIp(string $property, string $range = '*', ?int $options = null, Throwable|string|null $description = null): self;
+
+    public function propertyIsbn(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyIterableType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyJson(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyLanguageCode(string $property, ?string $set = null, Throwable|string|null $description = null): self;
+
+    public function propertyLeapDate(string $property, string $format, Throwable|string|null $description = null): self;
+
+    public function propertyLeapYear(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyLowercase(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyLessThan(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyLuhn(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyMacAddress(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyMaxAge(string $property, int $age, ?string $format = null, Throwable|string|null $description = null): self;
+
+    public function propertyMimetype(string $property, string $mimetype, Throwable|string|null $description = null): self;
+
+    public function propertyMinAge(string $property, int $age, ?string $format = null, Throwable|string|null $description = null): self;
+
+    public function propertyMultiple(string $property, int $multipleOf, Throwable|string|null $description = null): self;
+
+    public function propertyNegative(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNfeAccessKey(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNif(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNip(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNo(string $property, bool $useLocale = false, Throwable|string|null $description = null): self;
+
+    public function propertyNotBlank(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotEmoji(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotEmpty(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotOptional(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNoWhitespace(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNullType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNumber(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNumericVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyObjectType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyOdd(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPerfectSquare(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPesel(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPhone(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPhpLabel(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPis(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPolishIdCard(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPositive(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPostalCode(string $property, string $countryCode, Throwable|string|null $description = null): self;
+
+    public function propertyPrimeNumber(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyPrintable(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyPunct(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyReadable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyRegex(string $property, string $regex, Throwable|string|null $description = null): self;
+
+    public function propertyResourceType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyRoman(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyScalarVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertySize(string $property, ?string $minSize = null, ?string $maxSize = null, Throwable|string|null $description = null): self;
+
+    public function propertySlug(string $property, Throwable|string|null $description = null): self;
+
+    public function propertySorted(string $property, string $direction, Throwable|string|null $description = null): self;
+
+    public function propertySpace(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyStartsWith(string $property, mixed $startValue, bool $identical = false, Throwable|string|null $description = null): self;
+
+    public function propertyStringType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyStringVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertySubdivisionCode(string $property, string $countryCode, Throwable|string|null $description = null): self;
+
+    /**
+    * @param mixed[] $superset
+    */
+    public function propertySubset(string $property, array $superset, Throwable|string|null $description = null): self;
+
+    public function propertySymbolicLink(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyTime(string $property, string $format = 'H:i:s', Throwable|string|null $description = null): self;
+
+    public function propertyTld(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyTrueVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyType(string $property, string $type, Throwable|string|null $description = null): self;
+
+    public function propertyUnique(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyUploaded(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyUppercase(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyUrl(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyUuid(string $property, ?int $version = null, Throwable|string|null $description = null): self;
+
+    public function propertyVersion(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyVideoUrl(string $property, ?string $service = null, Throwable|string|null $description = null): self;
+
+    public function propertyVowel(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyWritable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyXdigit(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyYes(string $property, bool $useLocale = false, Throwable|string|null $description = null): self;
+
+    public function propertyPresent(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotAlnum(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotAlpha(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotArrayType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotArrayVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotBase(string $property, int $base, ?string $chars = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotBase64(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotBetween(string $property, mixed $minimum, mixed $maximum, Throwable|string|null $description = null): self;
+
+    public function propertyNotBic(string $property, string $countryCode, Throwable|string|null $description = null): self;
+
+    public function propertyNotBoolType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotBoolVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotBsn(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotCallableType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotCallback(string $property, callable $callback, Throwable|string|null $description = null): self;
+
+    public function propertyNotCharset(string $property, string $charset = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotCnh(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotCnpj(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotControl(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotConsonant(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotContains(string $property, mixed $containsValue, bool $identical = false, Throwable|string|null $description = null): self;
+
+    /**
+    * @param mixed[] $needles
+    */
+    public function propertyNotContainsAny(string $property, array $needles, bool $strictCompareArray = false, Throwable|string|null $description = null): self;
+
+    public function propertyNotCountable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotCountryCode(string $property, ?string $set = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotCurrencyCode(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotCpf(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotCreditCard(string $property, ?string $brand = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotDate(string $property, string $format = 'Y-m-d', Throwable|string|null $description = null): self;
+
+    public function propertyNotDateTime(string $property, ?string $format = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotDecimal(string $property, int $decimals, Throwable|string|null $description = null): self;
+
+    public function propertyNotDigit(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotDirectory(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotDomain(string $property, bool $tldCheck = true, Throwable|string|null $description = null): self;
+
+    public function propertyNotEmail(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotEndsWith(string $property, mixed $endValue, bool $identical = false, Throwable|string|null $description = null): self;
+
+    public function propertyNot(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyNotEquivalent(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyNotEven(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotExecutable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotExists(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotExtension(string $property, string $extension, Throwable|string|null $description = null): self;
+
+    public function propertyNotFactor(string $property, int $dividend, Throwable|string|null $description = null): self;
+
+    public function propertyNotFalseVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotFibonacci(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotFile(string $property, Throwable|string|null $description = null): self;
+
+    /**
+    * @param mixed[]|int $options
+    */
+    public function propertyNotFilterVar(string $property, int $filter, array|int|null $options = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotFinite(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotFloatVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotFloatType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotGraph(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotGreaterThan(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyNotHexRgbColor(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotIban(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotIdentical(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyNotImage(string $property, ?finfo $fileInfo = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotImei(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotIn(string $property, mixed $haystack, bool $compareIdentical = false, Throwable|string|null $description = null): self;
+
+    public function propertyNotInfinite(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotInstance(string $property, string $instanceName, Throwable|string|null $description = null): self;
+
+    public function propertyNotIntVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotIntType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotIp(string $property, string $range = '*', ?int $options = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotIsbn(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotIterableType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotJson(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotLanguageCode(string $property, ?string $set = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotLeapDate(string $property, string $format, Throwable|string|null $description = null): self;
+
+    public function propertyNotLeapYear(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotLowercase(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotLessThan(string $property, mixed $compareTo, Throwable|string|null $description = null): self;
+
+    public function propertyNotLuhn(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotMacAddress(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotMaxAge(string $property, int $age, ?string $format = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotMimetype(string $property, string $mimetype, Throwable|string|null $description = null): self;
+
+    public function propertyNotMinAge(string $property, int $age, ?string $format = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotMultiple(string $property, int $multipleOf, Throwable|string|null $description = null): self;
+
+    public function propertyNotNegative(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNfeAccessKey(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNif(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNip(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNo(string $property, bool $useLocale = false, Throwable|string|null $description = null): self;
+
+    public function propertyNotNotBlank(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNotEmoji(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNotEmpty(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNotOptional(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNoWhitespace(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNullType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNumber(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotNumericVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotObjectType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotOdd(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPerfectSquare(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPesel(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPhone(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPhpLabel(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPis(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPolishIdCard(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPositive(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPostalCode(string $property, string $countryCode, Throwable|string|null $description = null): self;
+
+    public function propertyNotPrimeNumber(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotPrintable(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotPunct(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotReadable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotRegex(string $property, string $regex, Throwable|string|null $description = null): self;
+
+    public function propertyNotResourceType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotRoman(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotScalarVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotSize(string $property, ?string $minSize = null, ?string $maxSize = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotSlug(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotSorted(string $property, string $direction, Throwable|string|null $description = null): self;
+
+    public function propertyNotSpace(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotStartsWith(string $property, mixed $startValue, bool $identical = false, Throwable|string|null $description = null): self;
+
+    public function propertyNotStringType(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotStringVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotSubdivisionCode(string $property, string $countryCode, Throwable|string|null $description = null): self;
+
+    /**
+    * @param mixed[] $superset
+    */
+    public function propertyNotSubset(string $property, array $superset, Throwable|string|null $description = null): self;
+
+    public function propertyNotSymbolicLink(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotTime(string $property, string $format = 'H:i:s', Throwable|string|null $description = null): self;
+
+    public function propertyNotTld(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotTrueVal(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotType(string $property, string $type, Throwable|string|null $description = null): self;
+
+    public function propertyNotUnique(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotUploaded(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotUppercase(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotUrl(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotUuid(string $property, ?int $version = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotVersion(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotVideoUrl(string $property, ?string $service = null, Throwable|string|null $description = null): self;
+
+    public function propertyNotVowel(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotWritable(string $property, Throwable|string|null $description = null): self;
+
+    public function propertyNotXdigit(string $property, string $additionalChars = '', Throwable|string|null $description = null): self;
+
+    public function propertyNotYes(string $property, bool $useLocale = false, Throwable|string|null $description = null): self;
+
+    public function propertyNotPresent(string $property, Throwable|string|null $description = null): self;
+
     public function notAlnum(string $additionalChars = '', Throwable|string|null $description = null): self;
 
     public function notAlpha(string $additionalChars = '', Throwable|string|null $description = null): self;
