@@ -1095,6 +1095,8 @@ interface AssertMixin
 
     public static function keyYes(mixed $input, mixed $key, bool $useLocale = false, Throwable|string|null $description = null): void;
 
+    public static function keyPresent(mixed $input, mixed $key, Throwable|string|null $description = null): void;
+
     public static function keyNotAlnum(mixed $input, mixed $key, string $additionalChars = '', Throwable|string|null $description = null): void;
 
     public static function keyNotAlpha(mixed $input, mixed $key, string $additionalChars = '', Throwable|string|null $description = null): void;
@@ -1363,6 +1365,8 @@ interface AssertMixin
     public static function keyNotXdigit(mixed $input, mixed $key, string $additionalChars = '', Throwable|string|null $description = null): void;
 
     public static function keyNotYes(mixed $input, mixed $key, bool $useLocale = false, Throwable|string|null $description = null): void;
+
+    public static function keyNotPresent(mixed $input, mixed $key, Throwable|string|null $description = null): void;
 
     public static function notAlnum(mixed $input, string $additionalChars = '', Throwable|string|null $description = null): void;
 

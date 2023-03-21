@@ -22,6 +22,32 @@ exclude-function()
   grep --invert-match "public function ${1}("
 }
 
+add-prefixes()
+{
+  local prefix="${1}"
+  local rules="${2}"
+  local extra_parameter="${3:-}"
+
+  if [ ! -z "${extra_parameter}" ]; then
+      extra_parameter="${extra_parameter}, "
+  fi
+
+  sed --regexp-extended "s/public function ([^(]+)\(/public function ${prefix}\u\1(${extra_parameter}/g" "${rules}" |
+      sed "s,${prefix}Equals,${prefix},g"
+}
+
+add-function()
+{
+  local name="${1}"
+  local extra_parameter="${2:-}"
+
+  if [ ! -z "${extra_parameter}" ]; then
+      extra_parameter="${extra_parameter}, "
+  fi
+
+  echo "public function ${name}(${extra_parameter}Throwable|string|null \$description = null): self;"
+}
+
 echo "- Parsing all rules"
 cp "${ORIGINAL_VALIDATOR}" "${TRANSFORMED_VALIDATOR}"
 vendor/bin/phpcbf -q "${TRANSFORMED_VALIDATOR}" || true
@@ -55,41 +81,18 @@ vendor/bin/phpcbf -q "${TRANSFORMED_VALIDATOR}" || true
   # original rules
   cat "${CANONICAL_RULES}"
 
-
-  # "all" rules
-  sed --regexp-extended "s,public function ([^(]+)\(,public function all\u\1(,g" "${CANONICAL_RULES}" |
-    sed "s,allEquals,all,g"
-
-  # "allNot" rules
-  sed --regexp-extended "s,public function ([^(]+)\(,public function allNot\u\1(,g" "${CANONICAL_RULES}" |
-    sed "s,allNotEquals,allNot,g"
-
-  # "key" rules
-  sed --regexp-extended "s/public function ([^(]+)\(/public function key\u\1(mixed \$key, /g; s/, \)/)/g" "${CANONICAL_RULES}" |
-    sed "s,keyEquals,key,g"
-
-  # "keyNot" rules
-  sed --regexp-extended "s/public function ([^(]+)\(/public function keyNot\u\1(mixed \$key, /g; s/, \)/)/g" "${CANONICAL_RULES}" |
-    sed "s,keyNotEquals,keyNot,g"
-
-  # "not" rules
-  sed --regexp-extended "s,public function ([^(]+)\(,public function not\u\1(,g" "${CANONICAL_RULES}" |
-    sed "s,notEquals,not,g"
-
-  sed --regexp-extended "s,public function ([^(]+)\(,public function nullOr\u\1(,g" "${CANONICAL_RULES}" |
-    sed "s,nullOrEquals,nullOr,g"
-
-  sed --regexp-extended "s,public function ([^(]+)\(,public function nullOrNot\u\1(,g" "${CANONICAL_RULES}" |
-    sed "s,nullOrNotEquals,nullOrNot,g"
-
-  sed --regexp-extended "s,public function ([^(]+)\(,public function length\u\1(,g" "${SPECIAL_RULES}" |
-    sed "s,lengthEquals,length,g"
-
-  sed --regexp-extended "s,public function ([^(]+)\(,public function max\u\1(,g" "${SPECIAL_RULES}" |
-    sed "s,maxEquals,max,g"
-
-  sed --regexp-extended "s,public function ([^(]+)\(,public function min\u\1(,g" "${SPECIAL_RULES}" |
-    sed "s,minEquals,min,g"
+  add-prefixes "all" "${CANONICAL_RULES}"
+  add-prefixes "allNot" "${CANONICAL_RULES}"
+  add-prefixes "key" "${CANONICAL_RULES}" "mixed \$key"
+  add-function "keyPresent" "mixed \$key"
+  add-prefixes "keyNot" "${CANONICAL_RULES}" "mixed \$key"
+  add-function "keyNotPresent" "mixed \$key"
+  add-prefixes "not" "${CANONICAL_RULES}"
+  add-prefixes "nullOr" "${CANONICAL_RULES}"
+  add-prefixes "nullOrNot" "${CANONICAL_RULES}"
+  add-prefixes "length" "${SPECIAL_RULES}"
+  add-prefixes "max" "${SPECIAL_RULES}"
+  add-prefixes "min" "${SPECIAL_RULES}"
 } > "${ALL_RULES}"
 
 rm "${TRANSFORMED_VALIDATOR}"

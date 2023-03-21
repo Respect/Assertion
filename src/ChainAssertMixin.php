@@ -1095,6 +1095,8 @@ interface ChainAssertMixin
 
     public function keyYes(mixed $key, bool $useLocale = false, Throwable|string|null $description = null): self;
 
+    public function keyPresent(mixed $key, Throwable|string|null $description = null): self;
+
     public function keyNotAlnum(mixed $key, string $additionalChars = '', Throwable|string|null $description = null): self;
 
     public function keyNotAlpha(mixed $key, string $additionalChars = '', Throwable|string|null $description = null): self;
@@ -1363,6 +1365,8 @@ interface ChainAssertMixin
     public function keyNotXdigit(mixed $key, string $additionalChars = '', Throwable|string|null $description = null): self;
 
     public function keyNotYes(mixed $key, bool $useLocale = false, Throwable|string|null $description = null): self;
+
+    public function keyNotPresent(mixed $key, Throwable|string|null $description = null): self;
 
     public function notAlnum(string $additionalChars = '', Throwable|string|null $description = null): self;
 
