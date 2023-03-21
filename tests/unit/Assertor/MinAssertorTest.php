@@ -22,7 +22,9 @@ use Respect\Assertion\Assertor\MinAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
 use Respect\Validation\Factory;
 use Respect\Validation\Rules\AlwaysInvalid;
+use stdClass;
 
+use function current;
 use function range;
 
 /**
@@ -145,6 +147,30 @@ final class MinAssertorTest extends TestCase
             ->willThrowException($exception);
 
         $this->expectExceptionObject($exception);
+
+        $this->sut->execute($assertion, $input);
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowAndModifyValidationExceptionsWhenValuesInTheInputAreNonScalar(): void
+    {
+        $input = [[], new stdClass()];
+
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), current($input));
+
+        $assertion = $this->createMock(Assertion::class);
+        $assertion
+            ->expects($this->once())
+            ->method('assert')
+            ->with(current($input))
+            ->willThrowException($exception);
+
+        self::assertEquals('`{ }` is always invalid', $exception->getMessage());
+
+        $this->expectException(AlwaysInvalidException::class);
+        $this->expectExceptionMessage('`{ }`, the minimum of `{ { }, [object] (stdClass: { }) }`, is always invalid');
 
         $this->sut->execute($assertion, $input);
     }

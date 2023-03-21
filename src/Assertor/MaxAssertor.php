@@ -63,7 +63,7 @@ final class MaxAssertor implements Assertor
         }
 
         $params = $exception->getParams();
-        $params['name'] = $params['input'] . ', the maximum of ' . stringify($asserted) . ',';
+        $params['name'] = stringify($params['input']) . ', the maximum of ' . stringify($asserted) . ',';
         $exception->updateParams($params);
 
         return $exception;

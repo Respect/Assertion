@@ -21,6 +21,7 @@ use Respect\Assertion\Assertor\AllAssertor;
 use Respect\Validation\Exceptions\AlwaysInvalidException;
 use Respect\Validation\Factory;
 use Respect\Validation\Rules\AlwaysInvalid;
+use stdClass;
 
 use function array_chunk;
 use function count;
@@ -131,6 +132,33 @@ final class AllAssertorTest extends TestCase
             ->willThrowException($exception);
 
         $this->expectExceptionObject($exception);
+
+        $this->sut->execute($assertion, $input);
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowAndModifyValidationExceptionsWhenValuesInTheInputAreNonScalar(): void
+    {
+        $input = [new stdClass(), []];
+        $inInput = $input[0];
+
+        $exception = Factory::getDefaultInstance()->exception(new AlwaysInvalid(), $inInput);
+
+        $assertion = $this->createMock(Assertion::class);
+        $assertion
+            ->expects($this->once())
+            ->method('assert')
+            ->with(current($input))
+            ->willThrowException($exception);
+
+        self::assertEquals('`[object] (stdClass: { })` is always invalid', $exception->getMessage());
+
+        $this->expectException(AlwaysInvalidException::class);
+        $this->expectExceptionMessage(
+            '`[object] (stdClass: { })`, and all values of `{ [object] (stdClass: { }), { } }`, is always invalid'
+        );
 
         $this->sut->execute($assertion, $input);
     }
