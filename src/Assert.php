@@ -25,11 +25,12 @@ use Respect\Assertion\Creator\NullOrCreator;
 use Respect\Assertion\Creator\PropertyCreator;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
+use Respect\Assertion\Mixin\Static\Mixin;
 
 use function array_shift;
 
 /**
- * @mixin AssertMixin
+ * @mixin Mixin
  */
 final class Assert
 {

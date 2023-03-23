@@ -9,8 +9,8 @@
 The power of [Validation][] into an assertion library with
 **more than 1k assertions**.
 
-For a complete list of assertions, check the [list of rules][] or check
-the [AssertMixin][] interface.
+For a complete list of assertions, check all the [mixin interfaces][], and read
+[Validation][] to understand how each rule/assertion works.
 
 ## Installation
 
@@ -369,14 +369,13 @@ If `nullOr` is used without a suffix, this library will use [Equals][] to assert
 Assert::nullOr(1, 2);
 ```
 
-[AssertMixin]: src/AssertMixin.php
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
 [Countable]: http://php.net/countable
 [Equals]: https://respect-validation.readthedocs.io/en/latest/rules/Equals/
 [iterable]: http://php.net/types.iterable
-[list of rules]: https://respect-validation.readthedocs.io/en/latest/list-of-rules/
 [Malukenho]: https://github.com/malukenho
+[mixin interfaces]: src/Mixin/Static
 [Packagist]: http://packagist.org/packages/respect/assertion
 [Validation]: https://respect-validation.readthedocs.io
 [webmozart/assert]: https://github.com/webmozart/assert

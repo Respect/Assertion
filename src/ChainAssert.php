@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 namespace Respect\Assertion;
 
+use Respect\Assertion\Mixin\Dynamic\Mixin;
+
 use function array_unshift;
 
 /**
- * @mixin ChainAssertMixin
+ * @mixin Mixin
  */
 final class ChainAssert
 {

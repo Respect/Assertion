@@ -2,20 +2,17 @@
 
 set -euo pipefail
 
-declare -r IFS=$'\n'
+declare IFS=$'\n'
 declare -r DIRECTORY=$(dirname "${BASH_SOURCE}")
-declare -r ALLOW_LIST="${DIRECTORY}/allow_list"
+declare -r COMPARABLE_LIST="${DIRECTORY}/comparable_list"
 declare -r ORIGINAL_VALIDATOR="${DIRECTORY}/../vendor/respect/validation/library/ChainedValidator.php"
-declare -r ORIGINAL_ASSERT="${DIRECTORY}/../src/AssertMixin.php"
-declare -r ORIGINAL_CHAIN_ASSERT="${DIRECTORY}/../src/ChainAssertMixin.php"
-
 
 declare -r TRANSFORMED_VALIDATOR="${DIRECTORY}/../src/ChainedValidator.php"
 declare -r ALL_RULES=$(mktemp)
+declare -r BASE_ASSERTIONS=$(mktemp)
+declare -r KEY_ASSERTIONS=$(mktemp)
 declare -r CANONICAL_RULES=$(mktemp)
-declare -r SPECIAL_RULES=$(mktemp)
-declare -r TEMPORARY_ASSERT="${DIRECTORY}/../src/AssertTmp.php"
-declare -r TEMPORARY_CHAIN_ASSERT="${DIRECTORY}/../src/ChainAssertTmp.php"
+declare -r COMPARABLE_ASSERTIONS=$(mktemp)
 
 exclude-function()
 {
@@ -26,101 +23,138 @@ add-prefixes()
 {
   local prefix="${1}"
   local rules="${2}"
-  local extra_parameter="${3:-}"
+  local parameters=("${@:3}")
 
-  if [ ! -z "${extra_parameter}" ]; then
-      extra_parameter="${extra_parameter}, "
+  add-function "${prefix}" "${parameters[@]}" "mixed \$compareTo"
+
+  # Add an extra empty parameter so we have an extra comma to separate the arguments
+  if [[ ${#parameters[*]} -gt 0 ]]; then
+    parameters+=("")
   fi
 
-  sed --regexp-extended "s/public function ([^(]+)\(/public function ${prefix}\u\1(${extra_parameter}/g" "${rules}" |
-      sed "s,${prefix}Equals,${prefix},g"
+  local IFS=", "
+
+  sed --regexp-extended "s/public function ([^(]+)\(/public function ${prefix}\u\1(${parameters[*]}/g" "${rules}"
 }
 
 add-function()
 {
   local name="${1}"
-  local extra_parameter="${2:-}"
+  local parameters=("${@:2}" "null|string|Throwable \$description = null")
+  local IFS=", "
 
-  if [ ! -z "${extra_parameter}" ]; then
-      extra_parameter="${extra_parameter}, "
-  fi
+  echo "public function ${name}(${parameters[*]}): self;"
+}
 
-  echo "public function ${name}(${extra_parameter}Throwable|string|null \$description = null): self;"
+create-dynamic-mixin()
+{
+  local filename="${1}"
+  local tmp_filename=$(sed "s,\.php,Tmp.php," <<< "${filename}")
+  local content=$(cat <&0)
+
+  echo "- Updating '${filename}'"
+  {
+    sed --silent "/<?/,/^{/p" "${filename}"
+    echo "${content}"
+    echo "}"
+  } > "${tmp_filename}"
+}
+
+create-static-mixin()
+{
+  local filename="${1}"
+  local tmp_filename=$(sed "s,\.php,Tmp.php," <<< "${filename}")
+  local content=$(cat <&0)
+
+  echo "- Updating '${filename}'"
+  {
+    sed --silent "/<?/,/^{/p" "${filename}"
+    echo "${content}" |
+      sed --regexp-extended "s/public function ([^(]+)\(/public static function \1(mixed \$input, /g" |
+      sed "s/, )/)/g" |
+      sed "s,: static,: void,g"
+    echo "}"
+  } > "${tmp_filename}"
+}
+
+create-all-mixin()
+{
+  local name="${1}"
+  local content=$(cat <&0)
+
+  create-static-mixin "src/Mixin/Static/${name}Mixin.php" <<< "${content}"
+  create-dynamic-mixin "src/Mixin/Dynamic/${name}Mixin.php" <<< "${content}"
 }
 
 echo "- Parsing all rules"
 cp "${ORIGINAL_VALIDATOR}" "${TRANSFORMED_VALIDATOR}"
 vendor/bin/phpcbf -q "${TRANSFORMED_VALIDATOR}" || true
-{
-  sed -n "/^{/,/^}/p" "${TRANSFORMED_VALIDATOR}" |
-    tr --delete '{}' |
-    sed --regexp-extended ':a;N;$!ba;s/\n+( +)//g' |
-    sed "s,* @param,\n    * @param,g" |
-    sed "s,*/,\n    */\n    ,g" |
-    sed "s,\;,;\n\n    ,g" |
-    sed --regexp-extended 's,string \.{3}(\$[a-zA-Z0-9_]+),string \1 = "",g' |
-    sed --regexp-extended 's,([a-zA-Z0-9_]+) \.{3}(\$[a-zA-Z0-9_]+),?\1 \2 = null,g' |
-    grep --invert-match "Validatable" |
-    exclude-function "alwaysInvalid" |
-    exclude-function "alwaysValid" |
-    exclude-function "key" |
-    exclude-function "keySet" |
-    exclude-function "keyValue" |
-    exclude-function "length" |
-    exclude-function "max" |
-    exclude-function "min" |
-    exclude-function "sf" |
-    exclude-function "zend" |
-    sed "s/): .\+/, Throwable|string|null \$description = null): self\;/g" |
-    sed "s/(, /(/g" > "${CANONICAL_RULES}"
 
-  while read -r rule_name; do
-    grep "public function ${rule_name}(" "${CANONICAL_RULES}" >> "${SPECIAL_RULES}" || continue
-  done < "${ALLOW_LIST}"
-
-  # original rules
-  cat "${CANONICAL_RULES}"
-
-  add-prefixes "all" "${CANONICAL_RULES}"
-  add-prefixes "allNot" "${CANONICAL_RULES}"
-  add-prefixes "key" "${CANONICAL_RULES}" "mixed \$key"
-  add-function "keyPresent" "mixed \$key"
-  add-prefixes "keyNot" "${CANONICAL_RULES}" "mixed \$key"
-  add-function "keyNotPresent" "mixed \$key"
-  add-prefixes "property" "${CANONICAL_RULES}" "string \$property"
-  add-function "propertyPresent" "string \$property"
-  add-prefixes "propertyNot" "${CANONICAL_RULES}" "string \$property"
-  add-function "propertyNotPresent" "string \$property"
-  add-prefixes "not" "${CANONICAL_RULES}"
-  add-prefixes "nullOr" "${CANONICAL_RULES}"
-  add-prefixes "nullOrNot" "${CANONICAL_RULES}"
-  add-prefixes "length" "${SPECIAL_RULES}"
-  add-prefixes "max" "${SPECIAL_RULES}"
-  add-prefixes "min" "${SPECIAL_RULES}"
-} > "${ALL_RULES}"
+sed -n "/^{/,/^}/p" "${TRANSFORMED_VALIDATOR}" |
+  tr --delete '{}' |
+  sed --regexp-extended ':a;N;$!ba;s/\n+( +)//g' |
+  sed "s,* @param,\n    * @param,g" |
+  sed "s,*/,\n    */\n    ,g" |
+  sed "s,\;,;\n\n    ,g" |
+  sed --regexp-extended 's,string \.{3}(\$[a-zA-Z0-9_]+),string \1 = "",g' |
+  sed --regexp-extended 's,([a-zA-Z0-9_]+) \.{3}(\$[a-zA-Z0-9_]+),?\1 \2 = null,g' |
+  grep --invert-match "Validatable" |
+  exclude-function "alwaysInvalid" |
+  exclude-function "alwaysValid" |
+  exclude-function "key" |
+  exclude-function "keySet" |
+  exclude-function "keyValue" |
+  exclude-function "length" |
+  exclude-function "max" |
+  exclude-function "min" |
+  exclude-function "sf" |
+  exclude-function "zend" |
+  sed "s/): .\+/, null|string|Throwable \$description = null): static\;/g" |
+  sed "s/(, /(/g" > "${CANONICAL_RULES}"
 
 rm "${TRANSFORMED_VALIDATOR}"
 
-echo "- Updating ${ORIGINAL_ASSERT}"
 {
-  sed --silent "/<?/,/^{/p" "${ORIGINAL_ASSERT}"
-  sed --regexp-extended "s/public function ([^(]+)\(/public static function \1(mixed \$input, /g" "${ALL_RULES}" |
-    sed "s/, )/)/g" |
-    sed "s,self,void,g"
-  echo "}"
-} > "${TEMPORARY_ASSERT}"
+  cat "${CANONICAL_RULES}"
+  add-prefixes "not" "${CANONICAL_RULES}" |
+    exclude-function "notNotBlank" |
+    exclude-function "notNotEmoji" |
+    exclude-function "notNotEmpty" |
+    exclude-function "notNotOptional"
+} > "${BASE_ASSERTIONS}"
 
-vendor/bin/phpcbf -q "${TEMPORARY_ASSERT}" || true
-mv "${TEMPORARY_ASSERT}" "${ORIGINAL_ASSERT}"
+while read -r rule_name; do
+  grep --extended-regexp "public function (not)?${rule_name}\(" "${BASE_ASSERTIONS}" >> "${COMPARABLE_ASSERTIONS}" || continue
+done < "${COMPARABLE_LIST}"
 
-echo "- Updating ${ORIGINAL_CHAIN_ASSERT}"
+create-static-mixin "src/Mixin/Static/Mixin.php" < "${BASE_ASSERTIONS}"
+create-dynamic-mixin "src/Mixin/Dynamic/Mixin.php" < "${BASE_ASSERTIONS}"
+
+add-prefixes "all" "${BASE_ASSERTIONS}" | create-all-mixin "All"
+add-prefixes "nullOr" "${BASE_ASSERTIONS}" | create-all-mixin "NullOr"
+
 {
-  sed --silent "/<?/,/^{/p" "${ORIGINAL_CHAIN_ASSERT}"
-  cat "${ALL_RULES}"
-  echo "}"
-} > "${TEMPORARY_CHAIN_ASSERT}"
+  add-function "keyPresent" "mixed \$key"
+  add-function "keyNotPresent" "mixed \$key"
+  add-prefixes "key" "${BASE_ASSERTIONS}" "mixed \$key"
+} | create-all-mixin "Key"
 
-vendor/bin/phpcbf -q "${TEMPORARY_CHAIN_ASSERT}" || true
-mv "${TEMPORARY_CHAIN_ASSERT}" "${ORIGINAL_CHAIN_ASSERT}"
+{
+  add-function "propertyPresent" "string \$property"
+  add-function "propertyNotPresent" "string \$property"
+  add-prefixes "property" "${BASE_ASSERTIONS}" "string \$property"
+} | create-all-mixin "Property"
 
+add-prefixes "length" "${COMPARABLE_ASSERTIONS}" | create-all-mixin "Length"
+add-prefixes "max" "${COMPARABLE_ASSERTIONS}" | create-all-mixin "Max"
+add-prefixes "min" "${COMPARABLE_ASSERTIONS}" | create-all-mixin "Min"
+
+
+vendor/bin/phpcbf || true
+find . -name "*MixinTmp.php" |
+  while read filename; do
+    mv --verbose "${filename}" $(sed "s,Tmp,," <<< "${filename}");
+  done
+
+echo
 echo "Finished!"
