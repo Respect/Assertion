@@ -13,7 +13,10 @@
         "psr-4": {
             "Respect\\Test\\Integration\\Assertion\\": "tests/integration",
             "Respect\\Test\\Unit\\Assertion\\": "tests/unit"
-        }
+        },
+        "files": [
+            "tests/documentation/lib/helpers.php"
+        ]
     },
     "require": {
         "php": "^8.1",

@@ -39,6 +39,9 @@ jobs:
       - name: Run Integration Tests
         run: ./vendor/bin/phpunit --testsuite=integration
 
+      - name: Run Documentation Tests
+        run: ./vendor/bin/phpunit --testsuite=documentation
+
   code-coverage:
     name: Code coverage
 
@@ -58,7 +61,7 @@ jobs:
         run: composer install --prefer-dist
 
       - name: Generating Code Coverage Report
-        run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+        run: ./vendor/bin/phpunit --testsuite=unit,integration --coverage-clover=coverage.xml
 
       - name: Send Code Coverage Report to Codecov.io
         uses: codecov/codecov-action@v3

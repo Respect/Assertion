@@ -54,7 +54,7 @@ first argument:
 // will throw an exception => 1 must be equals 5
 Assert::equals(1, 5);
 
-// will throw an exception => "string" must be of the type integer
+// will throw an exception => "string" must be of type integer
 Assert::intType('string');
 
 // will not throw an exception
@@ -68,8 +68,8 @@ That allows you to customize the error messages using templates:
 
 
 ```php
-// will throw an exception => 5 is the value that 1 should be
-Assert::equals(1, 5, '{{compareTo}} is the value that {{input}} should be');
+// will throw an exception => I was expecting 5, but you gave be 1
+Assert::equals(1, 5, 'I was expecting {{compareTo}}, but you gave be {{input}}');
 ```
 
 ### Custom exceptions
@@ -84,23 +84,27 @@ Assert::between(42, 1, 10, true, new DomainException('Something is not right'));
 That can be very useful if you want to throw specific exceptions for your
 application. That was a great idea from [Malukenho][]!
 
-### That
+### Chained assertions
 
 You can chain assertions using `Assert::that($input)`, which allows you to
 perform multiple assertions to the same input with less duplication.
 
-
 ```php
-Assert::that($input)
+// will throw an exception => I expected a positive number
+Assert::that(-1)
     ->intVal('The number {{input}} must be an integer')
     ->positive('The number must be positive')
-    ->lessThan(4)
-    ->notEquals(2, new Exception('The number should never equals two'));
+    ->lessThan(4);
 ```
 
 In the example above, as soon as any assertion fails, it will throw an
 exception. If you wish to chain validations and only check them all
 simultaneously, we suggest you use the API from [Validation][].
+
+## Prefixes
+
+With Assertion, you can use any [Validation][] rule, but it also allows
+you to use them with prefixes that simplify some operations.
 
 ### Not
 
@@ -109,16 +113,16 @@ of the prefixed assertion:
 
 ```php
 // will throw an exception => 2 must not be an even number
-Assert::notEven(3);
+Assert::notEven(2);
 
-// will throw an exception => 3 must not be in { 1, 2, 3, 4 }
+// will throw an exception => 3 must not be in `{ 1, 2, 3, 4 }`
 Assert::notIn(3, [1, 2, 3, 4]);
 ```
 
 If you use `not` without a suffix, this library will use [Equals][] to assert:
 
 ```php
-// will throw an exception => 42 must not be equals 42
+// will throw an exception => 42 must not equal 42
 Assert::not(42, 42);
 ```
 
@@ -128,7 +132,7 @@ Assertions can be executed with the `all` prefix which will assert all elements
 in the input with the prefixed assertion:
 
 ```php
-// will throw an exception => "3" in { 1, 2, "3" } must be of the type integer
+// will throw an exception => "3" (like all items of the input) must be of type integer
 Assert::allIntType([1, 2, '3']);
 ```
 
@@ -138,7 +142,7 @@ in the input that failed the assertion but also the input itself.
 If `all` is used without a suffix, this library will use [Equals][] to assert:
 
 ```php
-// will throw an exception => "A" in { "A", "B", "C" } must be equals "D"
+// will throw an exception => "A" (like all items of the input) must equal "D"
 Assert::all(['A', 'B', 'C'], 'D');
 ```
 
@@ -147,14 +151,14 @@ Assert::all(['A', 'B', 'C'], 'D');
 You can use `keyPresent` to check whether a key is present in an array.
 
 ```php
-// will throw an exception => Key bar must be present
+// will throw an exception => bar must be present
 Assert::keyPresent(['foo' => true], 'bar');
 ```
 
 You can use `keyNotPresent` to check whether a key is present in an array.
 
 ```php
-// will throw an exception => Key bar must not be present
+// will throw an exception => bar must not be present
 Assert::keyNotPresent(['bar' => 2], 'bar');
 ```
 
@@ -172,10 +176,10 @@ Assert::keyNegative(['bar' => 2], 'bar');
 // will throw an exception => bar must not be of type integer
 Assert::keyNotIntType(['bar' => 2], 'bar');
 
-// will throw an exception => Key baz must be present
+// will throw an exception => baz must be present
 Assert::keyNegative(['foo' => 2], 'baz');
 
-// will throw an exception => foo must exists
+// will throw an exception => foo must exist
 Assert::keyExists(['foo' => '/path/to/file.txt'], 'foo');
 ```
 
@@ -195,7 +199,7 @@ You can use `propertyPresent` to check whether a property is present in an objec
 
 ```php
 // will throw an exception => Attribute bar must be present
-Assert::propertyPresent(['foo' => true], 'bar');
+Assert::propertyPresent($input, 'bar');
 ```
 
 You can use `propertyNotPresent` to check whether a property is *not* present in
@@ -235,7 +239,7 @@ Assertions can be executed with the `length` prefix which will assert the length
 of the input with the prefixed assertion:
 
 ```php
-// will throw an exception => 6, the length of "string", must be between 10 and 15
+// will throw an exception => 6 (the length of the input) must be between 10 and 15
 Assert::lengthBetween('string', 10, 15);
 ```
 
@@ -245,25 +249,24 @@ the assertion but also the input itself.
 The `length` prefix can also be used with arrays and instances of [Countable][]:
 
 ```php
-// will throw an exception => 4, the length of { 1, 2, 3, 4 }, must be an odd number
+// will throw an exception => 4 (the length of the input) must be an odd number
 Assert::lengthOdd([1, 2, 3, 4]);
 
-
-// will throw an exception => 3, the length of `[traversable] (ArrayObject: { 1, 2, 3 })`, must be an even number
+// will throw an exception => 3 (the length of the input) must be an even number
 Assert::lengthEven(new ArrayObject([1, 2, 3]));
 ```
 
 This library also allows you to use the `not` prefix after the `length` prefix:
 
 ```php
-// will throw an exception => 2, the length of { 1, 2 }, must not be multiple of 2
+// will throw an exception => 2 (the length of the input) must not be multiple of 2
 Assert::lengthNotMultiple([1, 2], 2);
 ```
 
 If `length` is used without a suffix, this library will use [Equals][] to assert:
 
 ```php
-// will throw an exception => 9, the length of "something", must be equals 3
+// will throw an exception => 9 (the length of the input) must equal 3
 Assert::length('something', 3);
 ```
 
@@ -273,7 +276,7 @@ Assertions can be executed with the `max` prefix which will assert the maximum
 value of the input with the prefixed assertion:
 
 ```php
-// will throw an exception => 3, the maximum of { 1, 2, 3 }, must be between 5 and 10
+// will throw an exception => 3 (the maximum of the input) must be between 5 and 10
 Assert::maxBetween([1, 2, 3], 5, 10);
 ```
 
@@ -283,25 +286,24 @@ that failed the assertion but also the input itself.
 The `max` prefix can be used with any [iterable][] value:
 
 ```php
-// will throw an exception => 3, the maximum of { 1, 2, 3 }, must be an even number
+// will throw an exception => 3 (the maximum of the input) must be an even number
 Assert::maxEven([1, 2, 3]);
 
-
-// will throw an exception => 60, the maximum of `[traversable] (ArrayObject: { 45, 60, 20 })`, must be a valid perfect square
+// will throw an exception => 60 (the maximum of the input) must be a valid perfect square
 Assert::maxPerfectSquare(new ArrayObject([45, 60, 20]));
 ```
 
 This library also allows you to use the `not` prefix after the `max` prefix:
 
 ```php
-// will throw an exception => 23, the maximum of { 23, 7, 20 }, must not be positive
+// will throw an exception => 23 (the maximum of the input) must not be positive
 Assert::maxNotPositive([23, 7, 20]);
 ```
 
 If `max` is used without a suffix, this library will use [Equals][] to assert:
 
 ```php
-// will throw an exception => "C", the maximum of { "A", "B", "C" }, must be equals "D"
+// will throw an exception => "C" (the maximum of the input) must equal "D"
 Assert::max(['A', 'B', 'C'], 'D');
 ```
 
@@ -311,7 +313,7 @@ Assertions can be executed with the `min` prefix which will assert the minimum
 value of the input with the prefixed assertion:
 
 ```php
-// will throw an exception => 1, the minimum of { 1, 2, 3 }, must be between 5 and 10
+// will throw an exception => 1 (the minimum of the input) must be between 5 and 10
 Assert::minBetween([1, 2, 3], 5, 10);
 ```
 
@@ -321,25 +323,24 @@ that failed the assertion but also the input itself.
 The `min` prefix can be used with any [iterable][] value:
 
 ```php
-// will throw an exception => 1, the minimum of { 1, 2, 3 }, must be an even number
+// will throw an exception => 1 (the minimum of the input) must be an even number
 Assert::minEven([1, 2, 3]);
 
-
-// will throw an exception => 20, the minimum of `[traversable] (ArrayObject: { 45, 60, 20 })`, must be a valid perfect square
+// will throw an exception => 20 (the minimum of the input) must be a valid perfect square
 Assert::minPerfectSquare(new ArrayObject([45, 60, 20]));
 ```
 
 This library also allows you to use the `not` prefix after the `min` prefix:
 
 ```php
-// will throw an exception => 7, the minimum of { 23, 7, 20 }, must not be positive
+// will throw an exception => 7 (the minimum of the input) must not be positive
 Assert::minNotPositive([23, 7, 20]);
 ```
 
 If `min` is used without a suffix, this library will use [Equals][] to assert:
 
 ```php
-// will throw an exception => "A", the minimum of { "A", "B", "C" }, must be equals "D"
+// will throw an exception => "A" (the minimum of the input) must equal "D"
 Assert::min(['A', 'B', 'C'], 'D');
 ```
 
