@@ -78,7 +78,7 @@ Instead of throwing [Validation][] exceptions, you can use your exceptions:
 
 ```php
 // will throw the defined DomainException
-Assert::between(42, 1, 10, true, new DomainException('Something is not right'));
+Assert::between(42, 1, 10, new DomainException('Something is not right'));
 ```
 
 That can be very useful if you want to throw specific exceptions for your
