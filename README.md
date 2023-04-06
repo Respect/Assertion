@@ -6,8 +6,11 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 [![License](https://img.shields.io/packagist/l/respect/assertion.svg?style=flat-square)](https://packagist.org/packages/respect/assertion)
 
-The power of [Validation][] into an assertion library with
-**more than 1k assertions**.
+The power of [Validation][] into an assertion library.
+
+* More than 1.5k assertions
+* Support for custom messages
+* Support for custom exceptions
 
 For a complete list of assertions, check all the [mixin interfaces][], and read
 [Validation][] to understand how each rule/assertion works.
@@ -61,11 +64,13 @@ Assert::intType('string');
 Assert::odd(5);
 ```
 
+By default, it throws exceptions that are instances of [ValidationException][],
+which means you can catch [InvalidArgumentException][] (or [LogicException][]).
+
 ### Custom messages
 
 The exceptions that `Assert` throws are the same that [Validation][] throws.
 That allows you to customize the error messages using templates:
-
 
 ```php
 // will throw an exception => I was expecting 5, but you gave be 1
@@ -100,6 +105,23 @@ Assert::that(-1)
 In the example above, as soon as any assertion fails, it will throw an
 exception. If you wish to chain validations and only check them all
 simultaneously, we suggest you use the API from [Validation][].
+
+You can also customize a message or exception for the whole chain.
+
+```php
+// will throw an exception => The number must be valid
+Assert::that(0, new DomainException('The number must be valid'))
+        ->positive()
+        ->greaterThan(5);
+
+// will throw an exception => But it is not greater than 5, though
+Assert::that(3, 'The number must be valid')
+        ->positive()
+        ->greaterThan(5, 'But it is not greater than 5, though');
+```
+
+Note that the customization on a specific assertion will overwrite the
+customization on the whole chain.
 
 ## Prefixes
 
@@ -374,9 +396,12 @@ Assert::nullOr(1, 2);
 [Composer]: http://getcomposer.org
 [Countable]: http://php.net/countable
 [Equals]: https://respect-validation.readthedocs.io/en/latest/rules/Equals/
+[InvalidArgumentException]: https://www.php.net/InvalidArgumentException
 [iterable]: http://php.net/types.iterable
+[LogicException]: https://www.php.net/LogicException
 [Malukenho]: https://github.com/malukenho
 [mixin interfaces]: src/Mixin/Static
 [Packagist]: http://packagist.org/packages/respect/assertion
-[Validation]: https://respect-validation.readthedocs.io
+[Validation]: https://github.com/Respect/Validation
+[ValidationException]: https://github.com/Respect/Validation/blob/master/library/Exceptions/ValidationException.php
 [webmozart/assert]: https://github.com/webmozart/assert

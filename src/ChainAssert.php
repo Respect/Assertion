@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Respect\Assertion;
 
 use Respect\Assertion\Mixin\Dynamic\Mixin;
+use Throwable;
 
 use function array_unshift;
 
@@ -22,16 +23,21 @@ use function array_unshift;
  */
 final class ChainAssert
 {
-    public function __construct(private readonly mixed $input)
-    {
+    public function __construct(
+        private readonly mixed $input,
+        private readonly null|string|Throwable $description = null
+    ) {
     }
 
     /**
-     * @param array<mixed> $arguments
+     * @param array<int, mixed> $arguments
      */
     public function __call(string $name, array $arguments): self
     {
         array_unshift($arguments, $this->input);
+        if ($this->description !== null) {
+            $arguments[] = $this->description;
+        }
 
         Assert::__callStatic($name, $arguments);
 

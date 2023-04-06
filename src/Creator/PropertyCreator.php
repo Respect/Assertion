@@ -19,7 +19,6 @@ use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Attribute;
 use Respect\Validation\Rules\Not;
 
-use function array_pop;
 use function array_shift;
 use function lcfirst;
 use function str_starts_with;
@@ -43,11 +42,11 @@ final class PropertyCreator implements AssertionCreator
 
         $key = array_shift($parameters);
         if ($name === 'propertyPresent') {
-            return new Standard(new Attribute($key), array_pop($parameters) ?? null);
+            return new Standard(new Attribute($key), array_shift($parameters) ?? null);
         }
 
         if ($name === 'propertyNotPresent') {
-            return new Standard(new Not(new Attribute($key)), array_pop($parameters) ?? null);
+            return new Standard(new Not(new Attribute($key)), array_shift($parameters) ?? null);
         }
 
         $assertion = $this->assertionCreator->create(lcfirst(substr($name, 8)), $parameters);

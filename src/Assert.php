@@ -26,6 +26,7 @@ use Respect\Assertion\Creator\PropertyCreator;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Assertion\Mixin\Static\Mixin;
+use Throwable;
 
 use function array_shift;
 
@@ -36,9 +37,9 @@ final class Assert
 {
     private static ?AssertionCreator $assertionCreator = null;
 
-    public static function that(mixed $input): ChainAssert
+    public static function that(mixed $input, null|string|Throwable $description = null): ChainAssert
     {
-        return new ChainAssert($input);
+        return new ChainAssert($input, $description);
     }
 
     private static function getAssertionCreator(): AssertionCreator

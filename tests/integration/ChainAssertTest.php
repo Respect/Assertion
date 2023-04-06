@@ -44,13 +44,26 @@ final class ChainAssertTest extends TestCase
     /**
      * @test
      */
-    public function itShouldThrowCustomException(): void
+    public function itShouldThrowCustomChainException(): void
     {
         $exception = new Exception('The number you are validating must be negative');
 
         $this->expectExceptionObject($exception);
 
-        Assert::that(2)->negative($exception);
+        Assert::that(2, $exception)->negative();
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowCustomRuleException(): void
+    {
+        $chainException = new Exception('You should not see this');
+        $assertionException = new Exception('The number you are validating must be negative');
+
+        $this->expectExceptionObject($assertionException);
+
+        Assert::that(2, $chainException)->negative($assertionException);
     }
 
     /**

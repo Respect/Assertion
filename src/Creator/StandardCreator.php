@@ -22,10 +22,10 @@ use Respect\Assertion\Standard;
 use Respect\Validation\Validatable;
 use Throwable;
 
-use function array_pop;
 use function array_slice;
 use function class_exists;
 use function count;
+use function current;
 use function sprintf;
 use function ucfirst;
 
@@ -84,6 +84,6 @@ final class StandardCreator implements AssertionCreator
             return null;
         }
 
-        return array_pop($parameters);
+        return current(array_slice($parameters, count($constructorParameters), 1)) ?? null;
     }
 }
