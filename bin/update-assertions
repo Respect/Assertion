@@ -124,7 +124,9 @@ rm "${TRANSFORMED_VALIDATOR}"
 } > "${BASE_ASSERTIONS}"
 
 while read -r rule_name; do
-  grep --extended-regexp "public function (not)?${rule_name}\(" "${BASE_ASSERTIONS}" >> "${COMPARABLE_ASSERTIONS}" || continue
+  grep\
+    --ignore-case\
+    --extended-regexp "public function (not)?${rule_name}\(" "${BASE_ASSERTIONS}" >> "${COMPARABLE_ASSERTIONS}" || continue
 done < "${COMPARABLE_LIST}"
 
 create-static-mixin "src/Mixin/Static/Mixin.php" < "${BASE_ASSERTIONS}"
