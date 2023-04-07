@@ -18,7 +18,7 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface MaxMixin
 {
-    public static function max(mixed $input, mixed $compareTo, null|string|Throwable $description = null): self;
+    public static function max(mixed $input, mixed $compareTo, null|string|Throwable $description = null): void;
 
     public static function maxBase(mixed $input, int $base, ?string $chars = null, null|string|Throwable $description = null): void;
 

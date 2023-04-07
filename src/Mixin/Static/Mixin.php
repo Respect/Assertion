@@ -19,8 +19,6 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface Mixin extends AllMixin, KeyMixin, LengthMixin, MaxMixin, MinMixin, NullOrMixin, PropertyMixin
 {
-    public static function not(mixed $input, mixed $compareTo, null|string|Throwable $description = null): self;
-
     public static function alnum(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function alpha(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
@@ -289,6 +287,8 @@ interface Mixin extends AllMixin, KeyMixin, LengthMixin, MaxMixin, MinMixin, Nul
     public static function xdigit(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function yes(mixed $input, bool $useLocale = false, null|string|Throwable $description = null): void;
+
+    public static function not(mixed $input, mixed $compareTo, null|string|Throwable $description = null): void;
 
     public static function notAlnum(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 

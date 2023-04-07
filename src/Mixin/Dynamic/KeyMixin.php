@@ -19,11 +19,11 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface KeyMixin
 {
-    public function keyPresent(mixed $key, null|string|Throwable $description = null): self;
+    public function keyPresent(mixed $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPresent(mixed $key, null|string|Throwable $description = null): self;
+    public function keyNotPresent(mixed $key, null|string|Throwable $description = null): static;
 
-    public function key(mixed $key, mixed $compareTo, null|string|Throwable $description = null): self;
+    public function key(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
     public function keyAlnum(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
@@ -294,7 +294,7 @@ interface KeyMixin
 
     public function keyYes(mixed $key, bool $useLocale = false, null|string|Throwable $description = null): static;
 
-    public function keyNot(mixed $key, mixed $compareTo, null|string|Throwable $description = null): self;
+    public function keyNot(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
     public function keyNotAlnum(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 

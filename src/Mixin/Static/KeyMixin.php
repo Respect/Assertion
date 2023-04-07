@@ -19,13 +19,11 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface KeyMixin
 {
-    public static function keyPresent(mixed $input, mixed $key, null|string|Throwable $description = null): self;
+    public static function keyPresent(mixed $input, mixed $key, null|string|Throwable $description = null): void;
 
-    public static function keyNotPresent(mixed $input, mixed $key, null|string|Throwable $description = null): self;
+    public static function keyNotPresent(mixed $input, mixed $key, null|string|Throwable $description = null): void;
 
-    public static function key(mixed $input, mixed $key, mixed $compareTo, null|string|Throwable $description = null): self;
-
-    public static function keyNot(mixed $input, mixed $key, mixed $compareTo, null|string|Throwable $description = null): self;
+    public static function key(mixed $input, mixed $key, mixed $compareTo, null|string|Throwable $description = null): void;
 
     public static function keyAlnum(mixed $input, mixed $key, string $additionalChars = '', null|string|Throwable $description = null): void;
 
@@ -295,6 +293,8 @@ interface KeyMixin
     public static function keyXdigit(mixed $input, mixed $key, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function keyYes(mixed $input, mixed $key, bool $useLocale = false, null|string|Throwable $description = null): void;
+
+    public static function keyNot(mixed $input, mixed $key, mixed $compareTo, null|string|Throwable $description = null): void;
 
     public static function keyNotAlnum(mixed $input, mixed $key, string $additionalChars = '', null|string|Throwable $description = null): void;
 

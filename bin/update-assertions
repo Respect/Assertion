@@ -43,7 +43,7 @@ add-function()
   local parameters=("${@:2}" "null|string|Throwable \$description = null")
   local IFS=", "
 
-  echo "public function ${name}(${parameters[*]}): self;"
+  echo "public function ${name}(${parameters[*]}): static;"
 }
 
 create-dynamic-mixin()
