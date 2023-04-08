@@ -16,7 +16,7 @@ namespace Respect\Test\Unit\Assertion\Creator;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Validation\Rules\Not;
 use Respect\Validation\Validatable;
@@ -36,7 +36,7 @@ final class NotCreatorTest extends TestCase
 
         $assertion = $this->createMock(Assertion::class);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')
@@ -59,7 +59,7 @@ final class NotCreatorTest extends TestCase
 
         $assertion = $this->createMock(Assertion::class);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')
@@ -93,7 +93,7 @@ final class NotCreatorTest extends TestCase
             ->method('getDescription')
             ->willReturn($description);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')

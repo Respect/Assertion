@@ -15,7 +15,7 @@ namespace unit\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Creator\NullOrCreator;
 use Respect\Validation\Rules\Nullable;
 use Respect\Validation\Validatable;
@@ -35,7 +35,7 @@ final class NullOrCreatorTest extends TestCase
 
         $assertion = $this->createMock(Assertion::class);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')
@@ -69,7 +69,7 @@ final class NullOrCreatorTest extends TestCase
             ->method('getDescription')
             ->willReturn($description);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')

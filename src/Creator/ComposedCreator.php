@@ -14,19 +14,19 @@ declare(strict_types=1);
 namespace Respect\Assertion\Creator;
 
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
 use Respect\Assertion\Assertor;
 use Respect\Assertion\Composed;
+use Respect\Assertion\Creator;
 
 use function str_starts_with;
 use function strlen;
 use function substr;
 
-final class ComposedCreator implements AssertionCreator
+final class ComposedCreator implements Creator
 {
     public function __construct(
         private readonly Assertor $assertor,
-        private readonly AssertionCreator $nextCreator
+        private readonly Creator $nextCreator
     ) {
     }
 

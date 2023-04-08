@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Respect\Assertion\Creator;
 
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Nullable;
 
@@ -22,10 +22,10 @@ use function lcfirst;
 use function str_starts_with;
 use function substr;
 
-final class NullOrCreator implements AssertionCreator
+final class NullOrCreator implements Creator
 {
     public function __construct(
-        private readonly AssertionCreator $assertionCreator
+        private readonly Creator $creator
     ) {
     }
 
@@ -35,10 +35,10 @@ final class NullOrCreator implements AssertionCreator
     public function create(string $name, array $parameters): Assertion
     {
         if (!str_starts_with($name, 'nullOr')) {
-            return $this->assertionCreator->create($name, $parameters);
+            return $this->creator->create($name, $parameters);
         }
 
-        $assertion = $this->assertionCreator->create(lcfirst(substr($name, 6)), $parameters);
+        $assertion = $this->creator->create(lcfirst(substr($name, 6)), $parameters);
 
         return new Standard(new Nullable($assertion->getRule()), $assertion->getDescription());
     }

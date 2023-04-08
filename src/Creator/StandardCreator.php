@@ -16,7 +16,7 @@ namespace Respect\Assertion\Creator;
 use ReflectionClass;
 use ReflectionException;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Assertion\Standard;
 use Respect\Validation\Validatable;
@@ -29,7 +29,7 @@ use function current;
 use function sprintf;
 use function ucfirst;
 
-final class StandardCreator implements AssertionCreator
+final class StandardCreator implements Creator
 {
     /**
      * {@inheritdoc}

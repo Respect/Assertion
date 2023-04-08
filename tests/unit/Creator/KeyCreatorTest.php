@@ -15,7 +15,7 @@ namespace unit\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Creator\KeyCreator;
 use Respect\Validation\Rules\Key;
 use Respect\Validation\Rules\Not;
@@ -36,7 +36,7 @@ final class KeyCreatorTest extends TestCase
 
         $assertion = $this->createMock(Assertion::class);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')
@@ -55,7 +55,7 @@ final class KeyCreatorTest extends TestCase
     {
         $key = 'foo';
 
-        $sut = new KeyCreator($this->createMock(AssertionCreator::class));
+        $sut = new KeyCreator($this->createMock(Creator::class));
         $assertion = $sut->create('keyPresent', [$key]);
 
         self::assertEquals(new Key('foo'), $assertion->getRule());
@@ -68,7 +68,7 @@ final class KeyCreatorTest extends TestCase
     {
         $key = 'foo';
 
-        $sut = new KeyCreator($this->createMock(AssertionCreator::class));
+        $sut = new KeyCreator($this->createMock(Creator::class));
         $assertion = $sut->create('keyNotPresent', [$key]);
 
         self::assertEquals(new Not(new Key('foo')), $assertion->getRule());
@@ -99,7 +99,7 @@ final class KeyCreatorTest extends TestCase
             ->method('getDescription')
             ->willReturn(null);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Respect\Assertion\Creator;
 
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Not;
 
@@ -23,7 +23,7 @@ use function str_starts_with;
 use function strtolower;
 use function substr;
 
-final class NotCreator implements AssertionCreator
+final class NotCreator implements Creator
 {
     private const IGNORED_RULES = [
         'notempty',
@@ -32,7 +32,7 @@ final class NotCreator implements AssertionCreator
     ];
 
     public function __construct(
-        private readonly AssertionCreator $assertionCreator
+        private readonly Creator $creator
     ) {
     }
 
@@ -42,14 +42,14 @@ final class NotCreator implements AssertionCreator
     public function create(string $name, array $parameters): Assertion
     {
         if (!str_starts_with(strtolower($name), 'not')) {
-            return $this->assertionCreator->create($name, $parameters);
+            return $this->creator->create($name, $parameters);
         }
 
         if (in_array(strtolower($name), self::IGNORED_RULES)) {
-            return $this->assertionCreator->create($name, $parameters);
+            return $this->creator->create($name, $parameters);
         }
 
-        $assertion = $this->assertionCreator->create(substr($name, 3), $parameters);
+        $assertion = $this->creator->create(substr($name, 3), $parameters);
 
         return new Standard(new Not($assertion->getRule()), $assertion->getDescription());
     }

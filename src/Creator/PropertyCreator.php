@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Respect\Assertion\Creator;
 
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Attribute;
 use Respect\Validation\Rules\Not;
@@ -24,10 +24,10 @@ use function lcfirst;
 use function str_starts_with;
 use function substr;
 
-final class PropertyCreator implements AssertionCreator
+final class PropertyCreator implements Creator
 {
     public function __construct(
-        private readonly AssertionCreator $assertionCreator
+        private readonly Creator $creator
     ) {
     }
 
@@ -37,7 +37,7 @@ final class PropertyCreator implements AssertionCreator
     public function create(string $name, array $parameters): Assertion
     {
         if (!str_starts_with($name, 'property')) {
-            return $this->assertionCreator->create($name, $parameters);
+            return $this->creator->create($name, $parameters);
         }
 
         $key = array_shift($parameters);
@@ -49,7 +49,7 @@ final class PropertyCreator implements AssertionCreator
             return new Standard(new Not(new Attribute($key)), array_shift($parameters) ?? null);
         }
 
-        $assertion = $this->assertionCreator->create(lcfirst(substr($name, 8)), $parameters);
+        $assertion = $this->creator->create(lcfirst(substr($name, 8)), $parameters);
 
         return new Standard(new Attribute($key, $assertion->getRule()), $assertion->getDescription());
     }

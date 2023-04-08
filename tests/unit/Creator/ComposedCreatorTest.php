@@ -15,9 +15,9 @@ namespace Respect\Test\Unit\Assertion\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
 use Respect\Assertion\Assertor;
 use Respect\Assertion\Composed;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Creator\ComposedCreator;
 
 /**
@@ -37,7 +37,7 @@ final class ComposedCreatorTest extends TestCase
 
         $assertion = $this->createMock(Assertion::class);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')
@@ -68,7 +68,7 @@ final class ComposedCreatorTest extends TestCase
 
         $assertion = $this->createMock(Assertion::class);
 
-        $nextCreator = $this->createMock(AssertionCreator::class);
+        $nextCreator = $this->createMock(Creator::class);
         $nextCreator
             ->expects($this->once())
             ->method('create')

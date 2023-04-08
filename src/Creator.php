@@ -15,7 +15,7 @@ namespace Respect\Assertion;
 
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 
-interface AssertionCreator
+interface Creator
 {
     /**
      * @param mixed[] $parameters

@@ -35,17 +35,17 @@ use function array_shift;
  */
 final class Assert
 {
-    private static ?AssertionCreator $assertionCreator = null;
+    private static ?Creator $creator = null;
 
     public static function that(mixed $input, null|string|Throwable $description = null): ChainAssert
     {
         return new ChainAssert($input, $description);
     }
 
-    private static function getAssertionCreator(): AssertionCreator
+    private static function getCreator(): Creator
     {
-        if (!self::$assertionCreator instanceof AssertionCreator) {
-            self::$assertionCreator = new ComposedCreator(
+        if (!self::$creator instanceof Creator) {
+            self::$creator = new ComposedCreator(
                 new MaxAssertor(),
                 new ComposedCreator(
                     new MinAssertor(),
@@ -62,7 +62,7 @@ final class Assert
             );
         }
 
-        return self::$assertionCreator;
+        return self::$creator;
     }
 
     /**
@@ -75,7 +75,7 @@ final class Assert
     {
         $input = array_shift($parameters);
 
-        $assertion = self::getAssertionCreator()->create($name, $parameters);
+        $assertion = self::getCreator()->create($name, $parameters);
         $assertion->assert($input);
     }
 }

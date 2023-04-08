@@ -15,13 +15,13 @@ namespace Respect\Test\Unit\Assertion\Double;
 
 use Exception;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\AssertionCreator;
+use Respect\Assertion\Creator;
 use Respect\Assertion\Standard;
 use Respect\Validation\Rules\AlwaysValid;
 use Respect\Validation\Validatable;
 use Throwable;
 
-final class FakeCreator implements AssertionCreator
+final class FakeCreator implements Creator
 {
     private Assertion $lastCreatedAssertion;
 
