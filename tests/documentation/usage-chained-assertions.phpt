@@ -23,8 +23,15 @@ exceptionMessage(
         ->positive()
         ->greaterThan(5, 'But it is not greater than 5, though')
 );
+exceptionMessage(
+    static fn() => Assert::that(['names' => ['Respect', 'Assertion'], 'options' => [1, 2, 3]])
+        ->all()->arrayType()
+        ->key('names')->allStringType()
+        ->key('options')->lengthEquals(4)
+);
 ?>
 --EXPECT--
 I expected a positive number
 The number must be valid
 But it is not greater than 5, though
+3 (the length of the input) must equal 4

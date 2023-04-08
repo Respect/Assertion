@@ -89,7 +89,7 @@ Assert::between(42, 1, 10, new DomainException('Something is not right'));
 That can be very useful if you want to throw specific exceptions for your
 application. That was a great idea from [Malukenho][]!
 
-### Chained assertions
+### Chained assertions (`that()`)
 
 You can chain assertions using `Assert::that($input)`, which allows you to
 perform multiple assertions to the same input with less duplication.
@@ -123,10 +123,105 @@ Assert::that(3, 'The number must be valid')
 Note that the customization on a specific assertion will overwrite the
 customization on the whole chain.
 
+You can also apply the effect of the prefixes listed below to the whole chain.
+
+```php
+// will throw an exception => 3 (the length of the input) must equal 4
+Assert::that(['names' => ['Respect', 'Assertion'], 'options' => [1, 2, 3]])
+    ->all()->arrayType()
+    ->key('names')->allStringType()
+    ->key('options')->lengthEquals(4);
+```
+
+There are also some special methods that allow you to create a chain of
+assertions.
+
+* `thatAll()`: assert all elements in the input with the subsequent assertions.
+* `thatNot()`: assert the input inverting the subsequent assertions.
+* `thatNullOr()`: assert the input if it is not `null` with the subsequent assertions.
+* `thatKey()`: assert a key from the input with the subsequent assertions.
+* `thatProperty()`: assert a property from the input with the subsequent assertions.
+
 ## Prefixes
 
 With Assertion, you can use any [Validation][] rule, but it also allows
 you to use them with prefixes that simplify some operations.
+
+### `all*()`: asserting all elements in an input
+
+Assertions can be executed with the `all` prefix which will assert all elements
+in the input with the prefixed assertion:
+
+```php
+// will throw an exception => "3" (like all items of the input) must be of type integer
+Assert::allIntType([1, 2, '3']);
+```
+
+In some cases, you might want to perform multiple assertions to all elements. You
+can use `thatAll()` chain of assertions that will assert all elements in the input
+with the subsequent assertions:
+
+```php
+// will throw an exception => 3 (like all items of the input) must be between 1 and 2
+Assert::thatAll([1, 2, 2, 1, 3])
+    ->intVal()
+    ->between(1, 2);
+```
+
+If you want to perform multiple assertions to all elements, but you also want to
+perform other assertions to the input, you can `that()->all()`:
+
+```php
+// will throw an exception => 5 (the length of the input) must be less than 4
+Assert::that([1, 2, 2, 1, 3])
+    ->arrayType()
+    ->notEmpty()
+    ->lengthGreaterThan(3)
+    ->all()->intVal()->between(1, 2);
+```
+
+### `nullOr*()`: asserting the value of an input or null
+
+Assertions can be executed with the `nullOr` prefix which will assert only if
+the value of the input it not null.
+
+```php
+// will throw an exception => 42 must be negative
+Assert::nullOrNegative(42);
+
+// will not throw an exception
+Assert::nullOrNegative(null);
+
+// will throw an exception => 5 must be between 1 and 4
+Assert::nullOrBetween(5, 1, 4);
+
+// will not throw an exception
+Assert::nullOrBetween(null, 1, 4);
+```
+
+In some cases, you might want to perform multiple assertions to a value in case
+it is not null. In this case, you can use `thatNullOr()`:
+
+```php
+// will throw an exception => 6 must be a valid prime number
+Assert::thatNullOr(6)
+        ->positive()
+        ->between(1, 10)
+        ->primeNumber();
+
+// will not throw an exception
+Assert::thatNullOr(null)
+        ->positive()
+        ->between(1, 10)
+        ->primeNumber();
+```
+
+For convenience, you might also use the `that()->nullOr()`:
+
+```php
+Assert::that(6)
+    ->nullOr()->positive()->between(1, 10)->primeNumber();
+```
 
 ### `not*()`: inverting assertions
 
@@ -141,14 +236,20 @@ Assert::notEven(2);
 Assert::notIn(3, [1, 2, 3, 4]);
 ```
 
-### `all*()`: asserting all elements in an input
-
-Assertions can be executed with the `all` prefix which will assert all elements
-in the input with the prefixed assertion:
+If you need to invert more than a few rules, it might be easier to use `thatNot()`
+and `that()->not()`:
 
 ```php
-// will throw an exception => "3" (like all items of the input) must be of type integer
-Assert::allIntType([1, 2, '3']);
+// will throw an exception => "1" must not be positive
+Assert::thatNot('1')
+        ->intType()
+        ->positive()
+        ->between(1, 3);
+
+
+// will throw an exception => "1" must not be positive
+Assert::that('1')
+        ->not()->intType()->positive()->between(1, 3);
 ```
 
 ### `key*()`: asserting a key in an array
@@ -189,6 +290,28 @@ Assert::keyExists(['foo' => '/path/to/file.txt'], 'foo');
 
 Not that `keyExists` assertion, will assert whether the value of key `foo` exists
 in the Filesystem.
+
+If you want to perform multiple assertions to the key of an input, you can use
+`thatKey()`:
+
+```php
+// will throw an exception => 9 (the length of the input) must be less than 4
+Assert::thatKey(['foo' => 'my-string'], 'foo')
+        ->stringType()
+        ->startsWith('my-')
+        ->lengthLessThan(4);
+```
+
+If you want to perform multiple key assertions to the same input, you can use
+`that()->key()`:
+
+```php
+// will throw an exception => bar must be less than 40
+Assert::that(['foo' => 'my-string', 'bar' => 42])
+        ->arrayType()
+        ->key('foo')->stringType()->startsWith('my-')
+        ->key('bar')->intType()->positive()->lessThan(40);
+```
 
 ### `property*()`: asserting a property in an object
 
@@ -236,6 +359,27 @@ Assert::propertyExists($input, 'foo');
 
 Note that the `propertyExists` assertion will assert whether the value of
 property `foo` exists in the FileSystem.
+
+If you want to perform multiple assertions to a property of an object, you can
+use `thatProperty()`:
+
+```php
+// will throw an exception => foo must be greater than 5
+Assert::thatProperty($input, 'foo')
+        ->intType()
+        ->positive()
+        ->greaterThan(5);
+```
+
+If you want to perform multiple key assertions to the same input, you can use
+`that()->property()`:
+
+```php
+// will throw an exception => foo must be greater than 5
+Assert::that($input)
+        ->instance(stdClass::class)
+        ->property('foo')->intType()->positive()->greaterThan(5);
+```
 
 ### `length*()`: asserting the length of an input
 
@@ -316,25 +460,6 @@ This library also allows you to use the `not` prefix after the `min` prefix:
 ```php
 // will throw an exception => 7 (the minimum of the input) must not be positive
 Assert::minNotPositive([23, 7, 20]);
-```
-
-### `nullOr*()`: asserting the value of an input or null
-
-Assertions can be executed with the `nullOr` prefix which will assert only if the
-value of the input it not null.
-
-```php
-// will throw an exception => 42 must be negative
-Assert::nullOrNegative(42);
-
-// will not throw an exception
-Assert::nullOrNegative(null);
-
-// will throw an exception => 5 must be between 1 and 4
-Assert::nullOrBetween(5, 1, 4);
-
-// will not throw an exception
-Assert::nullOrBetween(null, 1, 4);
 ```
 
 [beberlei/assert]: https://github.com/beberlei/assert

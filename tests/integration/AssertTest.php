@@ -17,10 +17,14 @@ use DomainException;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assert;
+use Respect\Validation\Exceptions\NegativeException;
 use Respect\Validation\Exceptions\ValidationException;
 
 use function array_merge;
 
+/**
+ * @covers \Respect\Assertion\Assert
+ */
 final class AssertTest extends TestCase
 {
     /**
@@ -89,6 +93,121 @@ final class AssertTest extends TestCase
         $this->expectExceptionMessage($description);
 
         Assert::__callStatic($name, array_merge($parameters, [$description]));
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowRespectValidationException(): void
+    {
+        $this->expectException(NegativeException::class);
+
+        Assert::that(2)->negative();
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowRespectValidationExceptionWithCustomTemplate(): void
+    {
+        $this->expectException(NegativeException::class);
+        $this->expectExceptionMessage('The input 2 that you are validating must be negative.');
+
+        Assert::that(2)->negative('The input {{input}} that you are validating must be negative.');
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowCustomChainException(): void
+    {
+        $exception = new Exception('The number you are validating must be negative');
+
+        $this->expectExceptionObject($exception);
+
+        Assert::that(2, $exception)->negative();
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowCustomRuleException(): void
+    {
+        $chainException = new Exception('You should not see this');
+        $assertionException = new Exception('The number you are validating must be negative');
+
+        $this->expectExceptionObject($assertionException);
+
+        Assert::that(2, $chainException)->negative($assertionException);
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldThrowExceptionImmediatelyWhenRuleFails(): void
+    {
+        $exception = new Exception('This one has the be thrown');
+
+        $this->expectExceptionObject($exception);
+
+        Assert::that(2)
+            ->intType()
+            ->positive()
+            ->greaterThan(1)
+            ->lessThan(3)
+            ->notEquals(2, $exception)
+            ->floatType(new Exception('This one should never be thrown'));
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldPrefixSubAssertionsWithAllPrefix(): void
+    {
+        $this->expectExceptionMessage('1 (like all items of the input) must equal 4');
+
+        Assert::thatAll([1, 2, 3])->equals(4);
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldPrefixSubAssertionsWithNullOrPrefix(): void
+    {
+        Assert::thatNullOr(null)->equals(4);
+
+        $this->expectExceptionMessage('3 must equal 4');
+        Assert::thatNullOr(3)->equals(4);
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldPrefixSubAssertionsWithNotPrefix(): void
+    {
+        $this->expectExceptionMessage('3 must not equal 3');
+
+        Assert::thatNot(3)->equals(3);
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldPrefixSubAssertionsWithKeyPrefix(): void
+    {
+        $this->expectExceptionMessage('foo must be of type string');
+
+        Assert::thatKey(['foo' => true], 'foo')->stringType();
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldPrefixSubAssertionsWithPropertyPrefix(): void
+    {
+        $this->expectExceptionMessage('bar must be of type array');
+
+        Assert::thatProperty((object) ['bar' => true], 'bar')->arrayType();
     }
 
     /**

@@ -16,15 +16,13 @@ namespace Respect\Test\Unit\Assertion\Double;
 use Exception;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
-use Respect\Validation\Rules\AlwaysValid;
-use Respect\Validation\Validatable;
 use Throwable;
 
 final class FakeCreator implements Creator
 {
     private Assertion $lastCreatedAssertion;
 
-    private Validatable $lastCreatedRule;
+    private FakeRule $lastCreatedRule;
 
     private Throwable $lastCreatedDescription;
 
@@ -40,7 +38,7 @@ final class FakeCreator implements Creator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        $this->lastCreatedRule = new AlwaysValid();
+        $this->lastCreatedRule = new FakeRule();
         $this->lastCreatedDescription = new Exception('Something went wrong');
         $this->lastCreatedAssertion = new Assertion($this->lastCreatedRule, $this->lastCreatedDescription);
         $this->lastCalledName = $name;
@@ -54,7 +52,7 @@ final class FakeCreator implements Creator
         return $this->lastCreatedAssertion;
     }
 
-    public function getLastCreatedRule(): Validatable
+    public function getLastCreatedRule(): FakeRule
     {
         return $this->lastCreatedRule;
     }

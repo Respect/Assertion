@@ -6,3 +6,5 @@ parameters:
   fileExtensions:
     - php
     - phpt
+  ignoreErrors:
+    - '/Call to an undefined method Respect\\Assertion\\Mixin\\Chain\\Mixin::[a-zA-Z]+\(\)/'
