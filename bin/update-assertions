@@ -46,7 +46,7 @@ add-function()
   echo "public function ${name}(${parameters[*]}): static;"
 }
 
-create-dynamic-mixin()
+create-chain-mixin()
 {
   local filename="${1}"
   local tmp_filename=$(sed "s,\.php,Tmp.php," <<< "${filename}")
@@ -83,7 +83,7 @@ create-all-mixin()
   local content=$(cat <&0)
 
   create-static-mixin "src/Mixin/Static/${name}Mixin.php" <<< "${content}"
-  create-dynamic-mixin "src/Mixin/Dynamic/${name}Mixin.php" <<< "${content}"
+  create-chain-mixin "src/Mixin/Chain/${name}Mixin.php" <<< "${content}"
 }
 
 echo "- Parsing all rules"
@@ -130,7 +130,7 @@ while read -r rule_name; do
 done < "${COMPARABLE_LIST}"
 
 create-static-mixin "src/Mixin/Static/Mixin.php" < "${BASE_ASSERTIONS}"
-create-dynamic-mixin "src/Mixin/Dynamic/Mixin.php" < "${BASE_ASSERTIONS}"
+create-chain-mixin "src/Mixin/Chain/Mixin.php" < "${BASE_ASSERTIONS}"
 
 add-prefixes "all" "${BASE_ASSERTIONS}" | create-all-mixin "All"
 add-prefixes "nullOr" "${BASE_ASSERTIONS}" | create-all-mixin "NullOr"

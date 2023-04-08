@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Respect\Assertion\Mixin\Dynamic;
+namespace Respect\Assertion\Mixin\Chain;
 
 use finfo;
 use Throwable;

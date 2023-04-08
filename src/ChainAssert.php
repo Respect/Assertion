@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Respect\Assertion;
 
-use Respect\Assertion\Mixin\Dynamic\Mixin;
+use Respect\Assertion\Mixin\Chain\Mixin;
 use Throwable;
 
 use function array_unshift;
