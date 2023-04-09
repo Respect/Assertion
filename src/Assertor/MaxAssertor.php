@@ -40,7 +40,7 @@ final class MaxAssertor implements Assertor
         try {
             $assertion->assert($this->getMax($input));
         } catch (ValidationException $exception) {
-            throw $this->getCustomizedException($input, $exception);
+            throw $this->getCustomizedException($exception);
         }
     }
 
@@ -56,7 +56,7 @@ final class MaxAssertor implements Assertor
         return $this->getMax(iterator_to_array($input));
     }
 
-    private function getCustomizedException(mixed $asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;

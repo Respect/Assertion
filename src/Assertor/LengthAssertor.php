@@ -36,7 +36,7 @@ final class LengthAssertor implements Assertor
         try {
             $assertion->assert($this->getLength($input));
         } catch (ValidationException $exception) {
-            throw $this->getCustomizedException($input, $exception);
+            throw $this->getCustomizedException($exception);
         }
     }
 
@@ -57,7 +57,7 @@ final class LengthAssertor implements Assertor
         throw new BadMethodCallException('Assertion with "length" prefix must be countable or string');
     }
 
-    private function getCustomizedException(mixed $asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;

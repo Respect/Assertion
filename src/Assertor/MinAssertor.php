@@ -40,7 +40,7 @@ final class MinAssertor implements Assertor
         try {
             $assertion->assert($this->getMin($input));
         } catch (ValidationException $exception) {
-            throw $this->getCustomizedException($input, $exception);
+            throw $this->getCustomizedException($exception);
         }
     }
 
@@ -56,10 +56,7 @@ final class MinAssertor implements Assertor
         return $this->getMin(iterator_to_array($input));
     }
 
-    /**
-     * @param mixed[] $asserted
-     */
-    private function getCustomizedException(iterable $asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;

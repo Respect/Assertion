@@ -39,11 +39,11 @@ final class AllAssertor implements Assertor
                 $assertion->assert($value);
             }
         } catch (ValidationException $exception) {
-            throw $this->getCustomizedException($input, $exception);
+            throw $this->getCustomizedException($exception);
         }
     }
 
-    private function getCustomizedException(mixed $asserted, ValidationException $exception): ValidationException
+    private function getCustomizedException(ValidationException $exception): ValidationException
     {
         if ($exception->hasCustomTemplate()) {
             return $exception;
