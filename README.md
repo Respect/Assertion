@@ -128,7 +128,7 @@ customization on the whole chain.
 With Assertion, you can use any [Validation][] rule, but it also allows
 you to use them with prefixes that simplify some operations.
 
-### Not
+### `not*()`: inverting assertions
 
 You can execute assertions with the `not` prefix, which will assert the opposite
 of the prefixed assertion:
@@ -148,7 +148,7 @@ If you use `not` without a suffix, this library will use [Equals][] to assert:
 Assert::not(42, 42);
 ```
 
-### All
+### `all*()`: asserting all elements in an input
 
 Assertions can be executed with the `all` prefix which will assert all elements
 in the input with the prefixed assertion:
@@ -158,9 +158,6 @@ in the input with the prefixed assertion:
 Assert::allIntType([1, 2, '3']);
 ```
 
-Differently from other assertion libraries the message shows not only the item
-in the input that failed the assertion but also the input itself.
-
 If `all` is used without a suffix, this library will use [Equals][] to assert:
 
 ```php
@@ -168,7 +165,7 @@ If `all` is used without a suffix, this library will use [Equals][] to assert:
 Assert::all(['A', 'B', 'C'], 'D');
 ```
 
-### Key
+### `key*()`: asserting a key in an array
 
 You can use `keyPresent` to check whether a key is present in an array.
 
@@ -208,7 +205,7 @@ Assert::keyExists(['foo' => '/path/to/file.txt'], 'foo');
 Not that `keyExists` assertion, will assert whether the value of key `foo` exists
 in the Filesystem.
 
-### Property
+### `property*()`: asserting a property in an object
 
 We'll use the object below as input in the examples that follow.
 
@@ -255,7 +252,7 @@ Assert::propertyExists($input, 'foo');
 Note that the `propertyExists` assertion will assert whether the value of
 property `foo` exists in the FileSystem.
 
-### Length
+### `length*()`: asserting the length of an input
 
 Assertions can be executed with the `length` prefix which will assert the length
 of the input with the prefixed assertion:
@@ -264,9 +261,6 @@ of the input with the prefixed assertion:
 // will throw an exception => 6 (the length of the input) must be between 10 and 15
 Assert::lengthBetween('string', 10, 15);
 ```
-
-As can be seen the message shows not only the length of the input that failed
-the assertion but also the input itself.
 
 The `length` prefix can also be used with arrays and instances of [Countable][]:
 
@@ -292,7 +286,7 @@ If `length` is used without a suffix, this library will use [Equals][] to assert
 Assert::length('something', 3);
 ```
 
-### Max
+### `max*()`: asserting the maximum of an input
 
 Assertions can be executed with the `max` prefix which will assert the maximum
 value of the input with the prefixed assertion:
@@ -301,9 +295,6 @@ value of the input with the prefixed assertion:
 // will throw an exception => 3 (the maximum of the input) must be between 5 and 10
 Assert::maxBetween([1, 2, 3], 5, 10);
 ```
-
-As it can already be seen, the message shows not only the maximum of the input
-that failed the assertion but also the input itself.
 
 The `max` prefix can be used with any [iterable][] value:
 
@@ -329,7 +320,7 @@ If `max` is used without a suffix, this library will use [Equals][] to assert:
 Assert::max(['A', 'B', 'C'], 'D');
 ```
 
-### Min
+### `min*()`: asserting the minimum of an input
 
 Assertions can be executed with the `min` prefix which will assert the minimum
 value of the input with the prefixed assertion:
@@ -338,9 +329,6 @@ value of the input with the prefixed assertion:
 // will throw an exception => 1 (the minimum of the input) must be between 5 and 10
 Assert::minBetween([1, 2, 3], 5, 10);
 ```
-
-As it can already be seen, the message shows not only the minimum of the input
-that failed the assertion but also the input itself.
 
 The `min` prefix can be used with any [iterable][] value:
 
@@ -366,7 +354,7 @@ If `min` is used without a suffix, this library will use [Equals][] to assert:
 Assert::min(['A', 'B', 'C'], 'D');
 ```
 
-### NullOr
+### `nullOr*()`: asserting the value of an input or null
 
 Assertions can be executed with the `nullOr` prefix which will assert only if the
 value of the input it not null.
