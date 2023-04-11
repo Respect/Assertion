@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace unit\Creator;
+namespace Respect\Test\Unit\Assertion\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
