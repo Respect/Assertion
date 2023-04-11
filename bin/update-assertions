@@ -138,7 +138,7 @@ add-prefixes "nullOr" "${BASE_ASSERTIONS}" | create-all-mixin "NullOr"
 {
   add-function "keyPresent" "mixed \$key"
   add-function "keyNotPresent" "mixed \$key"
-  add-prefixes "key" "${BASE_ASSERTIONS}" "mixed \$key"
+  add-prefixes "key" "${BASE_ASSERTIONS}" "int|string \$key"
 } | create-all-mixin "Key"
 
 {

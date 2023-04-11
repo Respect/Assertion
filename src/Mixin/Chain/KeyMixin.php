@@ -23,537 +23,537 @@ interface KeyMixin
 
     public function keyNotPresent(mixed $key, null|string|Throwable $description = null): static;
 
-    public function key(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function key(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyAlnum(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyAlnum(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyAlpha(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyAlpha(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyArrayType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyArrayType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyArrayVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyArrayVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyBase(mixed $key, int $base, ?string $chars = null, null|string|Throwable $description = null): static;
+    public function keyBase(int|string $key, int $base, ?string $chars = null, null|string|Throwable $description = null): static;
 
-    public function keyBase64(mixed $key, null|string|Throwable $description = null): static;
+    public function keyBase64(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyBetween(mixed $key, mixed $minimum, mixed $maximum, null|string|Throwable $description = null): static;
+    public function keyBetween(int|string $key, mixed $minimum, mixed $maximum, null|string|Throwable $description = null): static;
 
-    public function keyBic(mixed $key, string $countryCode, null|string|Throwable $description = null): static;
+    public function keyBic(int|string $key, string $countryCode, null|string|Throwable $description = null): static;
 
-    public function keyBoolType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyBoolType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyBoolVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyBoolVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyBsn(mixed $key, null|string|Throwable $description = null): static;
+    public function keyBsn(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyCallableType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyCallableType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyCallback(mixed $key, callable $callback, null|string|Throwable $description = null): static;
+    public function keyCallback(int|string $key, callable $callback, null|string|Throwable $description = null): static;
 
-    public function keyCharset(mixed $key, string $charset = '', null|string|Throwable $description = null): static;
+    public function keyCharset(int|string $key, string $charset = '', null|string|Throwable $description = null): static;
 
-    public function keyCnh(mixed $key, null|string|Throwable $description = null): static;
+    public function keyCnh(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyCnpj(mixed $key, null|string|Throwable $description = null): static;
+    public function keyCnpj(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyControl(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyControl(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyConsonant(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyConsonant(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyContains(mixed $key, mixed $containsValue, bool $identical = false, null|string|Throwable $description = null): static;
+    public function keyContains(int|string $key, mixed $containsValue, bool $identical = false, null|string|Throwable $description = null): static;
 
     /**
     * @param mixed[] $needles
     */
-    public function keyContainsAny(mixed $key, array $needles, bool $strictCompareArray = false, null|string|Throwable $description = null): static;
+    public function keyContainsAny(int|string $key, array $needles, bool $strictCompareArray = false, null|string|Throwable $description = null): static;
 
-    public function keyCountable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyCountable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyCountryCode(mixed $key, ?string $set = null, null|string|Throwable $description = null): static;
+    public function keyCountryCode(int|string $key, ?string $set = null, null|string|Throwable $description = null): static;
 
-    public function keyCurrencyCode(mixed $key, null|string|Throwable $description = null): static;
+    public function keyCurrencyCode(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyCpf(mixed $key, null|string|Throwable $description = null): static;
+    public function keyCpf(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyCreditCard(mixed $key, ?string $brand = null, null|string|Throwable $description = null): static;
+    public function keyCreditCard(int|string $key, ?string $brand = null, null|string|Throwable $description = null): static;
 
-    public function keyDate(mixed $key, string $format = 'Y-m-d', null|string|Throwable $description = null): static;
+    public function keyDate(int|string $key, string $format = 'Y-m-d', null|string|Throwable $description = null): static;
 
-    public function keyDateTime(mixed $key, ?string $format = null, null|string|Throwable $description = null): static;
+    public function keyDateTime(int|string $key, ?string $format = null, null|string|Throwable $description = null): static;
 
-    public function keyDecimal(mixed $key, int $decimals, null|string|Throwable $description = null): static;
+    public function keyDecimal(int|string $key, int $decimals, null|string|Throwable $description = null): static;
 
-    public function keyDigit(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyDigit(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyDirectory(mixed $key, null|string|Throwable $description = null): static;
+    public function keyDirectory(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyDomain(mixed $key, bool $tldCheck = true, null|string|Throwable $description = null): static;
+    public function keyDomain(int|string $key, bool $tldCheck = true, null|string|Throwable $description = null): static;
 
-    public function keyEmail(mixed $key, null|string|Throwable $description = null): static;
+    public function keyEmail(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyEndsWith(mixed $key, mixed $endValue, bool $identical = false, null|string|Throwable $description = null): static;
+    public function keyEndsWith(int|string $key, mixed $endValue, bool $identical = false, null|string|Throwable $description = null): static;
 
-    public function keyEquals(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyEquals(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyEquivalent(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyEquivalent(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyEven(mixed $key, null|string|Throwable $description = null): static;
+    public function keyEven(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyExecutable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyExecutable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyExists(mixed $key, null|string|Throwable $description = null): static;
+    public function keyExists(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyExtension(mixed $key, string $extension, null|string|Throwable $description = null): static;
+    public function keyExtension(int|string $key, string $extension, null|string|Throwable $description = null): static;
 
-    public function keyFactor(mixed $key, int $dividend, null|string|Throwable $description = null): static;
+    public function keyFactor(int|string $key, int $dividend, null|string|Throwable $description = null): static;
 
-    public function keyFalseVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyFalseVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyFibonacci(mixed $key, null|string|Throwable $description = null): static;
+    public function keyFibonacci(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyFile(mixed $key, null|string|Throwable $description = null): static;
+    public function keyFile(int|string $key, null|string|Throwable $description = null): static;
 
     /**
     * @param mixed[]|int $options
     */
-    public function keyFilterVar(mixed $key, int $filter, array|int|null $options = null, null|string|Throwable $description = null): static;
+    public function keyFilterVar(int|string $key, int $filter, array|int|null $options = null, null|string|Throwable $description = null): static;
 
-    public function keyFinite(mixed $key, null|string|Throwable $description = null): static;
+    public function keyFinite(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyFloatVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyFloatVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyFloatType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyFloatType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyGraph(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyGraph(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyGreaterThan(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyGreaterThan(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyHexRgbColor(mixed $key, null|string|Throwable $description = null): static;
+    public function keyHexRgbColor(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyIban(mixed $key, null|string|Throwable $description = null): static;
+    public function keyIban(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyIdentical(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyIdentical(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyImage(mixed $key, ?finfo $fileInfo = null, null|string|Throwable $description = null): static;
+    public function keyImage(int|string $key, ?finfo $fileInfo = null, null|string|Throwable $description = null): static;
 
-    public function keyImei(mixed $key, null|string|Throwable $description = null): static;
+    public function keyImei(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyIn(mixed $key, mixed $haystack, bool $compareIdentical = false, null|string|Throwable $description = null): static;
+    public function keyIn(int|string $key, mixed $haystack, bool $compareIdentical = false, null|string|Throwable $description = null): static;
 
-    public function keyInfinite(mixed $key, null|string|Throwable $description = null): static;
+    public function keyInfinite(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyInstance(mixed $key, string $instanceName, null|string|Throwable $description = null): static;
+    public function keyInstance(int|string $key, string $instanceName, null|string|Throwable $description = null): static;
 
-    public function keyIntVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyIntVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyIntType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyIntType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyIp(mixed $key, string $range = '*', ?int $options = null, null|string|Throwable $description = null): static;
+    public function keyIp(int|string $key, string $range = '*', ?int $options = null, null|string|Throwable $description = null): static;
 
-    public function keyIsbn(mixed $key, null|string|Throwable $description = null): static;
+    public function keyIsbn(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyIterableType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyIterableType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyJson(mixed $key, null|string|Throwable $description = null): static;
+    public function keyJson(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyLanguageCode(mixed $key, ?string $set = null, null|string|Throwable $description = null): static;
+    public function keyLanguageCode(int|string $key, ?string $set = null, null|string|Throwable $description = null): static;
 
-    public function keyLeapDate(mixed $key, string $format, null|string|Throwable $description = null): static;
+    public function keyLeapDate(int|string $key, string $format, null|string|Throwable $description = null): static;
 
-    public function keyLeapYear(mixed $key, null|string|Throwable $description = null): static;
+    public function keyLeapYear(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyLowercase(mixed $key, null|string|Throwable $description = null): static;
+    public function keyLowercase(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyLessThan(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyLessThan(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyLuhn(mixed $key, null|string|Throwable $description = null): static;
+    public function keyLuhn(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyMacAddress(mixed $key, null|string|Throwable $description = null): static;
+    public function keyMacAddress(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyMaxAge(mixed $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
+    public function keyMaxAge(int|string $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
 
-    public function keyMimetype(mixed $key, string $mimetype, null|string|Throwable $description = null): static;
+    public function keyMimetype(int|string $key, string $mimetype, null|string|Throwable $description = null): static;
 
-    public function keyMinAge(mixed $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
+    public function keyMinAge(int|string $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
 
-    public function keyMultiple(mixed $key, int $multipleOf, null|string|Throwable $description = null): static;
+    public function keyMultiple(int|string $key, int $multipleOf, null|string|Throwable $description = null): static;
 
-    public function keyNegative(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNegative(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNfeAccessKey(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNfeAccessKey(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNif(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNif(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNip(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNip(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNo(mixed $key, bool $useLocale = false, null|string|Throwable $description = null): static;
+    public function keyNo(int|string $key, bool $useLocale = false, null|string|Throwable $description = null): static;
 
-    public function keyNotBlank(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotBlank(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotEmoji(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotEmoji(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotEmpty(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotEmpty(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotOptional(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotOptional(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNoWhitespace(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNoWhitespace(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNullType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNullType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNumber(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNumber(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNumericVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNumericVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyObjectType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyObjectType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyOdd(mixed $key, null|string|Throwable $description = null): static;
+    public function keyOdd(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPerfectSquare(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPerfectSquare(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPesel(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPesel(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPhone(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPhone(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPhpLabel(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPhpLabel(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPis(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPis(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPolishIdCard(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPolishIdCard(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPositive(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPositive(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPostalCode(mixed $key, string $countryCode, null|string|Throwable $description = null): static;
+    public function keyPostalCode(int|string $key, string $countryCode, null|string|Throwable $description = null): static;
 
-    public function keyPrimeNumber(mixed $key, null|string|Throwable $description = null): static;
+    public function keyPrimeNumber(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyPrintable(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyPrintable(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyPunct(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyPunct(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyReadable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyReadable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyRegex(mixed $key, string $regex, null|string|Throwable $description = null): static;
+    public function keyRegex(int|string $key, string $regex, null|string|Throwable $description = null): static;
 
-    public function keyResourceType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyResourceType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyRoman(mixed $key, null|string|Throwable $description = null): static;
+    public function keyRoman(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyScalarVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyScalarVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keySize(mixed $key, ?string $minSize = null, ?string $maxSize = null, null|string|Throwable $description = null): static;
+    public function keySize(int|string $key, ?string $minSize = null, ?string $maxSize = null, null|string|Throwable $description = null): static;
 
-    public function keySlug(mixed $key, null|string|Throwable $description = null): static;
+    public function keySlug(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keySorted(mixed $key, string $direction, null|string|Throwable $description = null): static;
+    public function keySorted(int|string $key, string $direction, null|string|Throwable $description = null): static;
 
-    public function keySpace(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keySpace(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyStartsWith(mixed $key, mixed $startValue, bool $identical = false, null|string|Throwable $description = null): static;
+    public function keyStartsWith(int|string $key, mixed $startValue, bool $identical = false, null|string|Throwable $description = null): static;
 
-    public function keyStringType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyStringType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyStringVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyStringVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keySubdivisionCode(mixed $key, string $countryCode, null|string|Throwable $description = null): static;
+    public function keySubdivisionCode(int|string $key, string $countryCode, null|string|Throwable $description = null): static;
 
     /**
     * @param mixed[] $superset
     */
-    public function keySubset(mixed $key, array $superset, null|string|Throwable $description = null): static;
+    public function keySubset(int|string $key, array $superset, null|string|Throwable $description = null): static;
 
-    public function keySymbolicLink(mixed $key, null|string|Throwable $description = null): static;
+    public function keySymbolicLink(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyTime(mixed $key, string $format = 'H:i:s', null|string|Throwable $description = null): static;
+    public function keyTime(int|string $key, string $format = 'H:i:s', null|string|Throwable $description = null): static;
 
-    public function keyTld(mixed $key, null|string|Throwable $description = null): static;
+    public function keyTld(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyTrueVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyTrueVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyType(mixed $key, string $type, null|string|Throwable $description = null): static;
+    public function keyType(int|string $key, string $type, null|string|Throwable $description = null): static;
 
-    public function keyUnique(mixed $key, null|string|Throwable $description = null): static;
+    public function keyUnique(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyUploaded(mixed $key, null|string|Throwable $description = null): static;
+    public function keyUploaded(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyUppercase(mixed $key, null|string|Throwable $description = null): static;
+    public function keyUppercase(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyUrl(mixed $key, null|string|Throwable $description = null): static;
+    public function keyUrl(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyUuid(mixed $key, ?int $version = null, null|string|Throwable $description = null): static;
+    public function keyUuid(int|string $key, ?int $version = null, null|string|Throwable $description = null): static;
 
-    public function keyVersion(mixed $key, null|string|Throwable $description = null): static;
+    public function keyVersion(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyVideoUrl(mixed $key, ?string $service = null, null|string|Throwable $description = null): static;
+    public function keyVideoUrl(int|string $key, ?string $service = null, null|string|Throwable $description = null): static;
 
-    public function keyVowel(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyVowel(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyWritable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyWritable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyXdigit(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyXdigit(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyYes(mixed $key, bool $useLocale = false, null|string|Throwable $description = null): static;
+    public function keyYes(int|string $key, bool $useLocale = false, null|string|Throwable $description = null): static;
 
-    public function keyNot(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyNot(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyNotAlnum(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotAlnum(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotAlpha(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotAlpha(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotArrayType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotArrayType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotArrayVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotArrayVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotBase(mixed $key, int $base, ?string $chars = null, null|string|Throwable $description = null): static;
+    public function keyNotBase(int|string $key, int $base, ?string $chars = null, null|string|Throwable $description = null): static;
 
-    public function keyNotBase64(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotBase64(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotBetween(mixed $key, mixed $minimum, mixed $maximum, null|string|Throwable $description = null): static;
+    public function keyNotBetween(int|string $key, mixed $minimum, mixed $maximum, null|string|Throwable $description = null): static;
 
-    public function keyNotBic(mixed $key, string $countryCode, null|string|Throwable $description = null): static;
+    public function keyNotBic(int|string $key, string $countryCode, null|string|Throwable $description = null): static;
 
-    public function keyNotBoolType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotBoolType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotBoolVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotBoolVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotBsn(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotBsn(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotCallableType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotCallableType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotCallback(mixed $key, callable $callback, null|string|Throwable $description = null): static;
+    public function keyNotCallback(int|string $key, callable $callback, null|string|Throwable $description = null): static;
 
-    public function keyNotCharset(mixed $key, string $charset = '', null|string|Throwable $description = null): static;
+    public function keyNotCharset(int|string $key, string $charset = '', null|string|Throwable $description = null): static;
 
-    public function keyNotCnh(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotCnh(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotCnpj(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotCnpj(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotControl(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotControl(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotConsonant(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotConsonant(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotContains(mixed $key, mixed $containsValue, bool $identical = false, null|string|Throwable $description = null): static;
+    public function keyNotContains(int|string $key, mixed $containsValue, bool $identical = false, null|string|Throwable $description = null): static;
 
     /**
     * @param mixed[] $needles
     */
-    public function keyNotContainsAny(mixed $key, array $needles, bool $strictCompareArray = false, null|string|Throwable $description = null): static;
+    public function keyNotContainsAny(int|string $key, array $needles, bool $strictCompareArray = false, null|string|Throwable $description = null): static;
 
-    public function keyNotCountable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotCountable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotCountryCode(mixed $key, ?string $set = null, null|string|Throwable $description = null): static;
+    public function keyNotCountryCode(int|string $key, ?string $set = null, null|string|Throwable $description = null): static;
 
-    public function keyNotCurrencyCode(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotCurrencyCode(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotCpf(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotCpf(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotCreditCard(mixed $key, ?string $brand = null, null|string|Throwable $description = null): static;
+    public function keyNotCreditCard(int|string $key, ?string $brand = null, null|string|Throwable $description = null): static;
 
-    public function keyNotDate(mixed $key, string $format = 'Y-m-d', null|string|Throwable $description = null): static;
+    public function keyNotDate(int|string $key, string $format = 'Y-m-d', null|string|Throwable $description = null): static;
 
-    public function keyNotDateTime(mixed $key, ?string $format = null, null|string|Throwable $description = null): static;
+    public function keyNotDateTime(int|string $key, ?string $format = null, null|string|Throwable $description = null): static;
 
-    public function keyNotDecimal(mixed $key, int $decimals, null|string|Throwable $description = null): static;
+    public function keyNotDecimal(int|string $key, int $decimals, null|string|Throwable $description = null): static;
 
-    public function keyNotDigit(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotDigit(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotDirectory(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotDirectory(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotDomain(mixed $key, bool $tldCheck = true, null|string|Throwable $description = null): static;
+    public function keyNotDomain(int|string $key, bool $tldCheck = true, null|string|Throwable $description = null): static;
 
-    public function keyNotEmail(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotEmail(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotEndsWith(mixed $key, mixed $endValue, bool $identical = false, null|string|Throwable $description = null): static;
+    public function keyNotEndsWith(int|string $key, mixed $endValue, bool $identical = false, null|string|Throwable $description = null): static;
 
-    public function keyNotEquals(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyNotEquals(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyNotEquivalent(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyNotEquivalent(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyNotEven(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotEven(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotExecutable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotExecutable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotExists(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotExists(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotExtension(mixed $key, string $extension, null|string|Throwable $description = null): static;
+    public function keyNotExtension(int|string $key, string $extension, null|string|Throwable $description = null): static;
 
-    public function keyNotFactor(mixed $key, int $dividend, null|string|Throwable $description = null): static;
+    public function keyNotFactor(int|string $key, int $dividend, null|string|Throwable $description = null): static;
 
-    public function keyNotFalseVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotFalseVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotFibonacci(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotFibonacci(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotFile(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotFile(int|string $key, null|string|Throwable $description = null): static;
 
     /**
     * @param mixed[]|int $options
     */
-    public function keyNotFilterVar(mixed $key, int $filter, array|int|null $options = null, null|string|Throwable $description = null): static;
+    public function keyNotFilterVar(int|string $key, int $filter, array|int|null $options = null, null|string|Throwable $description = null): static;
 
-    public function keyNotFinite(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotFinite(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotFloatVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotFloatVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotFloatType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotFloatType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotGraph(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotGraph(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotGreaterThan(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyNotGreaterThan(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyNotHexRgbColor(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotHexRgbColor(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotIban(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotIban(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotIdentical(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyNotIdentical(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyNotImage(mixed $key, ?finfo $fileInfo = null, null|string|Throwable $description = null): static;
+    public function keyNotImage(int|string $key, ?finfo $fileInfo = null, null|string|Throwable $description = null): static;
 
-    public function keyNotImei(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotImei(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotIn(mixed $key, mixed $haystack, bool $compareIdentical = false, null|string|Throwable $description = null): static;
+    public function keyNotIn(int|string $key, mixed $haystack, bool $compareIdentical = false, null|string|Throwable $description = null): static;
 
-    public function keyNotInfinite(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotInfinite(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotInstance(mixed $key, string $instanceName, null|string|Throwable $description = null): static;
+    public function keyNotInstance(int|string $key, string $instanceName, null|string|Throwable $description = null): static;
 
-    public function keyNotIntVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotIntVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotIntType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotIntType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotIp(mixed $key, string $range = '*', ?int $options = null, null|string|Throwable $description = null): static;
+    public function keyNotIp(int|string $key, string $range = '*', ?int $options = null, null|string|Throwable $description = null): static;
 
-    public function keyNotIsbn(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotIsbn(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotIterableType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotIterableType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotJson(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotJson(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotLanguageCode(mixed $key, ?string $set = null, null|string|Throwable $description = null): static;
+    public function keyNotLanguageCode(int|string $key, ?string $set = null, null|string|Throwable $description = null): static;
 
-    public function keyNotLeapDate(mixed $key, string $format, null|string|Throwable $description = null): static;
+    public function keyNotLeapDate(int|string $key, string $format, null|string|Throwable $description = null): static;
 
-    public function keyNotLeapYear(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotLeapYear(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotLowercase(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotLowercase(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotLessThan(mixed $key, mixed $compareTo, null|string|Throwable $description = null): static;
+    public function keyNotLessThan(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
-    public function keyNotLuhn(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotLuhn(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotMacAddress(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotMacAddress(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotMaxAge(mixed $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
+    public function keyNotMaxAge(int|string $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
 
-    public function keyNotMimetype(mixed $key, string $mimetype, null|string|Throwable $description = null): static;
+    public function keyNotMimetype(int|string $key, string $mimetype, null|string|Throwable $description = null): static;
 
-    public function keyNotMinAge(mixed $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
+    public function keyNotMinAge(int|string $key, int $age, ?string $format = null, null|string|Throwable $description = null): static;
 
-    public function keyNotMultiple(mixed $key, int $multipleOf, null|string|Throwable $description = null): static;
+    public function keyNotMultiple(int|string $key, int $multipleOf, null|string|Throwable $description = null): static;
 
-    public function keyNotNegative(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNegative(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNfeAccessKey(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNfeAccessKey(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNif(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNif(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNip(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNip(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNo(mixed $key, bool $useLocale = false, null|string|Throwable $description = null): static;
+    public function keyNotNo(int|string $key, bool $useLocale = false, null|string|Throwable $description = null): static;
 
-    public function keyNotNoWhitespace(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNoWhitespace(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNullType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNullType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNumber(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNumber(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotNumericVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotNumericVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotObjectType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotObjectType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotOdd(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotOdd(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPerfectSquare(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPerfectSquare(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPesel(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPesel(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPhone(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPhone(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPhpLabel(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPhpLabel(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPis(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPis(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPolishIdCard(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPolishIdCard(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPositive(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPositive(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPostalCode(mixed $key, string $countryCode, null|string|Throwable $description = null): static;
+    public function keyNotPostalCode(int|string $key, string $countryCode, null|string|Throwable $description = null): static;
 
-    public function keyNotPrimeNumber(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotPrimeNumber(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotPrintable(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotPrintable(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotPunct(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotPunct(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotReadable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotReadable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotRegex(mixed $key, string $regex, null|string|Throwable $description = null): static;
+    public function keyNotRegex(int|string $key, string $regex, null|string|Throwable $description = null): static;
 
-    public function keyNotResourceType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotResourceType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotRoman(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotRoman(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotScalarVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotScalarVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotSize(mixed $key, ?string $minSize = null, ?string $maxSize = null, null|string|Throwable $description = null): static;
+    public function keyNotSize(int|string $key, ?string $minSize = null, ?string $maxSize = null, null|string|Throwable $description = null): static;
 
-    public function keyNotSlug(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotSlug(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotSorted(mixed $key, string $direction, null|string|Throwable $description = null): static;
+    public function keyNotSorted(int|string $key, string $direction, null|string|Throwable $description = null): static;
 
-    public function keyNotSpace(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotSpace(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotStartsWith(mixed $key, mixed $startValue, bool $identical = false, null|string|Throwable $description = null): static;
+    public function keyNotStartsWith(int|string $key, mixed $startValue, bool $identical = false, null|string|Throwable $description = null): static;
 
-    public function keyNotStringType(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotStringType(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotStringVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotStringVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotSubdivisionCode(mixed $key, string $countryCode, null|string|Throwable $description = null): static;
+    public function keyNotSubdivisionCode(int|string $key, string $countryCode, null|string|Throwable $description = null): static;
 
     /**
     * @param mixed[] $superset
     */
-    public function keyNotSubset(mixed $key, array $superset, null|string|Throwable $description = null): static;
+    public function keyNotSubset(int|string $key, array $superset, null|string|Throwable $description = null): static;
 
-    public function keyNotSymbolicLink(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotSymbolicLink(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotTime(mixed $key, string $format = 'H:i:s', null|string|Throwable $description = null): static;
+    public function keyNotTime(int|string $key, string $format = 'H:i:s', null|string|Throwable $description = null): static;
 
-    public function keyNotTld(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotTld(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotTrueVal(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotTrueVal(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotType(mixed $key, string $type, null|string|Throwable $description = null): static;
+    public function keyNotType(int|string $key, string $type, null|string|Throwable $description = null): static;
 
-    public function keyNotUnique(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotUnique(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotUploaded(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotUploaded(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotUppercase(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotUppercase(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotUrl(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotUrl(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotUuid(mixed $key, ?int $version = null, null|string|Throwable $description = null): static;
+    public function keyNotUuid(int|string $key, ?int $version = null, null|string|Throwable $description = null): static;
 
-    public function keyNotVersion(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotVersion(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotVideoUrl(mixed $key, ?string $service = null, null|string|Throwable $description = null): static;
+    public function keyNotVideoUrl(int|string $key, ?string $service = null, null|string|Throwable $description = null): static;
 
-    public function keyNotVowel(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotVowel(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotWritable(mixed $key, null|string|Throwable $description = null): static;
+    public function keyNotWritable(int|string $key, null|string|Throwable $description = null): static;
 
-    public function keyNotXdigit(mixed $key, string $additionalChars = '', null|string|Throwable $description = null): static;
+    public function keyNotXdigit(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
-    public function keyNotYes(mixed $key, bool $useLocale = false, null|string|Throwable $description = null): static;
+    public function keyNotYes(int|string $key, bool $useLocale = false, null|string|Throwable $description = null): static;
 }
