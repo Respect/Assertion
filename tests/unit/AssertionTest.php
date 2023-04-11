@@ -15,7 +15,7 @@ namespace Respect\Test\Unit\Assertion;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
-use Respect\Assertion\Standard;
+use Respect\Assertion\Assertion;
 use Respect\Validation\Exceptions\DomainException;
 use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Message\Formatter;
@@ -23,9 +23,9 @@ use Respect\Validation\Message\Stringifier\KeepOriginalStringName;
 use Respect\Validation\Validatable;
 
 /**
- * @covers \Respect\Assertion\Standard
+ * @covers \Respect\Assertion\Assertion
  */
-final class StandardTest extends TestCase
+final class AssertionTest extends TestCase
 {
     /**
      * @test
@@ -35,7 +35,7 @@ final class StandardTest extends TestCase
         $rule = $this->createMock(Validatable::class);
         $description = 'This is some template';
 
-        $sut = new Standard($rule, $description);
+        $sut = new Assertion($rule, $description);
 
         self::assertSame($rule, $sut->getRule());
         self::assertSame($description, $sut->getDescription());
@@ -56,7 +56,7 @@ final class StandardTest extends TestCase
             ->method('check')
             ->with($input);
 
-        $sut = new Standard($rule);
+        $sut = new Assertion($rule);
         $sut->assert($input);
     }
 
@@ -80,7 +80,7 @@ final class StandardTest extends TestCase
 
         $this->expectExceptionObject($exception);
 
-        $sut = new Standard($rule);
+        $sut = new Assertion($rule);
         $sut->assert($input);
     }
 
@@ -106,7 +106,7 @@ final class StandardTest extends TestCase
 
         $this->expectExceptionObject($description);
 
-        $sut = new Standard($rule, $description);
+        $sut = new Assertion($rule, $description);
         $sut->assert($input);
     }
 
@@ -135,7 +135,7 @@ final class StandardTest extends TestCase
 
         $this->expectExceptionObject($exception);
 
-        $sut = new Standard($rule, $description);
+        $sut = new Assertion($rule, $description);
         $sut->assert($input);
     }
 }

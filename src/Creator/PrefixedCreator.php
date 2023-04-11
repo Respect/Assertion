@@ -13,18 +13,25 @@ declare(strict_types=1);
 
 namespace Respect\Assertion\Creator;
 
+use ReflectionClass;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Rules\Nullable;
+use Respect\Validation\Validatable;
 
 use function lcfirst;
 use function str_starts_with;
+use function strlen;
 use function substr;
 
-final class NullOrCreator implements Creator
+final class PrefixedCreator implements Creator
 {
+    /**
+     * @param class-string<Validatable> $className
+     */
     public function __construct(
+        private readonly string $prefix,
+        private readonly string $className,
         private readonly Creator $creator
     ) {
     }
@@ -34,12 +41,13 @@ final class NullOrCreator implements Creator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        if (!str_starts_with($name, 'nullOr')) {
+        if (!str_starts_with($name, $this->prefix)) {
             throw CannotCreateAssertionException::fromAssertionName($name);
         }
 
-        $assertion = $this->creator->create(lcfirst(substr($name, 6)), $parameters);
+        $assertion = $this->creator->create(lcfirst(substr($name, strlen($this->prefix))), $parameters);
+        $reflection = new ReflectionClass($this->className);
 
-        return new Assertion(new Nullable($assertion->getRule()), $assertion->getDescription());
+        return new Assertion($reflection->newInstance($assertion->getRule()), $assertion->getDescription());
     }
 }

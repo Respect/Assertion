@@ -15,27 +15,28 @@ namespace Respect\Test\Unit\Assertion\Creator;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
+use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Assertion\Standard;
 use Respect\Validation\Rules\Equals;
 use Respect\Validation\Rules\IntType;
+use stdClass;
+
+use function tmpfile;
 
 /**
  * @covers \Respect\Assertion\Creator\StandardCreator
  */
 final class StandardCreatorTest extends TestCase
 {
-    private StandardCreator $sut;
-
     /**
      * @test
      */
     public function isShouldCreateAnAssertion(): void
     {
-        $assertion = $this->sut->create('IntType', []);
+        $assertion = $this->getSut()->create('IntType', []);
 
-        self::assertInstanceOf(Standard::class, $assertion);
+        self::assertInstanceOf(Assertion::class, $assertion);
         self::assertInstanceOf(IntType::class, $assertion->getRule());
         self::assertNull($assertion->getDescription());
     }
@@ -47,7 +48,7 @@ final class StandardCreatorTest extends TestCase
     {
         $compareTo = 42;
 
-        $assertion = $this->sut->create('Equals', [$compareTo]);
+        $assertion = $this->getSut()->create('Equals', [$compareTo]);
 
         self::assertInstanceOf(Equals::class, $assertion->getRule());
     }
@@ -57,7 +58,7 @@ final class StandardCreatorTest extends TestCase
      */
     public function isShouldCreateAnAssertionWithEqualsRuleWhenAssertionNameIsEmpty(): void
     {
-        $assertion = $this->sut->create('', [42]);
+        $assertion = $this->getSut()->create('', [42]);
 
         self::assertInstanceOf(Equals::class, $assertion->getRule());
     }
@@ -69,7 +70,7 @@ final class StandardCreatorTest extends TestCase
     {
         $description = new InvalidArgumentException();
 
-        $assertion = $this->sut->create('Equals', [42, $description]);
+        $assertion = $this->getSut()->create('Equals', [42, $description]);
 
         self::assertSame($description, $assertion->getDescription());
     }
@@ -81,7 +82,20 @@ final class StandardCreatorTest extends TestCase
     {
         $this->expectException(CannotCreateAssertionException::class);
 
-        $this->sut->create('ThatIsNotARule', []);
+        $this->getSut()->create('ThatIsNotARule', []);
+    }
+
+    /**
+     * @test
+     *
+     * @dataProvider invalidDescriptionProvider
+     */
+    public function itShouldNotCreateAssertionWhenDescriptionIsInvalid(mixed $description): void
+    {
+        $this->expectException(CannotCreateAssertionException::class);
+        $this->expectExceptionMessage('"alwaysInvalid" assertion has an invalid error description');
+
+        $this->getSut()->create('alwaysInvalid', [$description]);
     }
 
     /**
@@ -91,11 +105,26 @@ final class StandardCreatorTest extends TestCase
     {
         $this->expectException(CannotCreateAssertionException::class);
 
-        $this->sut->create('AbstractRule', []);
+        $this->getSut()->create('AbstractRule', []);
     }
 
-    protected function setUp(): void
+    /**
+     * @return array<int, array{0: mixed}>
+     */
+    public static function invalidDescriptionProvider(): array
     {
-        $this->sut = new StandardCreator();
+        return [
+            [12],
+            [1.5],
+            [[]],
+            [tmpfile()],
+            [static fn() => 1],
+            [new stdClass()],
+        ];
+    }
+
+    private function getSut(): StandardCreator
+    {
+        return new StandardCreator();
     }
 }

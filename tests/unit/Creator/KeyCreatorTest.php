@@ -11,15 +11,21 @@
 
 declare(strict_types=1);
 
-namespace unit\Creator;
+namespace Respect\Test\Unit\Assertion\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\Creator;
 use Respect\Assertion\Creator\KeyCreator;
+use Respect\Assertion\Exception\CannotCreateAssertionException;
+use Respect\Test\Unit\Assertion\Double\FakeCreator;
 use Respect\Validation\Rules\Key;
 use Respect\Validation\Rules\Not;
-use Respect\Validation\Validatable;
+use stdClass;
+
+use function Respect\Stringifier\stringify;
+use function sprintf;
+use function tmpfile;
+use function ucfirst;
 
 /**
  * @covers \Respect\Assertion\Creator\KeyCreator
@@ -29,23 +35,29 @@ final class KeyCreatorTest extends TestCase
     /**
      * @test
      */
-    public function itShouldSkipToNextCreatorWhenPrefixIsInvalid(): void
+    public function itShouldThrowAnExceptionWhenPrefixIsInvalid(): void
     {
         $name = 'something';
         $parameters = [1, 2, 3];
 
-        $assertion = $this->createMock(Assertion::class);
+        $this->expectExceptionObject(CannotCreateAssertionException::fromAssertionName($name));
 
-        $nextCreator = $this->createMock(Creator::class);
-        $nextCreator
-            ->expects($this->once())
-            ->method('create')
-            ->with($name, $parameters)
-            ->willReturn($assertion);
+        $sut = new KeyCreator(new FakeCreator());
+        $sut->create($name, $parameters);
+    }
 
-        $sut = new KeyCreator($nextCreator);
+    /**
+     * @test
+     *
+     * @dataProvider invalidKeyProvider
+     */
+    public function itShouldThrowAnExceptionWhenKeyIsNotStringOrInteger(mixed $key): void
+    {
+        $this->expectException(CannotCreateAssertionException::class);
+        $this->expectExceptionMessage(sprintf('%s is an invalid array key', stringify($key)));
 
-        self::assertSame($assertion, $sut->create($name, $parameters));
+        $sut = new KeyCreator(new FakeCreator());
+        $sut->create('key', [$key]);
     }
 
     /**
@@ -55,10 +67,24 @@ final class KeyCreatorTest extends TestCase
     {
         $key = 'foo';
 
-        $sut = new KeyCreator($this->createMock(Creator::class));
+        $sut = new KeyCreator(new FakeCreator());
         $assertion = $sut->create('keyPresent', [$key]);
 
         self::assertEquals(new Key('foo'), $assertion->getRule());
+    }
+
+    /**
+     * @test
+     *
+     * @dataProvider invalidDescriptionProvider
+     */
+    public function itShouldNotCreateKeyPresentAssertionWhenDescriptionIsInvalid(mixed $description): void
+    {
+        $this->expectException(CannotCreateAssertionException::class);
+        $this->expectExceptionMessage('"keyPresent" assertion has an invalid error description');
+
+        $sut = new KeyCreator(new FakeCreator());
+        $sut->create('keyPresent', ['foo', $description]);
     }
 
     /**
@@ -68,10 +94,24 @@ final class KeyCreatorTest extends TestCase
     {
         $key = 'foo';
 
-        $sut = new KeyCreator($this->createMock(Creator::class));
+        $sut = new KeyCreator(new FakeCreator());
         $assertion = $sut->create('keyNotPresent', [$key]);
 
         self::assertEquals(new Not(new Key('foo')), $assertion->getRule());
+    }
+
+    /**
+     * @test
+     *
+     * @dataProvider invalidDescriptionProvider
+     */
+    public function itShouldNotCreateKeyNotPresentAssertionWhenDescriptionIsInvalid(mixed $description): void
+    {
+        $this->expectException(CannotCreateAssertionException::class);
+        $this->expectExceptionMessage('"keyNotPresent" assertion has an invalid error description');
+
+        $sut = new KeyCreator(new FakeCreator());
+        $sut->create('keyNotPresent', ['foo', $description]);
     }
 
     /**
@@ -81,35 +121,48 @@ final class KeyCreatorTest extends TestCase
     {
         $key = 'foo';
 
-        $name = 'keySomething';
-        $parameters = [$key, 1, 2];
-
         $nextName = 'something';
         $nextParameters = [1, 2];
 
-        $rule = $this->createMock(Validatable::class);
+        $name = 'key' . ucfirst($nextName);
+        $parameters = [$key, ...$nextParameters];
 
-        $assertion = $this->createMock(Assertion::class);
-        $assertion
-            ->expects($this->once())
-            ->method('getRule')
-            ->willReturn($rule);
-        $assertion
-            ->expects($this->once())
-            ->method('getDescription')
-            ->willReturn(null);
-
-        $nextCreator = $this->createMock(Creator::class);
-        $nextCreator
-            ->expects($this->once())
-            ->method('create')
-            ->with($nextName, $nextParameters)
-            ->willReturn($assertion);
+        $nextCreator = new FakeCreator();
 
         $sut = new KeyCreator($nextCreator);
-
         $assertion = $sut->create($name, $parameters);
 
-        self::assertEquals(new Key($key, $rule), $assertion->getRule());
+        self::assertEquals(
+            new Assertion(
+                new Key($key, $nextCreator->getLastCreatedRule()),
+                $nextCreator->getLastCreatedDescription()
+            ),
+            $assertion
+        );
+        self::assertEquals($nextCreator->getLastCalledName(), $nextName);
+        self::assertEquals($nextCreator->getLastCalledParameters(), $nextParameters);
+    }
+
+    /**
+     * @return array<int, array{0: mixed}>
+     */
+    public static function invalidKeyProvider(): array
+    {
+        return [
+            [null],
+            [1.5],
+            [[]],
+            [tmpfile()],
+            [static fn() => 1],
+            [new stdClass()],
+        ];
+    }
+
+    /**
+     * @return array<int, array{0: mixed}>
+     */
+    public static function invalidDescriptionProvider(): array
+    {
+        return StandardCreatorTest::invalidDescriptionProvider();
     }
 }

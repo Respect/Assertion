@@ -13,17 +13,44 @@ declare(strict_types=1);
 
 namespace Respect\Assertion;
 
+use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validatable;
 use Throwable;
 
-interface Assertion
+use function is_string;
+
+final class Assertion
 {
-    public function getRule(): Validatable;
+    public function __construct(
+        private readonly Validatable $rule,
+        private readonly null|string|Throwable $description = null
+    ) {
+    }
 
-    public function getDescription(): Throwable|string|null;
+    public function getRule(): Validatable
+    {
+        return $this->rule;
+    }
 
-    /**
-     * @throws Throwable
-     */
-    public function assert(mixed $input): void;
+    public function getDescription(): null|string|Throwable
+    {
+        return $this->description;
+    }
+
+    public function assert(mixed $input): void
+    {
+        try {
+            $this->rule->check($input);
+        } catch (ValidationException $exception) {
+            if ($this->description instanceof Throwable) {
+                throw $this->description;
+            }
+
+            if (is_string($this->description)) {
+                $exception->updateTemplate($this->description);
+            }
+
+            throw $exception;
+        }
+    }
 }

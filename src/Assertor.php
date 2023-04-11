@@ -17,8 +17,6 @@ use Exception;
 
 interface Assertor
 {
-    public function getName(): string;
-
     /**
      * @throws Exception
      */

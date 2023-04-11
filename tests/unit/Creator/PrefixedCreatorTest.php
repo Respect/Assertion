@@ -11,57 +11,59 @@
 
 declare(strict_types=1);
 
-namespace unit\Creator;
+namespace Respect\Test\Unit\Assertion\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Assertion\Creator\NullOrCreator;
+use Respect\Assertion\Creator\PrefixedCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
+use Respect\Assertion\Rule\Rule;
 use Respect\Test\Unit\Assertion\Double\FakeCreator;
-use Respect\Validation\Rules\Nullable;
+use Respect\Validation\Rules\Optional;
 
 use function ucfirst;
 
 /**
- * @covers \Respect\Assertion\Creator\NullOrCreator
+ * @covers \Respect\Assertion\Creator\PrefixedCreator
  */
-final class NullOrCreatorTest extends TestCase
+final class PrefixedCreatorTest extends TestCase
 {
     /**
      * @test
      */
     public function itShouldThrowAnExceptionWhenPrefixIsInvalid(): void
     {
-        $name = 'something';
+        $name = 'somethingWithoutPrefix';
         $parameters = [1, 2, 3];
 
         $this->expectExceptionObject(CannotCreateAssertionException::fromAssertionName($name));
 
-        $sut = new NullOrCreator(new FakeCreator());
+        $sut = new PrefixedCreator('prefix', Rule::class, new FakeCreator());
         $sut->create($name, $parameters);
     }
 
     /**
      * @test
      */
-    public function itShouldCreateNullOrAssertionWithExtraRule(): void
+    public function itShouldCreateAssertion(): void
     {
-        $nextName = 'something';
-        $nextParameters = [1, 2];
+        $prefix = 'optional';
 
-        $name = 'nullOr' . ucfirst($nextName);
+        $nextName = 'something';
+        $nextParameters = [1, 2, 3];
+
+        $name = $prefix . ucfirst($nextName);
         $parameters = $nextParameters;
 
         $nextCreator = new FakeCreator();
 
-        $sut = new NullOrCreator($nextCreator);
-
+        $sut = new PrefixedCreator($prefix, Optional::class, $nextCreator);
         $assertion = $sut->create($name, $parameters);
 
         self::assertEquals(
             new Assertion(
-                new Nullable($nextCreator->getLastCreatedRule()),
-                $nextCreator->getLastCreatedDescription()
+                new Optional($nextCreator->getLastCreatedRule()),
+                $nextCreator->getLastCreatedDescription(),
             ),
             $assertion
         );

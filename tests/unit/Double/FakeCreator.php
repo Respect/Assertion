@@ -16,7 +16,6 @@ namespace Respect\Test\Unit\Assertion\Double;
 use Exception;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
-use Respect\Assertion\Standard;
 use Respect\Validation\Rules\AlwaysValid;
 use Respect\Validation\Validatable;
 use Throwable;
@@ -43,7 +42,7 @@ final class FakeCreator implements Creator
     {
         $this->lastCreatedRule = new AlwaysValid();
         $this->lastCreatedDescription = new Exception('Something went wrong');
-        $this->lastCreatedAssertion = new Standard($this->lastCreatedRule, $this->lastCreatedDescription);
+        $this->lastCreatedAssertion = new Assertion($this->lastCreatedRule, $this->lastCreatedDescription);
         $this->lastCalledName = $name;
         $this->lastCalledParameters = $parameters;
 

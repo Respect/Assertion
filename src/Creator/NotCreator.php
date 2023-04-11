@@ -15,10 +15,11 @@ namespace Respect\Assertion\Creator;
 
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
-use Respect\Assertion\Standard;
+use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Validation\Rules\Not;
 
 use function in_array;
+use function lcfirst;
 use function str_starts_with;
 use function strtolower;
 use function substr;
@@ -26,6 +27,7 @@ use function substr;
 final class NotCreator implements Creator
 {
     private const IGNORED_RULES = [
+        'notemoji',
         'notempty',
         'notblank',
         'notoptional',
@@ -41,16 +43,12 @@ final class NotCreator implements Creator
      */
     public function create(string $name, array $parameters): Assertion
     {
-        if (!str_starts_with(strtolower($name), 'not')) {
-            return $this->creator->create($name, $parameters);
+        if (!str_starts_with(strtolower($name), 'not') || in_array(strtolower($name), self::IGNORED_RULES)) {
+            throw CannotCreateAssertionException::fromAssertionName($name);
         }
 
-        if (in_array(strtolower($name), self::IGNORED_RULES)) {
-            return $this->creator->create($name, $parameters);
-        }
+        $assertion = $this->creator->create(lcfirst(substr($name, 3)), $parameters);
 
-        $assertion = $this->creator->create(substr($name, 3), $parameters);
-
-        return new Standard(new Not($assertion->getRule()), $assertion->getDescription());
+        return new Assertion(new Not($assertion->getRule()), $assertion->getDescription());
     }
 }

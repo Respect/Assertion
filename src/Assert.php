@@ -14,16 +14,7 @@ declare(strict_types=1);
 namespace Respect\Assertion;
 
 use Exception;
-use Respect\Assertion\Assertor\AllAssertor;
-use Respect\Assertion\Assertor\LengthAssertor;
-use Respect\Assertion\Assertor\MaxAssertor;
-use Respect\Assertion\Assertor\MinAssertor;
-use Respect\Assertion\Creator\ComposedCreator;
-use Respect\Assertion\Creator\KeyCreator;
-use Respect\Assertion\Creator\NotCreator;
-use Respect\Assertion\Creator\NullOrCreator;
-use Respect\Assertion\Creator\PropertyCreator;
-use Respect\Assertion\Creator\StandardCreator;
+use Respect\Assertion\Creator\CompositeCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Assertion\Mixin\Static\Mixin;
 use Throwable;
@@ -45,21 +36,7 @@ final class Assert
     private static function getCreator(): Creator
     {
         if (!self::$creator instanceof Creator) {
-            self::$creator = new ComposedCreator(
-                new MaxAssertor(),
-                new ComposedCreator(
-                    new MinAssertor(),
-                    new ComposedCreator(
-                        new LengthAssertor(),
-                        new ComposedCreator(
-                            new AllAssertor(),
-                            new PropertyCreator(
-                                new KeyCreator(new NullOrCreator(new NotCreator(new StandardCreator())))
-                            )
-                        )
-                    )
-                )
-            );
+            self::$creator = CompositeCreator::createDefault();
         }
 
         return self::$creator;

@@ -15,6 +15,12 @@ namespace Respect\Assertion\Exception;
 
 use RuntimeException;
 
+use function sprintf;
+
 final class CannotCreateAssertionException extends RuntimeException implements Exception
 {
+    public static function fromAssertionName(string $name): self
+    {
+        return new self(sprintf('Cannot create assertion for "%s"', $name));
+    }
 }
