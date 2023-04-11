@@ -19,8 +19,6 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface AllMixin
 {
-    public function all(mixed $compareTo, null|string|Throwable $description = null): static;
-
     public function allAlnum(string $additionalChars = '', null|string|Throwable $description = null): static;
 
     public function allAlpha(string $additionalChars = '', null|string|Throwable $description = null): static;
@@ -289,8 +287,6 @@ interface AllMixin
     public function allXdigit(string $additionalChars = '', null|string|Throwable $description = null): static;
 
     public function allYes(bool $useLocale = false, null|string|Throwable $description = null): static;
-
-    public function allNot(mixed $compareTo, null|string|Throwable $description = null): static;
 
     public function allNotAlnum(string $additionalChars = '', null|string|Throwable $description = null): static;
 

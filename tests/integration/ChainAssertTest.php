@@ -80,7 +80,7 @@ final class ChainAssertTest extends TestCase
             ->positive()
             ->greaterThan(1)
             ->lessThan(3)
-            ->not(2, $exception)
+            ->notEquals(2, $exception)
             ->floatType(new Exception('This one should never be thrown'));
     }
 }

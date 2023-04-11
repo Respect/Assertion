@@ -56,16 +56,6 @@ final class StandardCreatorTest extends TestCase
     /**
      * @test
      */
-    public function isShouldCreateAnAssertionWithEqualsRuleWhenAssertionNameIsEmpty(): void
-    {
-        $assertion = $this->getSut()->create('', [42]);
-
-        self::assertInstanceOf(Equals::class, $assertion->getRule());
-    }
-
-    /**
-     * @test
-     */
     public function isShouldCreateAnAssertionWithDescription(): void
     {
         $description = new InvalidArgumentException();

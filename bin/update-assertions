@@ -25,8 +25,6 @@ add-prefixes()
   local rules="${2}"
   local parameters=("${@:3}")
 
-  add-function "${prefix}" "${parameters[@]}" "mixed \$compareTo"
-
   # Add an extra empty parameter so we have an extra comma to separate the arguments
   if [[ ${#parameters[*]} -gt 0 ]]; then
     parameters+=("")

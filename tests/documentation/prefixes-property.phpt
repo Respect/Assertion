@@ -12,7 +12,7 @@ $input->foo = 1;
 
 exceptionMessage(static fn() => Assert::propertyPresent($input, 'bar'));
 exceptionMessage(static fn() => Assert::propertyNotPresent($input, 'foo'));
-exceptionMessage(static fn() => Assert::property($input, 'foo', 3));
+exceptionMessage(static fn() => Assert::propertyEquals($input, 'foo', 3));
 exceptionMessage(static fn() => Assert::propertyNegative($input, 'foo'));
 exceptionMessage(static fn() => Assert::propertyNotIntType($input, 'foo'));
 exceptionMessage(static fn() => Assert::propertyNegative($input, 'baz'));

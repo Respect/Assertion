@@ -18,8 +18,6 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface LengthMixin
 {
-    public function length(mixed $compareTo, null|string|Throwable $description = null): static;
-
     public function lengthBase(int $base, ?string $chars = null, null|string|Throwable $description = null): static;
 
     public function lengthNotBase(int $base, ?string $chars = null, null|string|Throwable $description = null): static;

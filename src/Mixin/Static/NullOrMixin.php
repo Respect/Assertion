@@ -19,8 +19,6 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface NullOrMixin
 {
-    public static function nullOr(mixed $input, mixed $compareTo, null|string|Throwable $description = null): void;
-
     public static function nullOrAlnum(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function nullOrAlpha(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
@@ -289,8 +287,6 @@ interface NullOrMixin
     public static function nullOrXdigit(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function nullOrYes(mixed $input, bool $useLocale = false, null|string|Throwable $description = null): void;
-
-    public static function nullOrNot(mixed $input, mixed $compareTo, null|string|Throwable $description = null): void;
 
     public static function nullOrNotAlnum(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 

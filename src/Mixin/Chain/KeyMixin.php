@@ -23,8 +23,6 @@ interface KeyMixin
 
     public function keyNotPresent(mixed $key, null|string|Throwable $description = null): static;
 
-    public function key(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
-
     public function keyAlnum(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
     public function keyAlpha(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
@@ -293,8 +291,6 @@ interface KeyMixin
     public function keyXdigit(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 
     public function keyYes(int|string $key, bool $useLocale = false, null|string|Throwable $description = null): static;
-
-    public function keyNot(int|string $key, mixed $compareTo, null|string|Throwable $description = null): static;
 
     public function keyNotAlnum(int|string $key, string $additionalChars = '', null|string|Throwable $description = null): static;
 

@@ -56,7 +56,7 @@ final class StandardCreator implements Creator
      */
     private function ruleReflection(string $name): ReflectionClass
     {
-        $class = sprintf('Respect\\Validation\\Rules\\%s', ucfirst($name) ?: 'Equals');
+        $class = sprintf('Respect\\Validation\\Rules\\%s', ucfirst($name));
 
         if (!class_exists($class)) {
             throw new CannotCreateAssertionException(sprintf('"%s" is not a valid assertion', $name));

@@ -23,8 +23,6 @@ interface PropertyMixin
 
     public static function propertyNotPresent(mixed $input, string $property, null|string|Throwable $description = null): void;
 
-    public static function property(mixed $input, string $property, mixed $compareTo, null|string|Throwable $description = null): void;
-
     public static function propertyAlnum(mixed $input, string $property, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function propertyAlpha(mixed $input, string $property, string $additionalChars = '', null|string|Throwable $description = null): void;
@@ -293,8 +291,6 @@ interface PropertyMixin
     public static function propertyXdigit(mixed $input, string $property, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function propertyYes(mixed $input, string $property, bool $useLocale = false, null|string|Throwable $description = null): void;
-
-    public static function propertyNot(mixed $input, string $property, mixed $compareTo, null|string|Throwable $description = null): void;
 
     public static function propertyNotAlnum(mixed $input, string $property, string $additionalChars = '', null|string|Throwable $description = null): void;
 

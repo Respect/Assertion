@@ -141,13 +141,6 @@ Assert::notEven(2);
 Assert::notIn(3, [1, 2, 3, 4]);
 ```
 
-If you use `not` without a suffix, this library will use [Equals][] to assert:
-
-```php
-// will throw an exception => 42 must not equal 42
-Assert::not(42, 42);
-```
-
 ### `all*()`: asserting all elements in an input
 
 Assertions can be executed with the `all` prefix which will assert all elements
@@ -156,13 +149,6 @@ in the input with the prefixed assertion:
 ```php
 // will throw an exception => "3" (like all items of the input) must be of type integer
 Assert::allIntType([1, 2, '3']);
-```
-
-If `all` is used without a suffix, this library will use [Equals][] to assert:
-
-```php
-// will throw an exception => "A" (like all items of the input) must equal "D"
-Assert::all(['A', 'B', 'C'], 'D');
 ```
 
 ### `key*()`: asserting a key in an array
@@ -186,7 +172,6 @@ the specified key.
 
 ```php
 // will throw an exception => foo must equal 3
-Assert::key(['foo' => 2], 'foo', 3);
 Assert::keyEquals(['foo' => 2], 'foo', 3);
 
 // will throw an exception => bar must be negative
@@ -234,7 +219,7 @@ object's property.
 
 ```php
 // will throw an exception => foo must equal 3
-Assert::property($input, 'foo', 3);
+Assert::propertyEquals($input, 'foo', 3);
 
 // will throw an exception => foo must be negative
 Assert::propertyNegative($input, 'foo');
@@ -279,13 +264,6 @@ This library also allows you to use the `not` prefix after the `length` prefix:
 Assert::lengthNotMultiple([1, 2], 2);
 ```
 
-If `length` is used without a suffix, this library will use [Equals][] to assert:
-
-```php
-// will throw an exception => 9 (the length of the input) must equal 3
-Assert::length('something', 3);
-```
-
 ### `max*()`: asserting the maximum of an input
 
 Assertions can be executed with the `max` prefix which will assert the maximum
@@ -311,13 +289,6 @@ This library also allows you to use the `not` prefix after the `max` prefix:
 ```php
 // will throw an exception => 23 (the maximum of the input) must not be positive
 Assert::maxNotPositive([23, 7, 20]);
-```
-
-If `max` is used without a suffix, this library will use [Equals][] to assert:
-
-```php
-// will throw an exception => "C" (the maximum of the input) must equal "D"
-Assert::max(['A', 'B', 'C'], 'D');
 ```
 
 ### `min*()`: asserting the minimum of an input
@@ -347,13 +318,6 @@ This library also allows you to use the `not` prefix after the `min` prefix:
 Assert::minNotPositive([23, 7, 20]);
 ```
 
-If `min` is used without a suffix, this library will use [Equals][] to assert:
-
-```php
-// will throw an exception => "A" (the minimum of the input) must equal "D"
-Assert::min(['A', 'B', 'C'], 'D');
-```
-
 ### `nullOr*()`: asserting the value of an input or null
 
 Assertions can be executed with the `nullOr` prefix which will assert only if the
@@ -373,17 +337,9 @@ Assert::nullOrBetween(5, 1, 4);
 Assert::nullOrBetween(null, 1, 4);
 ```
 
-If `nullOr` is used without a suffix, this library will use [Equals][] to assert:
-
-```php
-// will throw an exception => 1 must equal 2
-Assert::nullOr(1, 2);
-```
-
 [beberlei/assert]: https://github.com/beberlei/assert
 [Composer]: http://getcomposer.org
 [Countable]: http://php.net/countable
-[Equals]: https://respect-validation.readthedocs.io/en/latest/rules/Equals/
 [InvalidArgumentException]: https://www.php.net/InvalidArgumentException
 [iterable]: http://php.net/types.iterable
 [LogicException]: https://www.php.net/LogicException

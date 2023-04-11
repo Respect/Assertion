@@ -18,8 +18,6 @@ use Throwable;
 // phpcs:disable Generic.Files.LineLength.TooLong
 interface MinMixin
 {
-    public function min(mixed $compareTo, null|string|Throwable $description = null): static;
-
     public function minBase(int $base, ?string $chars = null, null|string|Throwable $description = null): static;
 
     public function minNotBase(int $base, ?string $chars = null, null|string|Throwable $description = null): static;

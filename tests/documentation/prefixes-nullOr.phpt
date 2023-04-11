@@ -11,9 +11,7 @@ exceptionMessage(static fn() => Assert::nullOrNegative(42));
 exceptionMessage(static fn() => Assert::nullOrNegative(null));
 exceptionMessage(static fn() => Assert::nullOrBetween(5, 1, 4));
 exceptionMessage(static fn() => Assert::nullOrBetween(null, 1, 4));
-exceptionMessage(static fn() => Assert::nullOr(1, 2));
 ?>
 --EXPECT--
 42 must be negative
 5 must be between 1 and 4
-1 must equal 2

@@ -288,8 +288,6 @@ interface Mixin extends AllMixin, KeyMixin, LengthMixin, MaxMixin, MinMixin, Nul
 
     public static function yes(mixed $input, bool $useLocale = false, null|string|Throwable $description = null): void;
 
-    public static function not(mixed $input, mixed $compareTo, null|string|Throwable $description = null): void;
-
     public static function notAlnum(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
 
     public static function notAlpha(mixed $input, string $additionalChars = '', null|string|Throwable $description = null): void;
