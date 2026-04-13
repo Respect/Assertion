@@ -13,41 +13,27 @@ declare(strict_types=1);
 
 namespace Respect\Assertion\Rule;
 
-use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Rules\AbstractRule;
-use Respect\Validation\Validatable;
+use Respect\Validation\Result;
+use Respect\Validation\Validator;
 
-abstract class Rule extends AbstractRule
+abstract class Rule implements Validator
 {
     abstract protected function getFilteredInput(mixed $input): mixed;
 
-    abstract protected function getCustomizedException(ValidationException $exception): ValidationException;
-
     public function __construct(
-        private readonly Validatable $preconditionRule,
-        private readonly Validatable $rule,
+        private readonly Validator $preconditionRule,
+        private readonly Validator $rule,
     ) {
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function validate($input): bool
+    public function evaluate(mixed $input): Result
     {
-        return $this->preconditionRule->validate($input) && $this->rule->validate($this->getFilteredInput($input));
-    }
+        $preconditionResult = $this->preconditionRule->evaluate($input);
 
-    /**
-     * {@inheritDoc}
-     */
-    public function check($input): void
-    {
-        $this->preconditionRule->assert($input);
-
-        try {
-            $this->rule->check($this->getFilteredInput($input));
-        } catch (ValidationException $exception) {
-            throw $this->getCustomizedException($exception);
+        if (!$preconditionResult->hasPassed) {
+            return $preconditionResult;
         }
+
+        return $this->rule->evaluate($this->getFilteredInput($input));
     }
 }
