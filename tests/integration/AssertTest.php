@@ -163,7 +163,7 @@ final class AssertTest extends TestCase
      */
     public function itShouldPrefixSubAssertionsWithAllPrefix(): void
     {
-        $this->expectExceptionMessage('1 (like all items of the input) must equal 4');
+        $this->expectExceptionMessage('Every item in `[1, 2, 3]` must be equal to 4');
 
         Assert::thatAll([1, 2, 3])->equals(4);
     }
@@ -175,7 +175,7 @@ final class AssertTest extends TestCase
     {
         Assert::thatNullOr(null)->equals(4);
 
-        $this->expectExceptionMessage('3 must equal 4');
+        $this->expectExceptionMessage('3 must be equal to 4 or must be null');
         Assert::thatNullOr(3)->equals(4);
     }
 
@@ -184,7 +184,7 @@ final class AssertTest extends TestCase
      */
     public function itShouldPrefixSubAssertionsWithNotPrefix(): void
     {
-        $this->expectExceptionMessage('3 must not equal 3');
+        $this->expectExceptionMessage('3 must not be equal to 3');
 
         Assert::thatNot(3)->equals(3);
     }
@@ -194,7 +194,7 @@ final class AssertTest extends TestCase
      */
     public function itShouldPrefixSubAssertionsWithKeyPrefix(): void
     {
-        $this->expectExceptionMessage('foo must be of type string');
+        $this->expectExceptionMessage('`.foo` must be a string');
 
         Assert::thatKey(['foo' => true], 'foo')->stringType();
     }
@@ -204,7 +204,7 @@ final class AssertTest extends TestCase
      */
     public function itShouldPrefixSubAssertionsWithPropertyPrefix(): void
     {
-        $this->expectExceptionMessage('bar must be of type array');
+        $this->expectExceptionMessage('`.bar` must be an array');
 
         Assert::thatProperty((object) ['bar' => true], 'bar')->arrayType();
     }

@@ -30,12 +30,12 @@ exceptionMessage(
 );
 ?>
 --EXPECT--
-bar must be present
-foo must not be present
-foo must be equal to 3
-foo must be negative
-foo must not be of type integer
-baz must be present
-foo must exists
-foo must be greater than 5
-foo must be greater than 5
+`.bar` must be present
+`.foo` must not be present
+`.foo` must be equal to 3
+`.foo` must be a negative number
+`.foo` must not be an integer
+`.baz` must be present
+`.foo` must be an existing file
+`.foo` must be greater than 5
+`.foo` must be greater than 5

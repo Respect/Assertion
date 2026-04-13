@@ -21,7 +21,7 @@ exceptionMessage(
 );
 ?>
 --EXPECT--
-2 must not be an even number
-3 must not be in `{ 1, 2, 3, 4 }`
-"1" must not be positive
-"1" must not be positive
+2 must be an odd number
+3 must not be in `[1, 2, 3, 4]`
+"1" must not be a positive number
+"1" must not be a positive number

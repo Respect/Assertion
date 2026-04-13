@@ -63,7 +63,7 @@ final class AllTest extends TestCase
         $input = [1, 2, 3];
 
         $this->expectException(ValidationException::class);
-        $this->expectExceptionMessage('1 (like all items of the input) is always invalid');
+        $this->expectExceptionMessage('Every item in `[1, 2, 3]` must be valid');
 
         $sut = new All(new AlwaysInvalid());
         ValidatorBuilder::init($sut)->assert($input);

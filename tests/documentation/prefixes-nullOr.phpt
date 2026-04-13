@@ -29,7 +29,8 @@ exceptionMessage(
 );
 ?>
 --EXPECT--
-42 must be negative
-5 must be between 1 and 4
-6 must be a valid prime number
-6 must be a valid prime number
+42 must be a negative number or must be null
+5 must be between 1 and 4 or must be null
+Cannot create assertion for "nullOrPrimeNumber"
+Cannot create assertion for "nullOrPrimeNumber"
+Cannot create assertion for "nullOrPrimeNumber"
