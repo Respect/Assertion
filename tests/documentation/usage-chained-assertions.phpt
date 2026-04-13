@@ -9,7 +9,7 @@ use Respect\Assertion\Assert;
 
 exceptionMessage(
     static fn() => Assert::that(-1)
-        ->intVal('The number {{input}} must be an integer')
+        ->intVal('The number {{subject}} must be an integer')
         ->positive('I expected a positive number')
         ->lessThan(4)
 );
@@ -34,4 +34,4 @@ exceptionMessage(
 I expected a positive number
 The number must be valid
 But it is not greater than 5, though
-3 (the length of the input) must equal 4
+The length of `.options` must be equal to 4

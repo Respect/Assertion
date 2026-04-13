@@ -12,5 +12,5 @@ exceptionMessage(static fn() => Assert::intType('string'));
 exceptionMessage(static fn() => Assert::odd(5));
 ?>
 --EXPECT--
-1 must equal 5
-"string" must be of type integer
+1 must be equal to 5
+"string" must be an integer

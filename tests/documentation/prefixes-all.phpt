@@ -21,6 +21,6 @@ exceptionMessage(
 );
 ?>
 --EXPECT--
-"3" (like all items of the input) must be of type integer
-3 (like all items of the input) must be between 1 and 2
-5 (the length of the input) must be less than 4
+Every item in `[1, 2, "3"]` must be an integer
+Every item in `[1, 2, 2, 1, 3]` must be between 1 and 2
+The length of `[1, 2, 2, 1, 3]` must be less than 4

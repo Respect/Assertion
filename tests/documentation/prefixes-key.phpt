@@ -28,12 +28,12 @@ exceptionMessage(
 
 ?>
 --EXPECT--
-bar must be present
-bar must not be present
-foo must equal 3
-bar must be negative
-bar must not be of type integer
-baz must be present
-foo must exists
-9 (the length of the input) must be less than 4
-bar must be less than 40
+`.bar` must be present
+`.bar` must not be present
+`.foo` must be equal to 3
+`.bar` must be a negative number
+`.bar` must not be an integer
+`.baz` must be present
+`.foo` must be an existing file
+The length of `.foo` must be less than 4
+`.bar` must be less than 40

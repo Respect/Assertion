@@ -30,12 +30,12 @@ exceptionMessage(
 );
 ?>
 --EXPECT--
-Attribute bar must be present
-Attribute foo must not be present
-foo must equal 3
+bar must be present
+foo must not be present
+foo must be equal to 3
 foo must be negative
 foo must not be of type integer
-Attribute baz must be present
+baz must be present
 foo must exists
 foo must be greater than 5
 foo must be greater than 5

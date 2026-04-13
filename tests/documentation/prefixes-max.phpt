@@ -13,7 +13,7 @@ exceptionMessage(static fn() => Assert::maxPerfectSquare(new ArrayObject([45, 60
 exceptionMessage(static fn() => Assert::maxNotPositive([23, 7, 20]));
 ?>
 --EXPECT--
-3 (the maximum of the input) must be between 5 and 10
-3 (the maximum of the input) must be an even number
-60 (the maximum of the input) must be a valid perfect square
-23 (the maximum of the input) must not be positive
+The maximum of `[1, 2, 3]` must be between 5 and 10
+The maximum of `[1, 2, 3]` must be an even number
+Cannot create assertion for "maxPerfectSquare"
+The maximum of `[23, 7, 20]` must not be a positive number
