@@ -17,7 +17,7 @@ use ReflectionClass;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Validatable;
+use Respect\Validation\Validator;
 use Throwable;
 
 use function array_slice;
@@ -45,18 +45,18 @@ final class StandardCreator implements Creator
             $constructor === null ? 0 : count($constructor->getParameters())
         );
 
-        /** @var Validatable $rule */
+        /** @var Validator $rule */
         $rule = $reflection->newInstanceArgs($constructorParameters);
 
         return new Assertion($rule, $this->description($name, $parameters, $constructorParameters));
     }
 
     /**
-     * @return ReflectionClass<Validatable>
+     * @return ReflectionClass<Validator>
      */
     private function ruleReflection(string $name): ReflectionClass
     {
-        $class = sprintf('Respect\\Validation\\Rules\\%s', ucfirst($name));
+        $class = sprintf('Respect\\Validation\\Validators\\%s', ucfirst($name));
 
         if (!class_exists($class)) {
             throw new CannotCreateAssertionException(sprintf('"%s" is not a valid assertion', $name));
@@ -67,7 +67,7 @@ final class StandardCreator implements Creator
             throw new CannotCreateAssertionException(sprintf('Cannot create an instance of "%s"', $class));
         }
 
-        if (!$reflection->isSubclassOf(Validatable::class)) {
+        if (!$reflection->isSubclassOf(Validator::class)) {
             throw new CannotCreateAssertionException(sprintf('Cannot create an instance of "%s"', $class));
         }
 

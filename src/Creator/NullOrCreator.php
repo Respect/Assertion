@@ -16,7 +16,7 @@ namespace Respect\Assertion\Creator;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Rules\Nullable;
+use Respect\Validation\Validators\NullOr;
 
 use function lcfirst;
 use function str_starts_with;
@@ -40,6 +40,6 @@ final class NullOrCreator implements Creator
 
         $assertion = $this->creator->create(lcfirst(substr($name, 6)), $parameters);
 
-        return new Assertion(new Nullable($assertion->getRule()), $assertion->getDescription());
+        return new Assertion(new NullOr($assertion->getRule()), $assertion->getDescription());
     }
 }

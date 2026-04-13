@@ -16,8 +16,9 @@ namespace Respect\Assertion\Creator;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Rules\Key;
-use Respect\Validation\Rules\Not;
+use Respect\Validation\Validators\Key;
+use Respect\Validation\Validators\KeyExists;
+use Respect\Validation\Validators\Not;
 use Throwable;
 
 use function array_shift;
@@ -52,11 +53,11 @@ final class KeyCreator implements Creator
         }
 
         if ($name === 'keyPresent') {
-            return new Assertion(new Key($key), $this->getDescription($name, $parameters));
+            return new Assertion(new KeyExists($key), $this->getDescription($name, $parameters));
         }
 
         if ($name === 'keyNotPresent') {
-            return new Assertion(new Not(new Key($key)), $this->getDescription($name, $parameters));
+            return new Assertion(new Not(new KeyExists($key)), $this->getDescription($name, $parameters));
         }
 
         $assertion = $this->creator->create(lcfirst(substr($name, 3)), $parameters);

@@ -16,8 +16,9 @@ namespace Respect\Assertion\Creator;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Rules\Attribute;
-use Respect\Validation\Rules\Not;
+use Respect\Validation\Validators\Not;
+use Respect\Validation\Validators\Property;
+use Respect\Validation\Validators\PropertyExists;
 use Throwable;
 
 use function array_shift;
@@ -51,16 +52,16 @@ final class PropertyCreator implements Creator
         }
 
         if ($name === 'propertyPresent') {
-            return new Assertion(new Attribute($property), $this->getDescription($name, $parameters));
+            return new Assertion(new PropertyExists($property), $this->getDescription($name, $parameters));
         }
 
         if ($name === 'propertyNotPresent') {
-            return new Assertion(new Not(new Attribute($property)), $this->getDescription($name, $parameters));
+            return new Assertion(new Not(new PropertyExists($property)), $this->getDescription($name, $parameters));
         }
 
         $assertion = $this->creator->create(lcfirst(substr($name, 8)), $parameters);
 
-        return new Assertion(new Attribute($property, $assertion->getRule()), $assertion->getDescription());
+        return new Assertion(new Property($property, $assertion->getRule()), $assertion->getDescription());
     }
 
     /**

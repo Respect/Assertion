@@ -13,54 +13,21 @@ declare(strict_types=1);
 
 namespace Respect\Assertion\Rule;
 
-use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Rules\AllOf;
-use Respect\Validation\Rules\AnyOf;
-use Respect\Validation\Rules\ArrayType;
-use Respect\Validation\Rules\Call;
-use Respect\Validation\Rules\GreaterThan;
-use Respect\Validation\Rules\IterableType;
-use Respect\Validation\Validatable;
+use Respect\Validation\Result;
+use Respect\Validation\Validator;
+use Respect\Validation\Validators\Max as ValidateMax;
 
-use function is_array;
-use function iterator_to_array;
-use function max;
-use function Respect\Stringifier\stringify;
-
-final class Max extends Rule
+final class Max implements Validator
 {
-    public function __construct(Validatable $rule)
+    private readonly ValidateMax $validator;
+
+    public function __construct(Validator $rule)
     {
-        parent::__construct(
-            new Envelope(
-                new AllOf(
-                    new AnyOf(new ArrayType(), new IterableType()),
-                    new Call('count', new GreaterThan(0)),
-                ),
-                '{{input}} must be an non-empty array or iterable',
-            ),
-            $rule,
-        );
+        $this->validator = new ValidateMax($rule);
     }
 
-    /**
-     * @param array<int, mixed>|iterable<int, mixed> $input
-     */
-    protected function getFilteredInput(mixed $input): mixed
+    public function evaluate(mixed $input): Result
     {
-        if (is_array($input)) {
-            return max($input);
-        }
-
-        return $this->getFilteredInput(iterator_to_array($input));
-    }
-
-    protected function getCustomizedException(ValidationException $exception): ValidationException
-    {
-        $params = $exception->getParams();
-        $params['name'] = stringify($params['input']) . ' (the maximum of the input)';
-        $exception->updateParams($params);
-
-        return $exception;
+        return $this->validator->evaluate($input);
     }
 }

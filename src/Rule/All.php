@@ -13,34 +13,21 @@ declare(strict_types=1);
 
 namespace Respect\Assertion\Rule;
 
-use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Rules\Each;
-use Respect\Validation\Rules\IterableType;
-use Respect\Validation\Validatable;
+use Respect\Validation\Result;
+use Respect\Validation\Validator;
+use Respect\Validation\Validators\All as ValidateAll;
 
-use function Respect\Stringifier\stringify;
-
-final class All extends Rule
+final class All implements Validator
 {
-    public function __construct(Validatable $rule)
+    private readonly ValidateAll $validator;
+
+    public function __construct(Validator $rule)
     {
-        parent::__construct(
-            new IterableType(),
-            new Each($rule),
-        );
+        $this->validator = new ValidateAll($rule);
     }
 
-    protected function getFilteredInput(mixed $input): mixed
+    public function evaluate(mixed $input): Result
     {
-        return $input;
-    }
-
-    protected function getCustomizedException(ValidationException $exception): ValidationException
-    {
-        $params = $exception->getParams();
-        $params['name'] = stringify($params['input']) . ' (like all items of the input)';
-        $exception->updateParams($params);
-
-        return $exception;
+        return $this->validator->evaluate($input);
     }
 }

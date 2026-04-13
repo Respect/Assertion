@@ -13,52 +13,21 @@ declare(strict_types=1);
 
 namespace Respect\Assertion\Rule;
 
-use Countable as PhpCountable;
-use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Rules\AnyOf;
-use Respect\Validation\Rules\Countable;
-use Respect\Validation\Rules\StringType;
-use Respect\Validation\Validatable;
+use Respect\Validation\Result;
+use Respect\Validation\Validator;
+use Respect\Validation\Validators\Length as ValidateLength;
 
-use function count;
-use function is_array;
-use function mb_strlen;
-
-final class Length extends Rule
+final class Length implements Validator
 {
-    public function __construct(Validatable $rule)
+    private readonly ValidateLength $validator;
+
+    public function __construct(Validator $rule)
     {
-        parent::__construct(
-            new Envelope(
-                new AnyOf(new StringType(), new Countable()),
-                '{{input}} must be a string or a countable object'
-            ),
-            $rule
-        );
+        $this->validator = new ValidateLength($rule);
     }
 
-    /**
-     * @param array<int, mixed>|PhpCountable|string $input
-     */
-    protected function getFilteredInput(mixed $input): int
+    public function evaluate(mixed $input): Result
     {
-        if (is_array($input)) {
-            return count($input);
-        }
-
-        if ($input instanceof PhpCountable) {
-            return $input->count();
-        }
-
-        return mb_strlen($input);
-    }
-
-    protected function getCustomizedException(ValidationException $exception): ValidationException
-    {
-        $params = $exception->getParams();
-        $params['name'] = $params['input'] . ' (the length of the input)';
-        $exception->updateParams($params);
-
-        return $exception;
+        return $this->validator->evaluate($input);
     }
 }
