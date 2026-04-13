@@ -13,29 +13,21 @@ declare(strict_types=1);
 
 namespace Respect\Test\Unit\Assertion\Double;
 
-use Respect\Validation\Rules\AbstractRule;
+use Respect\Validation\Result;
+use Respect\Validation\Validator;
 
-final class FakeRule extends AbstractRule
+final class FakeRule implements Validator
 {
     /**
      * @var array<int, mixed>
      */
     private array $calledInputs = [];
 
-    /**
-     * {@inheritDoc}
-     */
-    public function validate($input): bool
-    {
-        return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function check($input): void
+    public function evaluate(mixed $input): Result
     {
         $this->calledInputs[] = $input;
+
+        return Result::of(true, $input, $this);
     }
 
     /**

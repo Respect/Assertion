@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace Respect\Test\Unit\Assertion;
 
+use DomainException;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
-use Respect\Validation\Exceptions\DomainException;
 use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Message\Formatter;
-use Respect\Validation\Message\Stringifier\KeepOriginalStringName;
-use Respect\Validation\Validatable;
+use Respect\Validation\Result;
+use Respect\Validation\Validator;
+use Respect\Validation\Validators\AlwaysInvalid;
 
 /**
  * @covers \Respect\Assertion\Assertion
@@ -32,7 +32,7 @@ final class AssertionTest extends TestCase
      */
     public function isShouldCreateAssertion(): void
     {
-        $rule = $this->createMock(Validatable::class);
+        $rule = $this->createMock(Validator::class);
         $description = 'This is some template';
 
         $sut = new Assertion($rule, $description);
@@ -50,11 +50,12 @@ final class AssertionTest extends TestCase
     {
         $input = 'something';
 
-        $rule = $this->createMock(Validatable::class);
+        $rule = $this->createMock(Validator::class);
         $rule
             ->expects($this->once())
-            ->method('check')
-            ->with($input);
+            ->method('evaluate')
+            ->with($input)
+            ->willReturn(Result::of(true, $input, $rule));
 
         $sut = new Assertion($rule);
         $sut->assert($input);
@@ -69,16 +70,9 @@ final class AssertionTest extends TestCase
     {
         $input = 'something';
 
-        $exception = new ValidationException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()));
+        $rule = new AlwaysInvalid();
 
-        $rule = $this->createMock(Validatable::class);
-        $rule
-            ->expects($this->once())
-            ->method('check')
-            ->with($input)
-            ->willThrowException($exception);
-
-        $this->expectExceptionObject($exception);
+        $this->expectException(ValidationException::class);
 
         $sut = new Assertion($rule);
         $sut->assert($input);
@@ -93,16 +87,8 @@ final class AssertionTest extends TestCase
     {
         $input = 'something';
 
-        $rule = $this->createMock(Validatable::class);
-        $rule
-            ->expects($this->once())
-            ->method('check')
-            ->with($input)
-            ->willThrowException(
-                new ValidationException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()))
-            );
-
-        $description = new DomainException('input', 'id', [], new Formatter('trim', new KeepOriginalStringName()));
+        $description = new DomainException('custom error');
+        $rule = new AlwaysInvalid();
 
         $this->expectExceptionObject($description);
 
@@ -120,20 +106,9 @@ final class AssertionTest extends TestCase
         $input = 'something';
 
         $description = 'Template for exception';
+        $rule = new AlwaysInvalid();
 
-        $exception = $this->createMock(ValidationException::class);
-        $exception
-            ->expects($this->once())
-            ->method('updateTemplate');
-
-        $rule = $this->createMock(Validatable::class);
-        $rule
-            ->expects($this->once())
-            ->method('check')
-            ->with($input)
-            ->willThrowException($exception);
-
-        $this->expectExceptionObject($exception);
+        $this->expectException(ValidationException::class);
 
         $sut = new Assertion($rule, $description);
         $sut->assert($input);
