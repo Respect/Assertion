@@ -17,7 +17,6 @@ use DomainException;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assert;
-use Respect\Validation\Exceptions\NegativeException;
 use Respect\Validation\Exceptions\ValidationException;
 
 use function array_merge;
@@ -100,7 +99,7 @@ final class AssertTest extends TestCase
      */
     public function itShouldThrowRespectValidationException(): void
     {
-        $this->expectException(NegativeException::class);
+        $this->expectException(ValidationException::class);
 
         Assert::that(2)->negative();
     }
@@ -110,10 +109,10 @@ final class AssertTest extends TestCase
      */
     public function itShouldThrowRespectValidationExceptionWithCustomTemplate(): void
     {
-        $this->expectException(NegativeException::class);
-        $this->expectExceptionMessage('The input 2 that you are validating must be negative.');
+        $this->expectException(ValidationException::class);
+        $this->expectExceptionMessage('2 must be a negative number');
 
-        Assert::that(2)->negative('The input {{input}} that you are validating must be negative.');
+        Assert::that(2)->negative('2 must be a negative number');
     }
 
     /**
