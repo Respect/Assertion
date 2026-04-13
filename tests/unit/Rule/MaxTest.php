@@ -18,7 +18,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Rule\Max;
 use Respect\Test\Unit\Assertion\Double\FakeRule;
 use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Rules\AlwaysInvalid;
+use Respect\Validation\ValidatorBuilder;
+use Respect\Validation\Validators\AlwaysInvalid;
 use stdClass;
 
 use function range;
@@ -27,7 +28,6 @@ use function tmpfile;
 
 /**
  * @covers \Respect\Assertion\Rule\Max
- * @covers \Respect\Assertion\Rule\Rule
  */
 final class MaxTest extends TestCase
 {
@@ -41,10 +41,10 @@ final class MaxTest extends TestCase
     public function itShouldThrowAnExceptionWhenInputIsNotStringOrCountable(mixed $input): void
     {
         $this->expectException(ValidationException::class);
-        $this->expectExceptionMessage(stringify($input) . ' must be an non-empty array or iterable');
+        $this->expectExceptionMessage(stringify($input) . ' must be iterable');
 
         $sut = new Max(new AlwaysInvalid());
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
     }
 
     /**
@@ -57,10 +57,10 @@ final class MaxTest extends TestCase
         $rule = new FakeRule();
 
         $sut = new Max($rule);
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
 
         self::assertSame(self::MAXIMUM, $rule->getCalledInputs()[0]);
-        self::assertTrue($sut->validate($input));
+        self::assertTrue($sut->evaluate($input)->hasPassed);
     }
 
     /**
@@ -73,10 +73,10 @@ final class MaxTest extends TestCase
         $rule = new FakeRule();
 
         $sut = new Max($rule);
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
 
         self::assertSame(self::MAXIMUM, $rule->getCalledInputs()[0]);
-        self::assertTrue($sut->validate($input));
+        self::assertTrue($sut->evaluate($input)->hasPassed);
     }
 
     /**
@@ -87,10 +87,10 @@ final class MaxTest extends TestCase
         $input = range(self::MAXIMUM - 5, self::MAXIMUM);
 
         $this->expectException(ValidationException::class);
-        $this->expectExceptionMessage(stringify(self::MAXIMUM) . ' (the maximum of the input) is always invalid');
+        $this->expectExceptionMessage('The maximum of `[95, 96, 97, 98, 99, ...]` must be valid');
 
         $sut = new Max(new AlwaysInvalid());
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
     }
 
     /**
@@ -100,8 +100,6 @@ final class MaxTest extends TestCase
     {
         return [
             [42],
-            [[]],
-            [new ArrayObject()],
             [new stdClass()],
             [tmpfile()],
         ];

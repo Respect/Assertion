@@ -18,8 +18,9 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator\PropertyCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Test\Unit\Assertion\Double\FakeCreator;
-use Respect\Validation\Rules\Attribute;
-use Respect\Validation\Rules\Not;
+use Respect\Validation\Validators\Not;
+use Respect\Validation\Validators\Property;
+use Respect\Validation\Validators\PropertyExists;
 use stdClass;
 
 use function Respect\Stringifier\stringify;
@@ -70,7 +71,7 @@ final class PropertyCreatorTest extends TestCase
         $sut = new PropertyCreator(new FakeCreator());
         $assertion = $sut->create('propertyPresent', [$property]);
 
-        self::assertEquals(new Assertion(new Attribute($property)), $assertion);
+         self::assertEquals(new Assertion(new PropertyExists($property)), $assertion);
     }
 
     /**
@@ -97,7 +98,7 @@ final class PropertyCreatorTest extends TestCase
         $sut = new PropertyCreator(new FakeCreator());
         $assertion = $sut->create('propertyNotPresent', [$key]);
 
-        self::assertEquals(new Assertion(new Not(new Attribute('foo'))), $assertion);
+         self::assertEquals(new Assertion(new Not(new PropertyExists('foo'))), $assertion);
     }
 
     /**
@@ -134,7 +135,7 @@ final class PropertyCreatorTest extends TestCase
 
         self::assertEquals(
             new Assertion(
-                new Attribute($property, $nextCreator->getLastCreatedRule()),
+                new Property($property, $nextCreator->getLastCreatedRule()),
                 $nextCreator->getLastCreatedDescription()
             ),
             $assertion

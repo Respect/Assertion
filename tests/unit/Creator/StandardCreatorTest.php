@@ -18,8 +18,8 @@ use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator\StandardCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Rules\Equals;
-use Respect\Validation\Rules\IntType;
+use Respect\Validation\Validators\Equals;
+use Respect\Validation\Validators\IntType;
 use stdClass;
 
 use function tmpfile;
@@ -95,7 +95,7 @@ final class StandardCreatorTest extends TestCase
     {
         $this->expectException(CannotCreateAssertionException::class);
 
-        $this->getSut()->create('AbstractRule', []);
+         $this->getSut()->create('NonExistentValidator', []);
     }
 
     /**

@@ -19,7 +19,7 @@ use Respect\Assertion\Creator\PrefixedCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Assertion\Rule\Rule;
 use Respect\Test\Unit\Assertion\Double\FakeCreator;
-use Respect\Validation\Rules\Optional;
+use Respect\Validation\Validators\UndefOr;
 
 use function ucfirst;
 
@@ -57,12 +57,12 @@ final class PrefixedCreatorTest extends TestCase
 
         $nextCreator = new FakeCreator();
 
-        $sut = new PrefixedCreator($prefix, Optional::class, $nextCreator);
+         $sut = new PrefixedCreator($prefix, UndefOr::class, $nextCreator);
         $assertion = $sut->create($name, $parameters);
 
         self::assertEquals(
             new Assertion(
-                new Optional($nextCreator->getLastCreatedRule()),
+                new UndefOr($nextCreator->getLastCreatedRule()),
                 $nextCreator->getLastCreatedDescription(),
             ),
             $assertion

@@ -18,8 +18,9 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator\KeyCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Test\Unit\Assertion\Double\FakeCreator;
-use Respect\Validation\Rules\Key;
-use Respect\Validation\Rules\Not;
+use Respect\Validation\Validators\Key;
+use Respect\Validation\Validators\KeyExists;
+use Respect\Validation\Validators\Not;
 use stdClass;
 
 use function Respect\Stringifier\stringify;
@@ -70,7 +71,7 @@ final class KeyCreatorTest extends TestCase
         $sut = new KeyCreator(new FakeCreator());
         $assertion = $sut->create('keyPresent', [$key]);
 
-        self::assertEquals(new Key('foo'), $assertion->getRule());
+         self::assertEquals(new KeyExists('foo'), $assertion->getRule());
     }
 
     /**
@@ -97,7 +98,7 @@ final class KeyCreatorTest extends TestCase
         $sut = new KeyCreator(new FakeCreator());
         $assertion = $sut->create('keyNotPresent', [$key]);
 
-        self::assertEquals(new Not(new Key('foo')), $assertion->getRule());
+         self::assertEquals(new Not(new KeyExists('foo')), $assertion->getRule());
     }
 
     /**

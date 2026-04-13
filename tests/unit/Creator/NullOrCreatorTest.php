@@ -18,7 +18,7 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator\NullOrCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Test\Unit\Assertion\Double\FakeCreator;
-use Respect\Validation\Rules\Nullable;
+use Respect\Validation\Validators\NullOr;
 
 use function ucfirst;
 
@@ -60,7 +60,7 @@ final class NullOrCreatorTest extends TestCase
 
         self::assertEquals(
             new Assertion(
-                new Nullable($nextCreator->getLastCreatedRule()),
+                new NullOr($nextCreator->getLastCreatedRule()),
                 $nextCreator->getLastCreatedDescription()
             ),
             $assertion

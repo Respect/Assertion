@@ -17,9 +17,9 @@ use ArrayObject;
 use PHPUnit\Framework\TestCase;
 use Respect\Assertion\Rule\Length;
 use Respect\Test\Unit\Assertion\Double\FakeRule;
-use Respect\Validation\Exceptions\AlwaysInvalidException;
 use Respect\Validation\Exceptions\ValidationException;
-use Respect\Validation\Rules\AlwaysInvalid;
+use Respect\Validation\ValidatorBuilder;
+use Respect\Validation\Validators\AlwaysInvalid;
 use stdClass;
 
 use function count;
@@ -30,7 +30,6 @@ use function tmpfile;
 
 /**
  * @covers \Respect\Assertion\Rule\Length
- * @covers \Respect\Assertion\Rule\Rule
  */
 final class LengthTest extends TestCase
 {
@@ -42,10 +41,10 @@ final class LengthTest extends TestCase
     public function itShouldThrowAnExceptionWhenInputIsNotStringOrCountable(mixed $input): void
     {
         $this->expectException(ValidationException::class);
-        $this->expectExceptionMessage(stringify($input) . ' must be a string or a countable object');
+        $this->expectExceptionMessage(stringify($input) . ' must be countable or a string');
 
         $sut = new Length(new AlwaysInvalid());
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
     }
 
     /**
@@ -58,7 +57,7 @@ final class LengthTest extends TestCase
         $rule = new FakeRule();
 
         $sut = new Length($rule);
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
 
         self::assertSame(mb_strlen($input), $rule->getCalledInputs()[0]);
     }
@@ -73,10 +72,10 @@ final class LengthTest extends TestCase
         $rule = new FakeRule();
 
         $sut = new Length($rule);
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
 
         self::assertSame(count($input), $rule->getCalledInputs()[0]);
-        self::assertTrue($sut->validate($input));
+        self::assertTrue($sut->evaluate($input)->hasPassed);
     }
 
     /**
@@ -89,7 +88,7 @@ final class LengthTest extends TestCase
         $rule = new FakeRule();
 
         $sut = new Length($rule);
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
 
         self::assertSame($input->count(), $rule->getCalledInputs()[0]);
     }
@@ -101,11 +100,11 @@ final class LengthTest extends TestCase
     {
         $input = [1, 2, 3];
 
-        $this->expectException(AlwaysInvalidException::class);
-        $this->expectExceptionMessage('3 (the length of the input) is always invalid');
+        $this->expectException(ValidationException::class);
+        $this->expectExceptionMessage('The length of `[1, 2, 3]` must be valid');
 
         $sut = new Length(new AlwaysInvalid());
-        $sut->check($input);
+        ValidatorBuilder::init($sut)->assert($input);
     }
 
     /**

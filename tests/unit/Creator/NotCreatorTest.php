@@ -18,7 +18,7 @@ use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator\NotCreator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
 use Respect\Test\Unit\Assertion\Double\FakeCreator;
-use Respect\Validation\Rules\Not;
+use Respect\Validation\Validators\Not;
 
 use function ucfirst;
 
