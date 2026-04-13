@@ -16,7 +16,7 @@ namespace Respect\Assertion\Creator;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Rules\Not;
+use Respect\Validation\Validators\Not;
 
 use function in_array;
 use function lcfirst;

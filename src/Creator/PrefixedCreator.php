@@ -17,7 +17,7 @@ use ReflectionClass;
 use Respect\Assertion\Assertion;
 use Respect\Assertion\Creator;
 use Respect\Assertion\Exception\CannotCreateAssertionException;
-use Respect\Validation\Validatable;
+use Respect\Validation\Validator;
 
 use function lcfirst;
 use function str_starts_with;
@@ -27,7 +27,7 @@ use function substr;
 final class PrefixedCreator implements Creator
 {
     /**
-     * @param class-string<Validatable> $className
+     * @param class-string<Validator> $className
      */
     public function __construct(
         private readonly string $prefix,
