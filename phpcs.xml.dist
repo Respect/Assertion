@@ -5,7 +5,7 @@
     <arg name="basepath" value="." />
     <arg name="cache" value=".phpcs.cache" />
     <arg name="colors" />
-    <arg name="extensions" value="php,phpt" />
+    <arg name="extensions" value="php" />
     <arg value="p" />
     <arg value="s" />
 
