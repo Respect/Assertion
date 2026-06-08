@@ -58,7 +58,7 @@ abstract class SimpleChain
     /**
      * @param array<int, mixed> $arguments
      */
-    public function __call(string $name, array $arguments): self
+    public function __call(string $name, array $arguments): static
     {
         $assertion = $this->create($name, $arguments);
         $assertion->assert($this->input);
